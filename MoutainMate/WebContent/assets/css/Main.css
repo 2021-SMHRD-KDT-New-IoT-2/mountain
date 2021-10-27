@@ -18,6 +18,30 @@ body {
 	background-size: cover;
 }
 
+/*빠른 스크롤*/
+#quickscroll {
+	width: 20px;
+	height: 40px;
+	right: 2%;
+	bottom:10%;
+	position: fixed;
+	float: right;
+}
+
+#side_up {
+	width: 100%;
+	height: 50%;
+	top: 0;
+	position: absolute;
+}
+
+#side_down {
+	width: 100%;
+	height: 50%;
+	bottom: 0;
+	position: absolute;
+}
+
 section {
 	width: 100%;
 	height: 100vh;
@@ -520,9 +544,6 @@ body.is-menu-visible #menu .inner {
 	visibility: visible;
 }
 
-
-
-
 /* page2 */
 #page2 {
 	width: 100%;
@@ -589,7 +610,7 @@ label {
 
 .search {
 	width: 100%;
-	height:100%;
+	height: 100%;
 }
 
 .searchbox {
@@ -690,7 +711,7 @@ input {
 }
 
 #page4inner {
-	margin-top: 5%;
+	margin-top: 2%;
 	margin-left: 10%;
 	width: 80%;
 	height: 90%;
@@ -704,8 +725,8 @@ input {
 }
 
 #page4-down {
-	border : 1px solid black;
-	margin-top: 10%;
+	border: 1px solid black;
+	margin-top: 5%;
 	height: 90%;
 	width: 100%;
 	position: absolute;
@@ -747,12 +768,12 @@ input {
 	width: 30%;
 }
 
-#idlabel{
-	font-size:30px;
+#idlabel {
+	font-size: 30px;
 }
 
 #searchId {
-	background : none;
+	background: none;
 	font-size: 100%;
 	width: 75%;
 }
@@ -789,7 +810,7 @@ input {
 }
 
 #mname {
-	font-size:30px;
+	font-size: 30px;
 	text-align: center;
 }
 
@@ -817,15 +838,28 @@ input {
 }
 
 #select_user {
-	top: 60%;
+	top: 75%;
 	font-size: 30px;
+	float:left;
 	position: absolute;
 }
 
 #select_user_time {
 	bottom: 2%;
-	right: 5%;
+	right: 15%;
 	font-size: 70px;
-	font-weight : 1px;
+	font-weight: 1px;
 	position: absolute;
 }
+
+/*page5-footer*/
+#page5 {
+	width: 100%;
+	height: 100%;
+	top: 400%;
+	background-color: whitesmoke;
+	position: absolute;
+}
+
+
+
