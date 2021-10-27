@@ -12,7 +12,7 @@
 
 </head>
 <body>
-	<div>
+	<div id="quickscroll">
 		<img src="images/side_up.png">
 		<img src="images/side_down.png">
 	</div>
