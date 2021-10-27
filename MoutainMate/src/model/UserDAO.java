@@ -49,13 +49,12 @@ public class UserDAO {
 	}
 
 	// 회원가입 기능
-	public int join(String id, String pw, String name, String phoneNumber, String birth, String gender,
-			String manager) {
-
+	public int join(String id, String pw, String name, String phoneNumber, String birth, String gender) {
+		String mgr ="0";
 		try {
 			connection();
 
-			String sql = "insert into user_table value(?,?,?,?,?,?,?)";
+			String sql = "insert into user_table values(?,?,?,?,?,?,0)";
 
 			psmt = conn.prepareStatement(sql);
 
@@ -65,7 +64,8 @@ public class UserDAO {
 			psmt.setString(4, phoneNumber);
 			psmt.setString(5, birth);
 			psmt.setString(6, gender);
-			psmt.setString(7, manager);
+			psmt.setString(7, mgr);
+			
 
 			cnt = psmt.executeUpdate();
 
@@ -100,10 +100,9 @@ public class UserDAO {
 				String get_phoneNumber = rs.getString("phoneNumber");
 				String get_birth = rs.getString("birth");
 				String get_gender = rs.getString("gender");
-				String get_manager = rs.getString("manager");
+				
 
-				vo=new UserVO(get_id, get_name, get_phoneNumber, get_birth,
-						get_gender, get_manager);
+				vo=new UserVO(get_id, get_name, get_phoneNumber, get_birth,get_gender);
 
 			} else {
 
@@ -123,13 +122,13 @@ public class UserDAO {
 	}
 	
 	//회원 수정
-	public int update( String id,String pw, String name, String phoneNumber, String birth, String gender, String manager) {
+	public int update( String id,String pw, String name, String phoneNumber, String birth, String gender) {
 		
 		try {
 
 			connection();
 			// 3. 실행할 sql문 정의 (실행할때마다 값이 달라지는부분은 ?적어두면 됨
-			String sql = "update user_table  set pw =?, name=?, phoneNumber=?, birth=?, gender=?,manager=? where id=?";
+			String sql = "update user_table  set pw =?, name=?, phoneNumber=?, birth=?, gender=? where id=?";
 
 			// 4. sql 실행객체(PreparedStatemnent)생성
 			psmt = conn.prepareStatement(sql);
@@ -139,8 +138,7 @@ public class UserDAO {
 			psmt.setString(2, name);
 			psmt.setString(3, phoneNumber);
 			psmt.setString(4, gender);
-			psmt.setString(5, manager);
-			psmt.setString(6, id);
+			psmt.setString(5, id);
 
 			// 6. sql문 실행 후 결과 처리
 			cnt = psmt.executeUpdate();
@@ -220,7 +218,7 @@ public class UserDAO {
 		try {
 			connection();
 
-			String sql = "select id, name, phoneNumber, birth, gender, manager from user_table";
+			String sql = "select id, name, phoneNumber, birth, gender from user_table";
 			psmt = conn.prepareStatement(sql);
 			
 			rs = psmt.executeQuery();
@@ -234,10 +232,9 @@ public class UserDAO {
 				String get_phoneNumber = rs.getString("phoneNumber");
 				String get_birth = rs.getString("birth");
 				String get_gender = rs.getString("gender");
-				String get_manager = rs.getString("manager");
+				
 
-				vo = new UserVO(get_id, get_name, get_phoneNumber, 
-						get_birth, get_gender, get_manager);
+				vo = new UserVO(get_id, get_name, get_phoneNumber, get_birth, get_gender);
 				arr.add(vo);
 			
 			} 

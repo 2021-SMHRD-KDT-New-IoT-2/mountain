@@ -29,18 +29,18 @@ public class updateService extends HttpServlet {
 		String phoneNumber=request.getParameter("phoneNumber");
 		String birth=request.getParameter("birth");
 		String gender=request.getParameter("gender");
-		String manager=request.getParameter("manager");
+		
 		
 		//dao 기능 호출 -> 수정 여부를 판단 할 수 있는 값 반환
 		// 수정 성공일 경우에는 콘솔 -> "수정성공!"
 		// 수정 실패일 경우에는 콘솔 -> "수정 실패!"
 		
 		UserDAO dao = new UserDAO();
-		int cnt=dao.update(id,pw, name, phoneNumber, birth, gender, manager);
+		int cnt=dao.update(id,pw, name, phoneNumber, birth, gender);
 		if(cnt>0) {
 			System.out.println("수정 성공");
 			
-			 UserVO vo2 =new UserVO(id, name, phoneNumber, birth, gender, manager);
+			 UserVO vo2 =new UserVO(id, name, phoneNumber, birth, gender);
 			session.setAttribute("User", vo2);
 			response.sendRedirect("MainPage.jsp");
 		}else {

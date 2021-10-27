@@ -28,12 +28,14 @@ request.setCharacterEncoding("euc-kr");
 		String manager = request.getParameter("manager");
 		
 		UserDAO dao = new UserDAO();
-		int cnt =dao.join(id, name, pw, pNum, birth, gender, manager);
+		int cnt =dao.join(id, name, pw, pNum, birth, gender);
 		
 		if(cnt>0) {
 			System.out.println("가입성공");
 			//페이지 이동
 			RequestDispatcher rd = request.getRequestDispatcher("MainPage.jsp");
+			request.setAttribute("id", id);
+			rd.forward(request, response);
 			
 		}else {
 			System.out.println("가입실패");
