@@ -15,7 +15,7 @@ body {
 	background: radial-gradient(rgba(49, 49, 49, 0.8), rgba(51, 51, 51, 0.8)),
 		url(../../images/mudengsan.png);
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: contain;
 }
 
 section {
@@ -338,10 +338,161 @@ main>button:hover {
 			visibility: visible;
 		}
 
+/* page2 */
+#page2{
+	top:30%
+	position:absolute;
+}
+/* page3 */
+#page2{
+	top:60%
+	position:absolute;
+}
+
+        body{
+            background-color:rgba(13, 13, 59, 0.835);
+        }
+        #page3{
+            width : 100%;
+        }
+        #page3-left{
+            width : 50%;
+            height: 100%;
+            position : absolute;
+            left : 2%;
+            float: left;
+        }
+        #page3-right{
+            width : 50%;
+            height : 100%;
+            right : 2%;
+            position : absolute;
+            float: right;
+        }
 
 
+        /*왼쪽 페이지*/
+        #selectroad{
+            width: 90%;
+            height: 80%;
+            border: 0;
+            top:5%;
+            position:absolute;
+            float: left;
+        }
+
+        #roadtable{
+            font-weight: bolder;
+            margin-top: 5%;
+            width: 80%;
+            border: 0;
+        }
+
+        caption{
+            margin-bottom: 5%;
+            font-size: 50px;
+            color:whitesmoke;
+        }
+
+        #first-tr{
+            height: 20px;
+        }
+        label{
+            font-size: 20px;
+            float: right;
+            margin-right: 10px;
+            color : whitesmoke;
+        }
+        .search{
+            width: 30px;
+        }
+
+        #search{
+            width: 60%;
+            height: 5%;
+        }
+
+        .searchbox{
+            height: 40px;
+            width: 100%;
+            border:1px solid whitesmoke;
+            background: #ffffff;
+            float:right;
+        }
+        
+        button{
+            float:right;
+        }
+
+        .searchbox>button{
+            height: 100%;
+            border: 0px;
+            outline: none;
+            background-color: white;
+            
+        }
+
+        input:-ms-input-placeholder {color:silver}
+        input::-webkit-input-placeholder {color:silver}
+        input::-moz-placeholder {color:silver}
+
+        input{
+            font-size: 16px;
+            padding:10px;
+            border:0px;
+            outline: none;
+            float:left;
+        }
+        #searchM{
+            width: 70%;
+        }
+
+        #searchR{
+            width:90%;
+        }
 
 
+        #top5{
+            color : whitesmoke;
+            font-weight: bolder;
+            border:1px solid silver;
+            width: 80%;
+            height: 40%;
+            margin-top: 15%;
+            top:30%;
+            position:absolute;
+        }
+    
+        #line_vertical{
+            height: 100%;
+            left:50%;
+            position: relative;
+        }  
+
+        /*오른쪽 페이지*/
+        #roadimgbox{
+            width: 90%;
+            height: 80%;
+            border: 1px solid whitesmoke;
+            top:5%;
+            position:absolute;
+            float: right;
+        }
+
+        #coursename{
+            margin-top:2%;
+            margin-left: 3%;
+            color:whitesmoke;
+            font-size: 30px;
+        }
+        #courselevel{
+            width: 30%;
+            height: 25%;
+            border:1px solid whitesmoke;
+            bottom:2%;
+            right: 2%;
+            position:absolute;
+        }
 
 
 
