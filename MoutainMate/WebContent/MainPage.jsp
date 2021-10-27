@@ -12,14 +12,9 @@
 
 </head>
 <body>
-	<div id="quickscroll">
-		<img src="images/side_up.png">
-		<img src="images/side_down.png">
-	</div>
-
-
 
 	<section>
+
 		<div id="top_header">
 			<header id="header" class="">
 				<a id="san_logo" href="MainPage.jsp"></a>
@@ -38,7 +33,7 @@
 						<li><a href="#page2">게시판</a></li>
 						<li><a href="#page3">등산로</a></li>
 						<li><a href="#page4">둘러보기</a></li>
-					<li><a class="btn trigger" href="#menu">≡</a></li>
+						<li><a class="btn trigger" href="#menu">≡</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -51,8 +46,10 @@
 			<ul class="links">
 				<li><h5>로그인</h5></li>
 				<form action="LoginService" method="post">
-					<li><input name="id" type="text" required="required" placeholder="ID를 입력하세요"></li>
-					<li><input name="pw" type="password" required="required" placeholder="PW를 입력하세요"></li>
+					<li><input name="id" type="text" required="required"
+						placeholder="ID를 입력하세요"></li>
+					<li><input name="pw" type="password" required="required"
+						placeholder="PW를 입력하세요"></li>
 					<li><input type="submit" value="LogIn" class="button fit"></li>
 				</form>
 			</ul>
@@ -66,6 +63,8 @@
 					id="underbar" src="images/underbar.png">
 			</div>
 		</main>
+
+
 	</section>
 
 
@@ -199,15 +198,21 @@
 
 
 	</section>
-
-
-
-
+	
 	<!-- 밑부분 -->
-	<footer> </footer>
+	<section id="page5">
+		<footer id="footer"></footer>
+	</section>
 
 
 
+
+
+
+	<div id="quickscroll">
+		<a href="#top_header"><img id="side_up" src="images/side_up.png"></a>
+		<a href="#page5"><img id="side_down" src="images/side_down.png"></a>
+	</div>
 
 
 
