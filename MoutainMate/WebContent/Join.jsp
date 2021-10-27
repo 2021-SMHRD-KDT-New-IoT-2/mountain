@@ -13,67 +13,61 @@
 <body>
 	
 	<section>
-		<header>
-			<h1>
-				<a href="MainPage.jsp"><div class="logo"></div>  </a>
-			</h1>
-			<nav>
-				<ul>
-					<li><a href="notice.jsp">공지사항</a></li>
-				
-					<li><a href="Login.jsp">로그인</a></li>
-					<li><a href="Join.jsp">회원가입</a></li>
+		<div id="top_header">
+			<header id="header" class="">
+				<a id="san_logo" href="MainPage.jsp"></a>
+
+				<nav>
+					<ul>
+
+						<li><a href="MainPage.jsp">로그인</a> <!--<a href="Login.jsp">로그인</a>  -->
+						</li>
+						<li><a href="#">회원가입</a></li>
+
+						<li><a href="MainPage.jsp">게시판</a></li>
+						<li><a href="MainPage.jsp">등산로</a></li>
+						<li><a href="MainPage.jsp">둘러보기</a></li>
+					
+					</ul>
+				</nav>
+			</header>
+		</div>
+
+
 			
-					<!-- <li><a href="LogOut.jsp">로그아웃</a></li>
-					<li><a href="MemberInfo.jsp">회원정보</a></li> -->
-		
-					<li><a href="#">둘러보기</a></li>
+				<li><h5>회원가입</h5></li>
+		<form action="Join" method="post">
 
-				</ul>
-			</nav>
-		</header>
-
-
-		<!-- 메인 -->
-		<main>
-			<form action="Join" method="post">
-
-				<table id="ta">
+				<table>
 					<tr>
-						<td id="td">아이디</td>
-						<td><input type="text" name="id" required="required"></td>
+						<td><input type="text" name="id" required="required" placeholder="ID를 입력하세요"></td>
 					</tr>
 					<tr>
-						<td id="td">비밀번호</td>
-						<td><input type="password" name="pw" required="required"></td>
+						<td><input type="password" name="pw" required="required" placeholder="PW를 입력하세요"></td>
 					</tr>
 					<tr>
-						<td id="td">이름</td>
-						<td><input type="text" name="name" required="required"></td>
+						<td><input type="text" name="name" required="required" placeholder="이름을 입력하세요"></td>
 					</tr>
 					<tr>
-						<td id="td">전화번호</td>
 						<td><input type="tel" name="tel" required="required"
 							pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
-							title="###-####-#### 형식으로 입력"></td>
+							placeholder="전화 번호를 입력하세요"></td>
 					</tr>
 					<tr>
-						<td id="td">이름</td>
-						<td><input type="text" name="name" required="required"></td>
-					</tr>
-					<tr>
-           				 <td id="td">생년월일</td>
             			<td> <input type="date"> </td>
             	    </tr>
 					<tr>
-						<td id="td" align="right">성별</td>
-						<td id="td">남 <input type="radio" name="gender"> 여 <input
-							type="radio" name="gender"></td>
+						<td>남 <input type="radio" name="gender">
+						여 <input type="radio" name="gender"></td>
 					</tr>
 				</table>
+				<li><input type="submit" value="Join" class="button fit"></li>
 
-				<button>회원가입</button>
 			</form>
+
+		<!-- 메인 -->
+
+		<main>
 		</main>
 
 		<!-- 밑부분 -->
