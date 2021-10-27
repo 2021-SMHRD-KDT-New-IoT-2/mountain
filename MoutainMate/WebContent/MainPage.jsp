@@ -20,7 +20,7 @@
 
 				<nav>
 					<ul>
-						
+
 						<li><a href="Login.jsp">로그인</a> <!--<a href="Login.jsp">로그인</a>  -->
 						</li>
 						<li><a href="Join.jsp">회원가입</a></li>
@@ -30,7 +30,7 @@
 						<li><a href="#page2">게시판</a></li>
 						<li><a href="#page3">등산로</a></li>
 						<li><a href="#page4">둘러보기</a></li>
-						<li><a href="#menu">≡</a></li>
+						<li><a class="btn trigger" href="#menu">≡</a></li>
 
 					</ul>
 				</nav>
@@ -44,32 +44,43 @@
 			<ul class="links">
 				<li><h5>로그인</h5></li>
 				<form action="LoginService" method="post">
-					<li><input name="email" type="text" placeholder="Email을 입력하세요"></li>
-					<li><input name="pw" type="password" placeholder="PW를 입력하세요"></li>
+					<li><input name="id" type="text" required="required" placeholder="ID를 입력하세요"></li>
+					<li><input name="pw" type="password" required="required" placeholder="PW를 입력하세요"></li>
 					<li><input type="submit" value="LogIn" class="button fit"></li>
 				</form>
 			</ul>
-
+			<br><br>
 			<ul class="actions vertical">
 				<li><h5>회원가입</h5></li>
-				<form action="JoinService" method="post">
-					<li><input name="email" id="input_email" type="text"
-						placeholder="Email을 입력하세요" onkeydown="inputEChk()"></li>
-					<li><input type="button" value="중복확인" class="button fit"
-						onclick="emailCheck()"></li>
-					<li><sapn id="emailCheck"></sapn></li>
-					<li><input name="pw" type="password" placeholder="PW를 입력하세요"></li>
-					<li><input name="tel" type="text" placeholder="전화번호를 입력하세요"></li>
-					<li><input name="address" type="text" placeholder="집주소를 입력하세요"></li>
+		<form action="Join" method="post">
 
-					<li><input type="submit" id="submit" value="JoinUs"
-						class="button fit"></li>
+				<table>
+					<tr>
+						<td><input type="text" name="id" required="required" placeholder="ID를 입력하세요"></td>
+					</tr>
+					<tr>
+						<td><input type="password" name="pw" required="required" placeholder="PW를 입력하세요"></td>
+					</tr>
+					<tr>
+						<td><input type="text" name="name" required="required" placeholder="이름을 입력하세요"></td>
+					</tr>
+					<tr>
+						<td><input type="tel" name="tel" required="required"
+							pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+							placeholder="전화 번호를 입력하세요"></td>
+					</tr>
+					<tr>
+            			<td> <input type="date"> </td>
+            	    </tr>
+					<tr>
+						<td id="td" align="right">성별</td>
+						<td>남 <input type="radio" name="gender"> 
+						여 <input type="radio" name="gender"></td>
+					</tr>
+				</table>
 
-					<li><input type="button" id="submit" value="JoinUs"
-						class="button fit"></li>
-					<li><span>아이디 중복 검사를 해주세요.</span></li>
-
-				</form>
+				<button>회원가입</button>
+			</form>
 			</ul>
 		</nav>
 
@@ -159,8 +170,7 @@
 		</div>
 
 	</section>
-	<section id="page4">
-	</section>
+	<section id="page4"></section>
 
 
 	<!-- 밑부분 -->
@@ -171,6 +181,24 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+	<!-- 제이쿼리추가 -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
 
 </body>
 </html>
