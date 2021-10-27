@@ -23,9 +23,10 @@ body {
 	width: 20px;
 	height: 40px;
 	right: 2%;
-	bottom:10%;
+	bottom: 10%;
 	position: fixed;
 	float: right;
+	position: fixed;
 }
 
 #side_up {
@@ -108,7 +109,6 @@ nav>ul>li {
 	background-repeat: no-repeat;
 }
 
-/*--이부분 수정해보고 있었는데 갑자기 톰캣이 안돼여 ㅠㅠ --*/
 #header>nav>ul>li>a {
 	border: 1px;
 	font-size: 100%;
@@ -168,8 +168,35 @@ main>button {
 main>button:hover {
 	background-color: #b9b9b9;
 }
-/* 로고 이미지 사이즈 */
 
+/*회원가입페이지*/
+#joindiv {
+	
+	display: flex;
+	justify-content: center;
+}
+
+#joinform {
+	
+	width: 50%;
+	display: flex;
+	justify-content: center;
+}
+
+#jointable{
+	color : white;
+	width: 100%;
+	text-align : right;
+}
+.jointd1{
+	text-align : right;
+}
+.jointd2{
+	text-align : left;
+}
+.jointd2>input{
+	align-content : right;
+}
 /* Menu */
 #menu {
 	-moz-transition: -moz-transform 0.35s ease, opacity 0.35s ease,
@@ -840,7 +867,7 @@ input {
 #select_user {
 	top: 75%;
 	font-size: 30px;
-	float:left;
+	float: left;
 	position: absolute;
 }
 
@@ -860,6 +887,3 @@ input {
 	background-color: whitesmoke;
 	position: absolute;
 }
-
-
-
