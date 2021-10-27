@@ -12,26 +12,34 @@
 </head>
 <body>
 	
+	<div id="quickscroll">
+		<img src="images/side_up.png">
+		<img src="images/side_down.png">
+	</div>
 
 	<section>
-		<header>
-			<h1>
-				<a id="mainLogo" href="MainPage.jsp"></a>
-			</h1>
-			<nav>
-				<ul>
-				<li><a href="notice.jsp">공지사항</a></li>
-				
-					<li><a href="Login.jsp">로그인</a></li>
-					<li><a href="Join.jsp">회원가입</a></li>
-				
-					<!-- <li><a href="LogOut.jsp">로그아웃</a></li>
-					<li><a href="MemberInfo.jsp">회원정보</a></li> -->
-				
-					<li><a href="#">둘러보기</a></li>
-				</ul>
-			</nav>
-		</header>
+		<div id="top_header">
+			<header id="header" class="">
+				<a id="san_logo" href="MainPage.jsp"></a>
+
+				<nav>
+					<ul>
+
+						<li><a href="#menu">로그인</a> <!--<a href="Login.jsp">로그인</a>  -->
+						</li>
+						<li><a href="Join.jsp">회원가입</a></li>
+
+						<!-- <li><h2><a href="LogOut.jsp">로그아웃</a></h2></li>
+				<li><h2><a href="MemberInfo.jsp">회원정보</a></h2></li> -->
+						<li><a href="#page2">게시판</a></li>
+						<li><a href="#page3">등산로</a></li>
+						<li><a href="#page4">둘러보기</a></li>
+					<li><a class="btn trigger" href="#menu">≡</a></li>
+					</ul>
+				</nav>
+			</header>
+		</div>
+		
 		
 		
 		<!-- 메인 -->

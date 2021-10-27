@@ -30,6 +30,8 @@
 						<li><a href="#menu">로그인</a> <!--<a href="Login.jsp">로그인</a>  -->
 						</li>
 						<li><a href="Join.jsp">회원가입</a></li>
+						<!-- 관리자 로그인시 회원가입=회원관리로 변경 후 페이지로 이동 -->
+						<li><a href="ManagerPage.jsp">관리자페이지</a></li>
 
 						<!-- <li><h2><a href="LogOut.jsp">로그아웃</a></h2></li>
 				<li><h2><a href="MemberInfo.jsp">회원정보</a></h2></li> -->
@@ -68,6 +70,12 @@
 
 
 	<section id="page2">게시판</section>
+
+
+
+
+
+
 
 
 

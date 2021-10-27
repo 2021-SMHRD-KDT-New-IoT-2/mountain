@@ -11,7 +11,7 @@
 
 </head>
 <body>
-	
+
 	<section>
 		<div id="top_header">
 			<header id="header" class="">
@@ -27,48 +27,49 @@
 						<li><a href="MainPage.jsp">게시판</a></li>
 						<li><a href="MainPage.jsp">등산로</a></li>
 						<li><a href="MainPage.jsp">둘러보기</a></li>
-					
+
 					</ul>
 				</nav>
 			</header>
 		</div>
 
 
-			
-				<li><h5>회원가입</h5></li>
+
+		<li><h5>회원가입</h5></li>
 		<form action="Join" method="post">
 
-				<table>
-					<tr>
-						<td><input type="text" name="id" required="required" placeholder="ID를 입력하세요"></td>
-					</tr>
-					<tr>
-						<td><input type="password" name="pw" required="required" placeholder="PW를 입력하세요"></td>
-					</tr>
-					<tr>
-						<td><input type="text" name="name" required="required" placeholder="이름을 입력하세요"></td>
-					</tr>
-					<tr>
-						<td><input type="tel" name="tel" required="required"
-							pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
-							placeholder="전화 번호를 입력하세요"></td>
-					</tr>
-					<tr>
-            			<td> <input type="date"> </td>
-            	    </tr>
-					<tr>
-						<td>남 <input type="radio" name="gender">
-						여 <input type="radio" name="gender"></td>
-					</tr>
-				</table>
-				<li><input type="submit" value="Join" class="button fit"></li>
+			<table>
+				<tr>
+					<td><input type="text" name="id" required="required"
+						placeholder="ID를 입력하세요"></td>
+				</tr>
+				<tr>
+					<td><input type="password" name="pw" required="required"
+						placeholder="PW를 입력하세요"></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="name" required="required"
+						placeholder="이름을 입력하세요"></td>
+				</tr>
+				<tr>
+					<td><input type="tel" name="tel" required="required"
+						pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="전화 번호를 입력하세요"></td>
+				</tr>
+				<tr>
+					<td><input type="date"></td>
+				</tr>
+				<tr>
+					<td>남 <input type="radio" name="gender"> 여 <input
+						type="radio" name="gender"></td>
+				</tr>
+			</table>
+			<li><input type="submit" value="Join" class="button fit"></li>
 
-			</form>
+		</form>
 
 		<!-- 메인 -->
 
-		<main>
-		</main>
+		<main></main>
 
 		<!-- 밑부분 -->
 		<footer> </footer>
