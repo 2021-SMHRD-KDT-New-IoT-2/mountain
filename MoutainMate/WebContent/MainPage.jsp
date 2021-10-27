@@ -30,7 +30,7 @@
 						<li><a href="#page2">게시판</a></li>
 						<li><a href="#page3">등산로</a></li>
 						<li><a href="#page4">둘러보기</a></li>
-					<!-- <li><a class="btn trigger" href="#menu">≡</a></li> -->
+					<li><a class="btn trigger" href="#menu">≡</a></li>
 					</ul>
 				</nav>
 			</header>
