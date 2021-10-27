@@ -144,6 +144,11 @@ th {
 input {
 	border: 2px solid black;
 	border-radius: 0px;
+	font-size: 16px;
+	padding: 1%;
+	border: 0px;
+	outline: none;
+	float: left;
 }
 
 main>button {
@@ -171,31 +176,32 @@ main>button:hover {
 
 /*회원가입페이지*/
 #joindiv {
-	
 	display: flex;
 	justify-content: center;
 }
 
 #joinform {
-	
 	width: 50%;
 	display: flex;
 	justify-content: center;
 }
 
-#jointable{
-	color : white;
+#jointable {
+	color: white;
 	width: 100%;
-	text-align : right;
+	text-align: right;
 }
-.jointd1{
-	text-align : right;
+
+.jointd1 {
+	text-align: right;
 }
-.jointd2{
-	text-align : left;
+
+.jointd2 {
+	text-align: left;
 }
-.jointd2>input{
-	align-content : right;
+
+.jointd2>input {
+	align-content: right;
 }
 /* Menu */
 #menu {
@@ -666,14 +672,6 @@ input::-webkit-input-placeholder {
 
 input::-moz-placeholder {
 	color: silver
-}
-
-input {
-	font-size: 16px;
-	padding: 1%;
-	border: 0px;
-	outline: none;
-	float: left;
 }
 
 #searchM {
