@@ -29,14 +29,15 @@
 				<li><h2><a href="MemberInfo.jsp">회원정보</a></h2></li> -->
 						<li><a href="#">둘러보기</a></li>
 						<li><a href="#menu">≡</a></li>
+						
 					</ul>
 				</nav>
-
 			</header>
 		</div>
+		
 
 		<!-- menu -->
-		<!-- 
+		
 		<nav id="menu">
 			<ul class="links">
 				<li><h5>로그인</h5></li>
@@ -46,6 +47,7 @@
 					<li><input type="submit" value="LogIn" class="button fit"></li>
 				</form>
 			</ul>
+			
 			<ul class="actions vertical">
 				<li><h5>회원가입</h5></li>
 				<form action="JoinService" method="post">
@@ -68,7 +70,7 @@
 				</form>
 			</ul>
 		</nav>
-		-->
+		
 
 		<!-- 메인 -->
 		<main>
