@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class UserDAO {
 	Connection conn = null;
@@ -11,7 +12,7 @@ public class UserDAO {
 	ResultSet rs = null;
 	UserVO vo =null;
 	boolean check = false;
-
+	ArrayList<UserVO> arr =null;
 	int cnt = 0;
 
 	public void connection() { // db연결
@@ -212,5 +213,43 @@ public class UserDAO {
 		}
 		return cnt;
 	}
+	
+	//회원 검색
+	public ArrayList<UserVO> selectAll() {
+		arr = new ArrayList<UserVO>();
+		try {
+			connection();
 
+			String sql = "select id, name, phoneNumber, birth, gender, manager from user_table";
+			psmt = conn.prepareStatement(sql);
+			
+			rs = psmt.executeQuery();
+			
+
+			while (rs.next()) {
+			
+
+				String get_id = rs.getString("id");
+				String get_name = rs.getString("name");
+				String get_phoneNumber = rs.getString("phoneNumber");
+				String get_birth = rs.getString("birth");
+				String get_gender = rs.getString("gender");
+				String get_manager = rs.getString("manager");
+
+				vo = new UserVO(get_id, get_name, get_phoneNumber, 
+						get_birth, get_gender, get_manager);
+				arr.add(vo);
+			
+			} 
+
+		} catch (Exception e) {
+			System.out.println("조회실패");
+			e.printStackTrace();
+		} finally {
+			// 1. 지역변수
+			// 2. 예외처리
+			close();
+		}
+		return arr;
+	}
 }
