@@ -20,14 +20,16 @@
 
 				<nav>
 					<ul>
-						<li><a href="notice.jsp">공지사항</a></li>
+						
 						<li><a href="Login.jsp">로그인</a> <!--<a href="Login.jsp">로그인</a>  -->
 						</li>
 						<li><a href="Join.jsp">회원가입</a></li>
 
 						<!-- <li><h2><a href="LogOut.jsp">로그아웃</a></h2></li>
 				<li><h2><a href="MemberInfo.jsp">회원정보</a></h2></li> -->
-						<li><a href="#">둘러보기</a></li>
+						<li><a href="#page2">게시판</a></li>
+						<li><a href="#page3">등산로</a></li>
+						<li><a href="#page4">둘러보기</a></li>
 						<li><a href="#menu">≡</a></li>
 
 					</ul>
@@ -94,7 +96,7 @@
 							<div class="searchbox">
 								<input id="searchM" type="text" placeholder="검색어를 입력해주세요.">
 								<button>
-									<img class="search" src="./img/search.jpg">
+									<img class="search" src="images/search.jpg">
 								</button>
 							</div>
 						</td>
@@ -156,6 +158,8 @@
 			</div>
 		</div>
 
+	</section>
+	<section id="page4">
 	</section>
 
 
