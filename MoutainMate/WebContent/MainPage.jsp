@@ -44,43 +44,48 @@
 			<ul class="links">
 				<li><h5>로그인</h5></li>
 				<form action="LoginService" method="post">
-					<li><input name="id" type="text" required="required" placeholder="ID를 입력하세요"></li>
-					<li><input name="pw" type="password" required="required" placeholder="PW를 입력하세요"></li>
+					<li><input name="id" type="text" required="required"
+						placeholder="ID를 입력하세요"></li>
+					<li><input name="pw" type="password" required="required"
+						placeholder="PW를 입력하세요"></li>
 					<li><input type="submit" value="LogIn" class="button fit"></li>
 				</form>
 			</ul>
-			<br><br>
+			<br>
+			<br>
 			<ul class="actions vertical">
 				<li><h5>회원가입</h5></li>
-		<form action="Join" method="post">
+				<form action="Join" method="post">
 
-				<table>
-					<tr>
-						<td><input type="text" name="id" required="required" placeholder="ID를 입력하세요"></td>
-					</tr>
-					<tr>
-						<td><input type="password" name="pw" required="required" placeholder="PW를 입력하세요"></td>
-					</tr>
-					<tr>
-						<td><input type="text" name="name" required="required" placeholder="이름을 입력하세요"></td>
-					</tr>
-					<tr>
-						<td><input type="tel" name="tel" required="required"
-							pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
-							placeholder="전화 번호를 입력하세요"></td>
-					</tr>
-					<tr>
-            			<td> <input type="date"> </td>
-            	    </tr>
-					<tr>
-						<td id="td" align="right">성별</td>
-						<td>남 <input type="radio" name="gender"> 
-						여 <input type="radio" name="gender"></td>
-					</tr>
-				</table>
+					<table>
+						<tr>
+							<td><input type="text" name="id" required="required"
+								placeholder="ID를 입력하세요"></td>
+						</tr>
+						<tr>
+							<td><input type="password" name="pw" required="required"
+								placeholder="PW를 입력하세요"></td>
+						</tr>
+						<tr>
+							<td><input type="text" name="name" required="required"
+								placeholder="이름을 입력하세요"></td>
+						</tr>
+						<tr>
+							<td><input type="tel" name="tel" required="required"
+								pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="전화 번호를 입력하세요"></td>
+						</tr>
+						<tr>
+							<td><input type="date"></td>
+						</tr>
+						<tr>
+							<td id="td" align="right">성별</td>
+							<td>남 <input type="radio" name="gender"> 여 <input
+								type="radio" name="gender"></td>
+						</tr>
+					</table>
 
-				<button>회원가입</button>
-			</form>
+					<button>회원가입</button>
+				</form>
 			</ul>
 		</nav>
 
@@ -170,7 +175,48 @@
 		</div>
 
 	</section>
-	<section id="page4"></section>
+
+	<section id="page4">
+		<div id="page4inner">
+			<div id="page4-up">
+				<table id="searchIdtable">
+					<tr>
+						<td id="idtd1"><label id="idlabel" for="searchId">아이디 검색</label></td>
+						<td id="idtd2">
+							<div class="searchidbox">
+								<input id="searchId" type="text" placeholder="검색할 아이디를 입력해주세요.">
+								<button>
+									<img class="search" src="images/search.jpg">
+								</button>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+
+			<div id="page4-down">
+				<div id="down-left">
+					<p id="mname">산이름</p>
+					<img id="side-left" class="side" src="images/side_left.png">
+					<img id="side-right" class="side" src="images/side_right.png">
+				</div>
+
+
+				<div id="down-right">
+					<img id="profile_back" src="images/profile_back.png">
+					<ul id="select_user">
+						<li>사용자id(수정)</li>
+						<li>뒷동산2(수정) 레벨</li>
+						<li>총 등산시간</li>
+					</ul>
+					<p id="select_user_time">155h</p>
+				</div>
+			</div>
+		</div>
+
+
+	</section>
 
 
 	<!-- 밑부분 -->

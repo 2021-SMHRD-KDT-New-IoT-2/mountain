@@ -121,6 +121,7 @@ input {
 	border: 2px solid black;
 	border-radius: 0px;
 }
+
 main>button {
 	/* 버튼 배경색 제거 */
 	background: none;
@@ -389,10 +390,6 @@ caption {
 	color: black;
 }
 
-#first-tr {
-	height: 20px;
-}
-
 label {
 	font-size: 20px;
 	float: right;
@@ -401,7 +398,8 @@ label {
 }
 
 .search {
-	width: 30px;
+	width: 100%;
+	height:100%;
 }
 
 .searchbox {
@@ -411,7 +409,6 @@ label {
 	background: #ffffff;
 	float: right;
 }
-
 
 .searchbox>button {
 	height: 100%;
@@ -492,11 +489,153 @@ input {
 	right: 2%;
 	position: absolute;
 }
+
 /*page4*/
 #page4 {
 	width: 100%;
 	height: 100%;
 	top: 300%;
 	background-color: whitesmoke;
+	position: absolute;
+}
+
+#page4inner {
+	margin-top: 5%;
+	margin-left: 10%;
+	width: 80%;
+	height: 90%;
+	position: absolute;
+}
+
+#page4-up {
+	height: 10%;
+	width: 100%;
+	position: absolute;
+}
+
+#page4-down {
+	border : 1px solid black;
+	margin-top: 10%;
+	height: 90%;
+	width: 100%;
+	position: absolute;
+}
+
+.searchidbox {
+	height: 100%;
+	width: 70%;
+	border: 1px solid silver;
+	background: #ffffff;
+	top: 5%;
+	right: 2%;
+	float: right;
+	position: absolute;
+}
+
+.searchidbox>button {
+	height: 100%;
+	border: 0px;
+	outline: none;
+	margin-right: 0;
+	float: right;
+	background-color: white;
+}
+
+#searchIdtable>tbody {
+	width: 100%;
+	position: absolute;
+}
+
+#searchIdtable>tbody>tr {
+	width: 100%;
+	position: absolute;
+}
+
+#idtd1 {
+	display: flex;
+	justify-content: center;
+	width: 30%;
+}
+
+#idlabel{
+	font-size:30px;
+}
+
+#searchId {
+	background : none;
+	font-size: 100%;
+	width: 75%;
+}
+
+#idtd2 {
+	display: flex;
+	justify-content: left;
+	width: 70%;
+}
+
+/*아래페이지*/
+#down-left {
+	display: inline;
+	width: 50%;
+	height: 90%;
+	border: 1px solid silver;
+	top: 4%;
+	left: 1%;
+	float: left;
+	position: absolute;
+}
+
+#down-right {
+	display: inline;
+	width: 40%;
+	height: 90%;
+	top: 4%;
+	margin-left: 1%;
+	right: 1%;
+	float: right;
+	display: flex;
+	justify-content: center;
+	position: absolute;
+}
+
+#mname {
+	font-size:30px;
+	text-align: center;
+}
+
+.side {
+	top: 45%;
+	width: 5%;
+	height: 5%;
+	position: absolute;
+}
+
+#side-left {
+	left: 1%;
+	position: absolute;
+}
+
+#side-right {
+	right: 1%;
+	position: absolute;
+}
+
+#profile_back {
+	width: 75%;
+	top: 5%;
+	position: absolute;
+}
+
+#select_user {
+	top: 60%;
+	font-size: 30px;
+	position: absolute;
+}
+
+#select_user_time {
+	bottom: 2%;
+	right: 5%;
+	font-size: 70px;
+	font-weight : 1px;
 	position: absolute;
 }
