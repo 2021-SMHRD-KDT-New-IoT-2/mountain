@@ -202,7 +202,12 @@
 	
 	<!-- ¹ØºÎºÐ -->
 	<section id="page5">
-		<footer id="footer"></footer>
+		<footer id="footer">
+		
+		
+		
+		
+		</footer>
 	</section>
 
 
