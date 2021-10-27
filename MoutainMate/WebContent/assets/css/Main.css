@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+@import url(font-awesome.min.css);
+
+@import
+	url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic")
+	;
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: radial-gradient(rgba(49, 49, 49, 0.8), rgba(51, 51, 51, 0.8)),
+		url(../../images/mudengsan.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+section {
+	width: 100%;
+	height: 100vh;
+	margin : 0;
+	/* %를 사용했을시 body 태그 크기를 조절해야하는 번거로움
+    vh를 사용하면 무시하고 적용함 */
+	/* radial-gradient 배경화면을 살짝 어둡게 해주는 효과
+    두가지 색을 섞음 */
+}
+
+
+header {
+	width: 100%;
+	margin: 0 auto;
+	/* 남는공간 20퍼를 자동으로 분배해서 나눠줌 */
+	display: flex;
+	justify-content: space-between;
+	/* 태그의 위치를 양끝으로 이동 */
+	align-items: center;
+	/* 영역의 수직방향 (위아래 중앙으로 위치시켜줌) */
+	font
+}
+
+#centerlogo{
+	width : 100%;
+	height : 100%;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+#mainlogo{
+	width : 55%;
+	left : 25%;
+	bottom : 0;
+	position : absolute;
+}
+#underbar{
+	height : 1vh;
+	width : 70%;
+	bottom : 0;
+	left :25%;
+	position : absolute;
+}
+
+#top_header {
+	height : 10%;
+	background-color : white;
+}
+
+
+nav>ul>li {
+	display: inline-block;
+	margin: 0 10px;
+}
+
+#header {
+	height : 100%;
+}
+
+#san_logo{
+	height : 70%;
+	width : 20%;
+	background-image:url(../../images/san_logo.png);
+	background-size:contain;
+	background-repeat:no-repeat; 
+}
+
+/*--이부분 수정해보고 있었는데 갑자기 톰캣이 안돼여 ㅠㅠ --*/
+#header>nav>ul>li>a {
+	border : 1px;
+	font-size : 100%;
+	color: white;
+	text-decoration: none;
+	color: black;
+	
+}
+
+
+#header>nav {
+	top : 25px;
+    position: relative;
+}
+
+main {
+	position: absolute;
+	width : 100%;
+	left: 30%;
+	top: 70%;
+	bottom : 40%;
+	text-align: center;
+	transform: translate(-50%, -50%);
+	/* x축으로 -50 y축으로 -50씩 이동 */
+}
+
+th {
+	background-color: gray;
+	text-align: left;
+	width: 300px;
+	height: 50px;
+}
+
+#td {
+	text-align: right;
+	color: white;
+}
+
+input {
+	border: 2px solid black;
+	border-radius: 0px;
+}
+/* tr{
+    background-color: black;
+} */
+main>button {
+	/* 버튼 배경색 제거 */
+	background: none;
+	/* 버튼위에 올릴때 커서 */
+	cursor: pointer;
+	/* 경계선 제거 */
+	outline: none;
+	/* 경게선 크기 흰색 */
+	border: 2px solid white;
+	/* 버튼 안 색깔 */
+	color: white;
+	/* 버튼 경계선 둥글게 */
+	border-radius: 20px;
+	/* 경계선 거리 증가 위 아래로 */
+	padding: 15px 20px;
+	/* 모든 변화 작업을 0.5초 걸리게 */
+	transition: all 1s;
+}
+/* 버튼에 올렸을때 색깔 변화 */
+main>button:hover {
+	background-color: #b9b9b9;
+}
+/* 로고 이미지 사이즈 */
