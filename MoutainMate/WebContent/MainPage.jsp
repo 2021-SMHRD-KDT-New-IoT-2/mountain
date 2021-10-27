@@ -12,6 +12,12 @@
 
 </head>
 <body>
+	<div>
+		<img src="images/side_up.png">
+		<img src="images/side_down.png">
+	</div>
+
+
 
 	<section>
 		<div id="top_header">
@@ -51,8 +57,7 @@
 					<li><input type="submit" value="LogIn" class="button fit"></li>
 				</form>
 			</ul>
-			<br>
-			<br>
+			<br> <br>
 			<ul class="actions vertical">
 				<li><h5>회원가입</h5></li>
 				<form action="Join" method="post">
@@ -98,7 +103,12 @@
 			</div>
 		</main>
 	</section>
-	<section id="page2"></section>
+
+
+	<section id="page2">게시판</section>
+
+
+
 	<section id="page3">
 		<div id="page3-left">
 			<div id="selectroad">
@@ -181,7 +191,8 @@
 			<div id="page4-up">
 				<table id="searchIdtable">
 					<tr>
-						<td id="idtd1"><label id="idlabel" for="searchId">아이디 검색</label></td>
+						<td id="idtd1"><label id="idlabel" for="searchId">아이디
+								검색</label></td>
 						<td id="idtd2">
 							<div class="searchidbox">
 								<input id="searchId" type="text" placeholder="검색할 아이디를 입력해주세요.">
