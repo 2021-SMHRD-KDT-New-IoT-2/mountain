@@ -36,7 +36,7 @@
 
 
 		<li><h5>회원가입</h5></li>
-		<form action="Join" method="post">
+		<form action="joinService" method="post">
 
 			<table>
 				<tr>
@@ -52,11 +52,11 @@
 						placeholder="이름을 입력하세요"></td>
 				</tr>
 				<tr>
-					<td><input type="tel" name="tel" required="required"
+					<td><input type="tel" name="phoneNumber" required="required"
 						pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="전화 번호를 입력하세요"></td>
 				</tr>
 				<tr>
-					<td><input type="date"></td>
+					<td><input type="date" name="birth"></td>
 				</tr>
 				<tr>
 					<td>남 <input type="radio" name="gender"> 여 <input

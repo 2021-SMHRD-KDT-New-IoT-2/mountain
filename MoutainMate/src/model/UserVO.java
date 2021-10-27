@@ -8,12 +8,12 @@ public class UserVO {
 	private String phoneNumber;
 	private String birth;
 	private String gender;
-	private String manager;
+	
+	
 	
 	//user »ý¼ºÀÚ
 	public UserVO(String id, String name,
-			String phoneNumber, String birth, String gender,
-			String manager) {
+			String phoneNumber, String birth, String gender) {
 		
 	}
 	
@@ -38,9 +38,7 @@ public class UserVO {
 		return gender;
 	}
 	
-	public	String getmanager() {
-		return manager;
-	}
+	
 	
 	
 		
