@@ -21,7 +21,7 @@
 				<nav>
 					<ul>
 
-						<li><a href="Login.jsp">로그인</a> <!--<a href="Login.jsp">로그인</a>  -->
+						<li><a href="#menu">로그인</a> <!--<a href="Login.jsp">로그인</a>  -->
 						</li>
 						<li><a href="Join.jsp">회원가입</a></li>
 
@@ -30,8 +30,7 @@
 						<li><a href="#page2">게시판</a></li>
 						<li><a href="#page3">등산로</a></li>
 						<li><a href="#page4">둘러보기</a></li>
-						<li><a class="btn trigger" href="#menu">≡</a></li>
-
+					<!-- <li><a class="btn trigger" href="#menu">≡</a></li> -->
 					</ul>
 				</nav>
 			</header>
@@ -49,41 +48,7 @@
 					<li><input type="submit" value="LogIn" class="button fit"></li>
 				</form>
 			</ul>
-			<br><br>
-			<ul class="actions vertical">
-				<li><h5>회원가입</h5></li>
-		<form action="Join" method="post">
-
-				<table>
-					<tr>
-						<td><input type="text" name="id" required="required" placeholder="ID를 입력하세요"></td>
-					</tr>
-					<tr>
-						<td><input type="password" name="pw" required="required" placeholder="PW를 입력하세요"></td>
-					</tr>
-					<tr>
-						<td><input type="text" name="name" required="required" placeholder="이름을 입력하세요"></td>
-					</tr>
-					<tr>
-						<td><input type="tel" name="tel" required="required"
-							pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
-							placeholder="전화 번호를 입력하세요"></td>
-					</tr>
-					<tr>
-            			<td> <input type="date"> </td>
-            	    </tr>
-					<tr>
-						<td id="td" align="right">성별</td>
-						<td>남 <input type="radio" name="gender"> 
-						여 <input type="radio" name="gender"></td>
-					</tr>
-				</table>
-
-				<button>회원가입</button>
-			</form>
-			</ul>
 		</nav>
-
 
 		<!-- 메인 -->
 		<main>
