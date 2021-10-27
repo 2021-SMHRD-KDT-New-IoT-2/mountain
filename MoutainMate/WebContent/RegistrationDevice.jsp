@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>산으로 오세영 기기등록</title>
 </head>
 <body>
 

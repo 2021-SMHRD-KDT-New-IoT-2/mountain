@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>산으로 오세영 회원정보</title>
+<title>산으로 오세영 관리자페이지</title>
 
 <link rel="stylesheet" href="assets/css/Main.css">
 
