@@ -435,7 +435,7 @@ input::-moz-placeholder {
 
 input {
 	font-size: 16px;
-	padding: 10px;
+	padding: 1%;
 	border: 0px;
 	outline: none;
 	float: left;
