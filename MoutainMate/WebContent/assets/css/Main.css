@@ -412,11 +412,6 @@ label {
 	width: 30px;
 }
 
-#search {
-	width: 60%;
-	height: 5%;
-}
-
 .searchbox {
 	height: 40px;
 	width: 100%;
@@ -425,14 +420,12 @@ label {
 	float: right;
 }
 
-button {
-	float: right;
-}
 
 .searchbox>button {
 	height: 100%;
 	border: 0px;
 	outline: none;
+	float: right;
 	background-color: white;
 }
 
