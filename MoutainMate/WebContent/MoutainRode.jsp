@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>산으로 오세영 등산로</title>
 </head>
 <body>
 
