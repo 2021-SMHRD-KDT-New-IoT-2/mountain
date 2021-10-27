@@ -186,5 +186,31 @@ public class UserDAO {
 		return check;
 	}
 	
+	//특정회원삭제
+	public int delete(String id) {
+		try {
+
+			connection();
+			// 3. 실행할 sql문 정의 (실행할때마다 값이 달라지는부분은 ?적어두면 됨
+			String sql = "delete from user_table where id=?";
+
+			// 4. sql 실행객체(PreparedStatemnent)생성
+			psmt = conn.prepareStatement(sql);
+
+			// 5. 바인드변수 (?) 채우기
+			psmt.setString(1, id);
+			
+
+			// 6. sql문 실행 후 결과 처리
+			cnt = psmt.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("삭제실패");
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
 
 }
