@@ -12,10 +12,6 @@
 </head>
 <body>
 	
-	<div id="quickscroll">
-		<img src="images/side_up.png">
-		<img src="images/side_down.png">
-	</div>
 
 	<section>
 		<div id="top_header">
