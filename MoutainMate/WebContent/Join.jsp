@@ -22,8 +22,6 @@
 
 						<li><a href="MainPage.jsp">로그인</a> <!--<a href="Login.jsp">로그인</a>  -->
 						</li>
-						<li><a href="#">회원가입</a></li>
-
 						<li><a href="MainPage.jsp">게시판</a></li>
 						<li><a href="MainPage.jsp">등산로</a></li>
 						<li><a href="MainPage.jsp">둘러보기</a></li>
