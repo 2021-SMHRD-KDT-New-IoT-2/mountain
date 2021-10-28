@@ -17,20 +17,26 @@ public class UserDAO {
 
 	public void connection() { // db연결
 		try {
-			// 드라이브 핸들링
+			// 1. 드라이브 동적로딩
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
 			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
+			// 해도쌤이 주신 db 링크 가져와주세요
+//			url: project-db-stu.ddns.net
+//			port: 1524
+//			user: campus_b_1_1025
+//			password: smhrd1
 			String user = "campus_b_1_1025";
 			String password = "smhrd1";
 
-			// 데이터 연결 객체(Connection생성)
+			// 2. 데이터 연결 객체 (Connection)생성
 			conn = DriverManager.getConnection(url, user, password);
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("연결 실패");
+			System.out.println("연결실패");
 		}
 	}
+	
 
 	public void close() {
 		try {
@@ -49,12 +55,12 @@ public class UserDAO {
 	}
 
 	// 회원가입 기능
-	public int join(String id, String pw, String name, String phoneNumber, String birth, String gender) {
-		String mgr ="0";
+	public int join(String id, String pw, String name, String phoneNumber, String birth, int gender) {
+		
 		try {
 			connection();
 
-			String sql = "insert into user_table values(?,?,?,?,?,?,0)";
+			String sql = "insert into user_table values(?,?,?,?,?,?)";
 
 			psmt = conn.prepareStatement(sql);
 
@@ -63,8 +69,8 @@ public class UserDAO {
 			psmt.setString(3, name);
 			psmt.setString(4, phoneNumber);
 			psmt.setString(5, birth);
-			psmt.setString(6, gender);
-			psmt.setString(7, mgr);
+			psmt.setInt(6, gender);
+			
 			
 
 			cnt = psmt.executeUpdate();
@@ -96,13 +102,14 @@ public class UserDAO {
 				System.out.println("로그인성공");
 
 				String get_id = rs.getString("id");
+				String get_pw = rs.getString("pw");
 				String get_name = rs.getString("name");
 				String get_phoneNumber = rs.getString("phoneNumber");
 				String get_birth = rs.getString("birth");
-				String get_gender = rs.getString("gender");
+				int get_gender =rs.getInt("gender");
 				
 
-				vo=new UserVO(get_id, get_name, get_phoneNumber, get_birth,get_gender);
+				vo=new UserVO(get_id, get_pw, get_name, get_phoneNumber, get_birth, get_gender);;
 
 			} else {
 
@@ -228,14 +235,14 @@ public class UserDAO {
 			
 
 				String get_id = rs.getString("id");
+				String get_pw = rs.getNString("pw");
 				String get_name = rs.getString("name");
 				String get_phoneNumber = rs.getString("phoneNumber");
 				String get_birth = rs.getString("birth");
 				String get_gender = rs.getString("gender");
 				
 
-				vo = new UserVO(get_id, get_name, get_phoneNumber, get_birth, get_gender);
-				arr.add(vo);
+				
 			
 			} 
 
