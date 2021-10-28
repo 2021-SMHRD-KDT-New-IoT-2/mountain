@@ -92,7 +92,7 @@
 							<div class="searchbox">
 								<input id="searchM" type="text" placeholder="검색어를 입력해주세요.">
 								<button>
-									<img class="search" src="images/search.jpg">
+									<img class="search" src="images/search.png">
 								</button>
 							</div>
 						</td>
@@ -168,7 +168,7 @@
 							<div class="searchidbox">
 								<input id="searchId" type="text" placeholder="검색할 아이디를 입력해주세요.">
 								<button>
-									<img class="search" src="images/search.jpg">
+									<img class="search" src="images/search.png">
 								</button>
 							</div>
 						</td>
