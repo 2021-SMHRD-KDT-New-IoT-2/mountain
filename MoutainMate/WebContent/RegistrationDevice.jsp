@@ -12,107 +12,67 @@
 </head>
 <body>
 
-		<section id="page3">
-		<div id="top_header">
-			<header id="header" class="">
-				<a id="san_logo" href="MainPage.jsp"></a>
 
-				<nav>
-					<ul>
-						<li><a href="MainPage.jsp">메인페이지</a></li>
-						<li><a href="#">기기등록</a></li>
-						<li><a href="#">회원정보</a></li>
-						<li><a href="#">등산로관리</a></li>
-					</ul>
-				</nav>
-			</header>
-		</div>
-			<div id="page3-left">
-				<div id="joindiv">
-					<form id="joinform" action="Join" method="post">
+	<div id="top_header">
+		<header id="header" class="">
+			<a id="san_logo" href="MainPage.jsp"></a>
 
-						<table id="jointable">
-							<caption>기기대여시작</caption>
-							<tr>
-								<td class="jointd1">* 기기ID</td>
-								<td class="jointd2"><input type="text" required="required"
-									placeholder="기기ID를 입력하세요"></td>
-							</tr>
-							<tr>
-								<td class="jointd1">* 사용자ID</td>
-								<td class="jointd2"><input type="text" required="required"
-									placeholder="사용자ID를 입력하세요"></td>
-							</tr>
-							<tr>
-								<td class="jointd1">* 대여일</td>
-								<td class="jointd2"><input type="date" required="required"
-									placeholder="대여일을 입력하세요"></td>
-							</tr>
-							<tr>
-								<td class="jointd1">* 대여 시작시간</td>
-								<td class="jointd2"><input type="text" required="required"
-									placeholder="대여 시작시간을 입력하세요"></td>
-							</tr>
+			<nav>
+				<ul>
+					<li><a href="MainPage.jsp">메인페이지</a></li>
+					<li><a href="RegistrationDevice.jsp">기기등록</a></li>
+					<li><a href="MemberList.jsp">회원정보관리</a></li>
+				</ul>
+			</nav>
+		</header>
+	</div>
 
-							<tr>
-								<td colspan="2" align="center"><input type="submit"
-									value="기기대여시작"></td>
-							</tr>
-						</table>
+	<!-- 메인 -->
+	<main>
 
-					</form>
-				</div>
+			<div id="device-left">
+				<form>
+					<table class="devicetable">
+						<caption>기기대여시작</caption>
+						
+						<tr>
+							<td class="devicetd">* 기기ID&nbsp;</td>
+							<td class="deviceinputtd"><input type="text"></td>
+						</tr>
+						<tr>
+							<td class="devicetd">* 사용자ID&nbsp;</td>
+							<td><input type="text"></td>
+						</tr>
+						<tr>
+							<td colspan="2" class="send"><input type="submit" value="대여시작"></td>
+						</tr>
+					</table>
+				</form>
 			</div>
-			
-			<div id="page3-right">
-				<div id="joindiv">
-				
-					<form id="joinform" action="Join" method="post">
-
-						<table id="jointable">
-							<caption>기기대여시작</caption>
-							<tr>
-								<td class="jointd1">* 기기ID</td>
-								<td class="jointd2"><input type="text" required="required"
-									placeholder="기기ID를 입력하세요"></td>
-							</tr>
-							<tr>
-								<td class="jointd1">* 사용자ID</td>
-								<td class="jointd2"><input type="text" required="required"
-									placeholder="사용자ID를 입력하세요"></td>
-							</tr>
-							<tr>
-								<td class="jointd1">* 대여일</td>
-								<td class="jointd2"><input type="date" required="required"
-									placeholder="대여일을 입력하세요"></td>
-							</tr>
-							<tr>
-								<td class="jointd1">* 대여 시작시간</td>
-								<td class="jointd2"><input type="text" required="required"
-									placeholder="대여 시작시간을 입력하세요"></td>
-							</tr>
-
-							<tr>
-								<td colspan="2" align="center"><input type="submit"
-									value="기기대여시작"></td>
-							</tr>
-						</table>
-
-					</form>
-				</div>
-			
+			<div id="device-right">
+				<form>
+					<table class="devicetable">
+						<caption>기기반납완료</caption>
+						<tr>
+							<td class="devicetd">* 기기ID&nbsp;</td>
+							<td class="deviceinputtd"><input type="text"></td>
+						</tr>
+						<tr>
+							<td class="devicetd">* 사용자ID&nbsp;</td>
+							<td><input type="text"></td>
+						</tr>
+						<tr>
+							<td colspan="2"  class="send"><input type="submit" value="반납완료"></td>
+						</tr>
+					</table>
+				</form>
 			</div>
-			
-		</section>
-			
-			
-			
-
-			<!-- 메인 -->
-			<main></main>
 
 
-			<!-- 밑부분 -->
-			<footer> </footer>
+	</main>
+
+
+	<!-- 밑부분 -->
+	<footer> </footer>
 </body>
 </html>

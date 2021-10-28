@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>산으로 오세영 회원정보</title>
 
-<link rel="stylesheet" href="assets/css/Main.css">
+<link rel="stylesheet" href="assets/css/join.css">
 
 </head>
 <body>
@@ -20,12 +20,8 @@
 				<nav>
 					<ul>
 
-						<li><a href="#menu">로그인</a> <!--<a href="Login.jsp">로그인</a>  -->
-						</li>
-						<li><a href="Join.jsp">회원가입</a></li>
-
-						<!-- <li><h2><a href="LogOut.jsp">로그아웃</a></h2></li>
-				<li><h2><a href="MemberInfo.jsp">회원정보</a></h2></li> -->
+						<li><a href="#menu">로그아웃</a></li>
+						
 						<li><a href="#page2">게시판</a></li>
 						<li><a href="#page3">등산로</a></li>
 						<li><a href="#page4">둘러보기</a></li>
@@ -36,24 +32,67 @@
 		</div>
 		
 		
+		<div id="joindiv">
+			<form id="joinform" action="joinService" method="post">
+
+				<table id="jointable">
+					<caption>마이페이지</caption>
+					
+					<tr>
+						<td class="jointd1">* 비밀번호</td>
+						<td class="jointd2"><input type="password" name="pw" required="required"
+							placeholder="PW를 입력하세요"></td>
+					</tr>
+						<tr>
+						<td colspan="2" align="center">
+							<input type="submit" value="비밀번호확인">
+						</td>						
+					<tr>
+						<td colspan="2" align="center"><strong>정보 수정</strong></td>
+					</tr>
+					<tr>
+						<td class="jointd1">* 비밀번호</td>
+						<td class="jointd2"><input type="password" name="pw" required="required"
+							placeholder="PW를 입력하세요"></td>
+					</tr>
+						
+					<tr>
+						<td class="jointd1">* 이름</td>
+						<td class="jointd2"><input type="text" name="name" required="required"
+							placeholder="이름을 입력하세요"></td>
+					</tr>
+					<tr>
+						<td class="jointd1">* 전화번호</td>
+						<td class="jointd2"><input type="tel" name="phoneNumber" required="required"
+							pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="전화 번호를 입력하세요"></td>
+					</tr>
+					<tr>
+						<td class="jointd1">생일</td>
+						<td class="jointd2"><input type="date" name="birth"></td>
+					</tr>
+					<tr>
+						<td class="jointd1">성별</td>
+						<td class="jointd2">
+						남 <input type="radio" name="gender" value="0">
+						여 <input type="radio" name="gender" value="1">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">
+							<input type="submit" value="수정완료">
+						</td>
+					</tr>
+				</table>
+
+			</form>
+
+
+		</div>
+		
 		
 		<!-- 메인 -->
 		<main>
-			<form action="LoginCheck" method="post">
-				<table id="ta">
-					<tr>
-					
-						<td>
-							
-				<input type="submit" id ="input_submit" href="#" value="회원수정">
-				<input type="submit" id ="input_submit" href="Delete" value="회원탈퇴">
-						</td>
-						
-					</tr>
-				</table>
-			</form>
-		
-		
+
 		</main>
 
 
