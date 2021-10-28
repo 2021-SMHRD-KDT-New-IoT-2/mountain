@@ -31,7 +31,10 @@
 						<li><a href="MemberInfo.jsp">마이페이지</a></li>
 						<!-- 관리자 로그인시 회원가입=회원관리로 변경 후 페이지로 이동 -->
 						<li><a href="RegistrationDevice.jsp">관리자페이지</a></li>
+<<<<<<< HEAD
+=======
 
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-2/mountain.git
 						<li class="scrollmoving"><a href="#page2">게시판</a></li>
 						<li class="scrollmoving"><a href="#page3">등산로</a></li>
 						<li class="scrollmoving"><a href="#page4">둘러보기</a></li>
@@ -47,7 +50,7 @@
 		<nav id="menu">
 			<ul class="links">
 				<li><h5>로그인</h5></li>
-				<form action="LoginService" method="post">
+				<form action="loginService" method="post">
 					<li><input name="id" type="text" required="required"
 						placeholder="ID를 입력하세요"></li>
 					<li><input name="pw" type="password" required="required"

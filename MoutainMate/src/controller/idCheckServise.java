@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,22 +14,22 @@ import model.UserDAO;
 
 
 @WebServlet("/idCheckServive")
-public class idCheckServive extends HttpServlet {
+public class idCheckServise extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id = request.getParameter("id");
-
+		String id=request.getParameter("id");
+		
 		System.out.println(id);
-
+		
 		UserDAO dao = new UserDAO();
-		boolean check = dao.idCheck(id);
-
-		// 출력스트림(통로)
-		PrintWriter out = response.getWriter();
-		// 통로를 통해서 응답데이터를 출력
-		out.print(check);
+		boolean check =dao.idCheck(id);
+		
+		//출력스트림(통로)
+		 PrintWriter out=response.getWriter();
+		 //통로를 통해서 응답데이터를 출력
+		 out.print(check);
 	}
 
 }
