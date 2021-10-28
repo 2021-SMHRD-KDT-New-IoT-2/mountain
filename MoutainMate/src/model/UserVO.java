@@ -6,16 +6,15 @@ public class UserVO {
 		private String id;
 		
 		private String name;
-		private String phoneNumber;
 		
 		
 		
 		
 		//»ý¼ºÀÚ
-		public UserVO(String id, String phoneNumber) {
+		public UserVO(String id, String name) {
 			
 			this.id=id;
-			this.phoneNumber = phoneNumber;
+			this.name=name;
 			
 			
 		}
@@ -23,8 +22,8 @@ public class UserVO {
 		public String getid() {
 			return id;
 		}
-		public String getphoneNumber() {
-			return phoneNumber;
+		public String getname() {
+			return name;
 		}
 		
 		
