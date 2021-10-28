@@ -39,8 +39,10 @@
 					<caption>회원가입</caption>
 					<tr>
 						<td class="jointd1">* 아이디</td>
-						<td class="jointd2"><input type="text" name="id" required="required"
-							placeholder="ID를 입력하세요"></td>
+						<td class="jointd2"><input type="text"  id="input_id" name="id" required="required"
+							placeholder="ID를 입력하세요">
+							<input type="button" value="ID중복체크" onclick="idCheck()">
+							<span id="sp_result"></span>
 					</tr>
 					<tr>
 						<td class="jointd1">* 비밀번호</td>
@@ -82,5 +84,35 @@
 
 	</section>
 
+<script>
+			function idCheck(){
+				
+				var input =document.getElementById("input_id");
+				/* alert(input.value); //-> vanilla js 사용
+				
+				alert($('#input_id').val()); //jqery 사용 */
+				
+				//ajax 
+				$.ajax({
+					type: "post", // 데이터 전송 받식
+					data: {"id" : input.value}, // 전송하는 데이터
+					url : "idCheckServise", //데이터를 전송하는 (요청하는) 서버페이지 url
+					dataType : "text", //응답데이터의 형식
+					success : function(data){ //통신성공
+						var sp_result=document.getElementById("sp_result");
+						//alert(data)
+						if(data=="true"){
+							sp_result.innerText="사용불가능한 아이디";
+							
+						}else{
+							$("#sp_result").text("사용 가능한 아이디");
+						}
+					},
+					error: function(){
+						alert("통신실패!")
+					}
+				});
+			}
+			</script>
 </body>
 </html>

@@ -90,7 +90,7 @@ public class UserDAO {
 		try {
 			connection();
 
-			String sql = "select id, tel, address from user_table where id=? and pw=?";
+			String sql = "select user_name, user_num from web_member where id=? and pw=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			psmt.setString(2, pw);
@@ -102,14 +102,10 @@ public class UserDAO {
 				System.out.println("로그인성공");
 
 				String get_id = rs.getString("id");
-				String get_pw = rs.getString("pw");
-				String get_name = rs.getString("name");
-				String get_phoneNumber = rs.getString("phoneNumber");
-				String get_birth = rs.getString("birth");
-				int get_gender =rs.getInt("gender");
+				String get_phoneNumber = rs.getString("user_num");
 				
 
-				vo=new UserVO(get_id, get_pw, get_name, get_phoneNumber, get_birth, get_gender);;
+				vo = new UserVO(get_id, get_phoneNumber);
 
 			} else {
 
@@ -164,7 +160,7 @@ public class UserDAO {
 		try {
 			connection();
 
-			String sql = "select id from user_table where id=? ";
+			String sql = "select user_id from  user_table where id=? ";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			
@@ -191,6 +187,7 @@ public class UserDAO {
 		}
 		return check;
 	}
+	
 	
 	//특정회원삭제
 	public int delete(String id) {

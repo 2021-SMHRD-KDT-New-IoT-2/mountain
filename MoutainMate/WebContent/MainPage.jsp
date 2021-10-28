@@ -46,7 +46,7 @@
 		<nav id="menu">
 			<ul class="links">
 				<li><h5>로그인</h5></li>
-				<form action="LoginService" method="post">
+				<form action="loginService" method="post">
 					<li><input name="id" type="text" required="required"
 						placeholder="ID를 입력하세요"></li>
 					<li><input name="pw" type="password" required="required"
