@@ -6,6 +6,12 @@
 	url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic")
 	;
 
+@font-face {
+    font-family: '메인';
+    src: url('../srcs/fonts/NeonPlanetDisplay.ttf') format('truetype');
+}
+
+
 * {
 	margin: 0;
 	padding: 0;
@@ -21,6 +27,7 @@ body {
 
 a {
 	transition: all .3s;
+	text-decoration: none;
 }
 /*빠른 스크롤*/
 #quickscroll {
@@ -73,15 +80,18 @@ header {
 
 #centerlogo {
 	width: 100%;
-	height: 100%;
+	height: 45%;
 	margin-left: 0;
 	padding-left: 0;
+	left: 5%;
+	top: 20%;
+	position: absolute;
 }
 
 #mainlogo {
-	width: 55%;
-	left: 25%;
-	bottom: 0;
+	height: 100%;
+	left: 0;
+	top: 0;
 	position: absolute;
 }
 
@@ -89,15 +99,59 @@ header {
 	height: 1vh;
 	width: 70%;
 	bottom: 0;
-	left: 25%;
+	left: 0;
+	position: absolute;
+	left: 0;
+}
+
+/*main 소개글*/
+#introduce {
+	width: 80%;
+	height: 20%;
+	margin-left: 0;
+	padding-left: 0;
+	top: 68%;
+	left: 5%;
 	position: absolute;
 }
 
+#introduce>span {
+	font-size: 25px; text-align : left;
+	color: white;
+	left: 0;
+	position: absolute;
+	text-align: left;
+}
 
+#introduce>img {
+	height: 2vh;
+	width: 8%;
+	top: 25%;
+	left: 45%;
+	position: absolute;
+}
 
+#mainbtn {
+	width: 15%;
+	height: 30%;
+	top: 15%;
+	left: 60%;
+	position: absolute;
+	border: 1px solid whitesmoke;
+	background: unset;
+	color: whitesmoke;
+	font-size:20px;
+	padding: 2px;
+	transition: all .3s;
+	
+}
 
+#mainbtn:hover {
+	color: whitesmoke;
+	background-color: rgb(39, 39, 39);
+}
 
-
+/*------------------------------------*/
 #top_header {
 	height: 10%;
 	background-color: white;
@@ -137,12 +191,9 @@ nav>ul>li {
 main {
 	position: absolute;
 	width: 100%;
-	left: 30%;
-	top: 70%;
-	bottom: 40%;
+	height: 90%;
+	top: 10%;
 	text-align: center;
-	transform: translate(-50%, -50%);
-	/* x축으로 -50 y축으로 -50씩 이동 */
 }
 
 th {
@@ -713,7 +764,7 @@ input::-moz-placeholder {
 /*오른쪽 페이지*/
 #roadimgbox {
 	width: 90%;
-	height: 80%;
+	height: 85%;
 	border: 1px solid black;
 	top: 5%;
 	position: absolute;
@@ -869,7 +920,7 @@ input::-moz-placeholder {
 
 #profile_back {
 	width: 75%;
-	top: 5%;
+	top: 2%;
 	position: absolute;
 }
 
@@ -881,8 +932,8 @@ input::-moz-placeholder {
 }
 
 #select_user_time {
-	bottom: 2%;
-	right: 15%;
+	bottom: 1%;
+	right: 10%;
 	font-size: 70px;
 	font-weight: 1px;
 	position: absolute;
@@ -897,8 +948,8 @@ input::-moz-placeholder {
 	position: absolute;
 }
 
-#footer{
-	padding-top:2%;
+#footer {
+	padding-top: 2%;
 	width: 100%;
 	height: 90%;
 	position: absolute;
@@ -951,6 +1002,7 @@ input::-moz-placeholder {
 	left: 1%;
 	margin-top: 20%;
 	position: absolute;
+	left: 1%;
 }
 
 #footer_side-right {
@@ -1023,11 +1075,12 @@ input::-moz-placeholder {
 	width: 60%;
 }
 
-#select_email_input{
-	width:17%;
-	height:1.5%;
-	position:absolute;
-	margin-right:1%;
+#select_email_input {
+	width: 17%;
+	height: 1.5%;
+	position: absolute;
+	margin-right: 1%;
+	height: 1.5%;
 }
 
 #asktexttr {
@@ -1038,15 +1091,16 @@ input::-moz-placeholder {
 	width: 100%;
 	height: 100%;
 	text-align: left;
-	margin-top:2%;
+	margin-top: 2%;
 }
+
 #send {
 	font-size: 20px;
 	text-align: right;
 }
 
-#send>input{
-	bottom:10%;
-	right:2%;
-	position:absolute;
+#send>input {
+	bottom: 5%;
+	right: 2%;
+	position: absolute;
 }

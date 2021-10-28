@@ -64,10 +64,16 @@
 				<img id="mainlogo" src="images/mainLogo.png"> <img
 					id="underbar" src="images/underbar.png">
 			</div>
+			
+			
 			<div id="introduce">
 				<span>
-					
+					친구들과 함께 등산로를 탐색해 보세요.<br>
+					완주한 등산로를 친구들과 공유하며 즐겨보세요.<br>
+					등산이 더울 즐거워 집니다.
 				</span>
+				<img src="images/main_rightside.png">
+				<button id="mainbtn" onclick="location.href='#page3'">등산로 탐색하기</button>
 				
 			</div>
 		</main>
