@@ -1,4 +1,4 @@
-@charset "EUC-KR";
+@charset "utf-8";
 
 @import url(font-awesome.min.css);
 
@@ -40,26 +40,27 @@ body {
 	float: right;
 }
 
+
+
 section {
 	width: 100%;
-	height: 100vh;
+	height: 200vh;
 	margin: 0;
-	/* %∏¶ ªÁøÎ«ﬂ¿ªΩ√ body ≈¬±◊ ≈©±‚∏¶ ¡∂¿˝«ÿæﬂ«œ¥¬ π¯∞≈∑ŒøÚ
-    vh∏¶ ªÁøÎ«œ∏È π´Ω√«œ∞Ì ¿˚øÎ«‘ */
-	/* radial-gradient πË∞Ê»≠∏È¿ª ªÏ¬¶ æÓµ”∞‘ «ÿ¡÷¥¬ »ø∞˙
-    µŒ∞°¡ˆ ªˆ¿ª ºØ¿Ω */
+	/* %Î•º ÏÇ¨Ïö©ÌñàÏùÑÏãú body ÌÉúÍ∑∏ ÌÅ¨Í∏∞Î•º Ï°∞Ï†àÌï¥ÏïºÌïòÎäî Î≤àÍ±∞Î°úÏõÄ
+    vhÎ•º ÏÇ¨Ïö©ÌïòÎ©¥ Î¨¥ÏãúÌïòÍ≥† Ï†ÅÏö©Ìï® */
+	/* radial-gradient Î∞∞Í≤ΩÌôîÎ©¥ÏùÑ ÏÇ¥Ïßù Ïñ¥Îë°Í≤å Ìï¥Ï£ºÎäî Ìö®Í≥º
+    ÎëêÍ∞ÄÏßÄ ÏÉâÏùÑ ÏÑûÏùå */
 }
 
 header {
 	width: 100%;
 	margin: 0 auto;
-	/* ≥≤¥¬∞¯∞£ 20∆€∏¶ ¿⁄µø¿∏∑Œ ∫–πË«ÿº≠ ≥™¥≤¡‹ */
+	/* ÎÇ®ÎäîÍ≥µÍ∞Ñ 20ÌçºÎ•º ÏûêÎèôÏúºÎ°ú Î∂ÑÎ∞∞Ìï¥ÏÑú ÎÇòÎà†Ï§å */
 	display: flex;
 	justify-content: space-between;
-	/* ≈¬±◊¿« ¿ßƒ°∏¶ æÁ≥°¿∏∑Œ ¿Ãµø */
+	/* ÌÉúÍ∑∏Ïùò ÏúÑÏπòÎ•º ÏñëÎÅùÏúºÎ°ú Ïù¥Îèô */
 	align-items: center;
-	/* øµø™¿« ºˆ¡˜πÊ«‚ (¿ßæ∆∑° ¡ﬂæ”¿∏∑Œ ¿ßƒ°Ω√ƒ—¡‹) */
-	font
+	/* ÏòÅÏó≠Ïùò ÏàòÏßÅÎ∞©Ìñ• (ÏúÑÏïÑÎûò Ï§ëÏïôÏúºÎ°ú ÏúÑÏπòÏãúÏºúÏ§å) */
 }
 
 #centerlogo {
@@ -87,6 +88,11 @@ header {
 #top_header {
 	height: 10%;
 	background-color: white;
+}
+
+nav>ul>li {
+	display: inline-block;
+	margin: 0 10px;
 }
 
 #header {
@@ -123,5 +129,199 @@ main {
 	bottom: 40%;
 	text-align: center;
 	transform: translate(-50%, -50%);
-	/* x√‡¿∏∑Œ -50 y√‡¿∏∑Œ -50æø ¿Ãµø */
+	/* xÏ∂ïÏúºÎ°ú -50 yÏ∂ïÏúºÎ°ú -50Ïî© Ïù¥Îèô */
+}
+
+th {
+	background-color: gray;
+	text-align: left;
+	width: 300px;
+	height: 50px;
+}
+
+input {
+	border: 2px solid black;
+	border-radius: 0px;
+	font-size: 16px;
+	padding: 1%;
+	border: 0px;
+	outline: none;
+}
+
+main>button {
+	/* Î≤ÑÌäº Î∞∞Í≤ΩÏÉâ Ï†úÍ±∞ */
+	background: none;
+	/* Î≤ÑÌäºÏúÑÏóê Ïò¨Î¶¥Îïå Ïª§ÏÑú */
+	cursor: pointer;
+	/* Í≤ΩÍ≥ÑÏÑ† Ï†úÍ±∞ */
+	outline: none;
+	/* Í≤ΩÍ≤åÏÑ† ÌÅ¨Í∏∞ Ìù∞ÏÉâ */
+	border: 2px solid white;
+	/* Î≤ÑÌäº Ïïà ÏÉâÍπî */
+	color: white;
+	/* Î≤ÑÌäº Í≤ΩÍ≥ÑÏÑ† Îë•Í∏ÄÍ≤å */
+	border-radius: 20px;
+	/* Í≤ΩÍ≥ÑÏÑ† Í±∞Î¶¨ Ï¶ùÍ∞Ä ÏúÑ ÏïÑÎûòÎ°ú */
+	padding: 15px 20px;
+	/* Î™®Îì† Î≥ÄÌôî ÏûëÏóÖÏùÑ 0.5Ï¥à Í±∏Î¶¨Í≤å */
+	transition: all 1s;
+}
+/* Î≤ÑÌäºÏóê Ïò¨Î†∏ÏùÑÎïå ÏÉâÍπî Î≥ÄÌôî */
+main>button:hover {
+	background-color: #b9b9b9;
+}
+
+/*ÌöåÏõêÍ∞ÄÏûÖÌéòÏù¥ÏßÄ*/
+#joindiv {
+	display: flex;
+	justify-content: center;
+}
+
+#joinform {
+	width: 50%;
+	display: flex;
+	justify-content: center;
+}
+
+#jointable {
+	margin-top : 30%;
+	padding : 2%;
+	border: 1px solid whitesmoke;
+	color: white;
+	width: 60%;
+	text-align: center;
+}
+
+caption{
+	font-weight:1px solid whitesmoke;
+	font-size:40px;
+}
+
+.jointd1 {
+	padding : 1%;
+	width: 40%;
+	text-align: right;
+}
+
+.jointd2 {
+	padding : 1%;
+	margin-left:2%;
+	display: flex;
+	justify-content: left;
+}
+
+
+/*ÏôºÏ™Ω ÌéòÏù¥ÏßÄ*/
+#selectroad {
+	width: 90%;
+	height: 80%;
+	border: 0;
+	top: 5%;
+	position: absolute;
+	float: left;
+}
+
+#roadtable {
+	font-weight: bolder;
+	margin-top: 5%;
+	width: 80%;
+	border: 0;
+}
+
+caption {
+	margin-bottom: 5%;
+	font-size: 50px;
+	color: black;
+}
+
+label {
+	font-size: 20px;
+	float: right;
+	margin-right: 10px;
+	color: black;
+}
+
+.search {
+	width: 100%;
+	height: 100%;
+}
+
+.searchbox {
+	height: 40px;
+	width: 100%;
+	border: 1px solid black;
+	background: #ffffff;
+	float: right;
+}
+
+.searchbox>button {
+	height: 100%;
+	border: 0px;
+	outline: none;
+	float: right;
+	background-color: white;
+}
+
+input:-ms-input-placeholder {
+	color: silver
+}
+
+input::-webkit-input-placeholder {
+	color: silver
+}
+
+input::-moz-placeholder {
+	color: silver
+}
+
+#searchM {
+	width: 70%;
+}
+
+#searchR {
+	width: 90%;
+}
+
+#top5 {
+	color: black;
+	font-weight: bolder;
+	border: 1px solid silver;
+	width: 80%;
+	height: 40%;
+	margin-top: 15%;
+	top: 30%;
+	position: absolute;
+}
+
+#line_vertical {
+	height: 100%;
+	left: 50%;
+	position: relative;
+}
+
+/*Ïò§Î•∏Ï™Ω ÌéòÏù¥ÏßÄ*/
+#roadimgbox {
+	width: 90%;
+	height: 80%;
+	border: 1px solid black;
+	top: 5%;
+	position: absolute;
+	float: right;
+	position: absolute;
+}
+
+#coursename {
+	margin-top: 2%;
+	margin-left: 3%;
+	color: black;
+	font-size: 30px;
+}
+
+#courselevel {
+	width: 30%;
+	height: 25%;
+	border: 1px solid black;
+	bottom: 2%;
+	right: 2%;
+	position: absolute;
 }

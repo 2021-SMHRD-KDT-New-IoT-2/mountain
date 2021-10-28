@@ -6,15 +6,13 @@
 <meta charset="EUC-KR">
 <title>산으로 오세영 기기등록</title>
 
-<link rel="stylesheet" href="assets/css/join.css">
 <link rel="stylesheet" href="assets/css/Device.css">
-
 
 
 </head>
 <body>
 
-	<section>
+		<section id="page3">
 		<div id="top_header">
 			<header id="header" class="">
 				<a id="san_logo" href="MainPage.jsp"></a>
@@ -29,8 +27,6 @@
 				</nav>
 			</header>
 		</div>
-
-		<section id="page3">
 			<div id="page3-left">
 				<div id="joindiv">
 					<form id="joinform" action="Join" method="post">
