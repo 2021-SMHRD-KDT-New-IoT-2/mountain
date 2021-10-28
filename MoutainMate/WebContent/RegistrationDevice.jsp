@@ -36,15 +36,15 @@
 						<caption>기기대여시작</caption>
 						
 						<tr>
-							<td class="deviceidtd">* 기기ID</td>
+							<td class="devicetd">* 기기ID&nbsp;</td>
 							<td class="deviceinputtd"><input type="text"></td>
 						</tr>
 						<tr>
-							<td>* 사용자ID</td>
+							<td class="devicetd">* 사용자ID&nbsp;</td>
 							<td><input type="text"></td>
 						</tr>
 						<tr>
-							<td colspan="2" id="send"><input type="submit" value="대여시작"></td>
+							<td colspan="2" class="send"><input type="submit" value="대여시작"></td>
 						</tr>
 					</table>
 				</form>
@@ -54,15 +54,15 @@
 					<table class="devicetable">
 						<caption>기기반납완료</caption>
 						<tr>
-							<td class="deviceidtd">* 기기ID</td>
+							<td class="devicetd">* 기기ID&nbsp;</td>
 							<td class="deviceinputtd"><input type="text"></td>
 						</tr>
 						<tr>
-							<td>* 사용자ID</td>
+							<td class="devicetd">* 사용자ID&nbsp;</td>
 							<td><input type="text"></td>
 						</tr>
 						<tr>
-							<td colspan="2" id="send"><input type="submit" value="반납완료"></td>
+							<td colspan="2"  class="send"><input type="submit" value="반납완료"></td>
 						</tr>
 					</table>
 				</form>
