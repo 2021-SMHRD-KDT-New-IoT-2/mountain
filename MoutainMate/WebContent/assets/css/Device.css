@@ -1,4 +1,4 @@
-@charset "utf-8";
+@charset "UTF-8";
 
 @import url(font-awesome.min.css);
 
@@ -12,48 +12,42 @@
 }
 
 body {
-	background: radial-gradient(rgba(49, 49, 49, 0.8), rgba(51, 51, 51, 0.8)),
-		url(../../images/mudengsan.png);
-	background-repeat: no-repeat;
-	background-size: cover;
+	scroll-behavior: smooth;
 }
 
-#page3 {
-	width: 100%;
-	height: 100%;	
-	background-color: whitesmoke;
+a {
+	transition: all .3s;
 }
-
-#page3-left {
-	width: 50%;
-	height: 100%;
-
-	left: 2%;
-	float: left;
-}
-
-#page3-right {
-	width: 50%;
-	height: 100%;
+/*빠른 스크롤*/
+#quickscroll {
+	width: 20px;
+	height: 40px;
 	right: 2%;
-
+	bottom: 10%;
+	position: fixed;
 	float: right;
+	position: fixed;
 }
 
-
-
-section {
+#side_up {
 	width: 100%;
-	height: 200vh;
-	margin: 0;
-	/* %를 사용했을시 body 태그 크기를 조절해야하는 번거로움
-    vh를 사용하면 무시하고 적용함 */
-	/* radial-gradient 배경화면을 살짝 어둡게 해주는 효과
-    두가지 색을 섞음 */
+	height: 50%;
+	top: 0;
+	position: absolute;
+	cursor: pointer;
+}
+
+#side_down {
+	width: 100%;
+	height: 50%;
+	bottom: 0;
+	position: absolute;
+	cursor: pointer;
 }
 
 header {
 	width: 100%;
+	height: 100%;
 	margin: 0 auto;
 	/* 남는공간 20퍼를 자동으로 분배해서 나눠줌 */
 	display: flex;
@@ -95,16 +89,14 @@ nav>ul>li {
 	margin: 0 10px;
 }
 
-#header {
-	height: 100%;
-}
-
 #san_logo {
-	height: 70%;
-	width: 20%;
-	background-image: url(../../images/san_logo.png);
+	top: 1%;
+	height: 35%;
+	width: 15%; background-image : url(../../images/san_logo.png);
 	background-size: contain;
 	background-repeat: no-repeat;
+	position: absolute;
+	background-image: url(../../images/san_logo.png);
 }
 
 #header>nav>ul>li>a {
@@ -117,19 +109,20 @@ nav>ul>li {
 }
 
 #header>nav {
-	top: 2px;
-	position: relative;
+	top: 3%;
+	right: 2%;
+	position: absolute;
 }
 
 main {
-	position: absolute;
+	background: radial-gradient(rgba(49, 49, 49, 0.8), rgba(51, 51, 51, 0.8)),
+		url(../../images/mudengsan.png);
+	background-repeat: no-repeat;
+	background-size: cover;
 	width: 100%;
-	left: 30%;
-	top: 70%;
-	bottom: 40%;
-	text-align: center;
-	transform: translate(-50%, -50%);
-	/* x축으로 -50 y축으로 -50씩 이동 */
+	height: 90%;
+	top: 10%;
+	position: absolute;
 }
 
 th {
@@ -146,6 +139,7 @@ input {
 	padding: 1%;
 	border: 0px;
 	outline: none;
+	float: left;
 }
 
 main>button {
@@ -171,157 +165,49 @@ main>button:hover {
 	background-color: #b9b9b9;
 }
 
-/*회원가입페이지*/
-#joindiv {
-	display: flex;
-	justify-content: center;
-}
 
-#joinform {
+#device-left {
+	position: absolute;
 	width: 50%;
+	height: 75%;
+	left: 0;
+	border: 1px solid black;
 	display: flex;
 	justify-content: center;
+	padding-top: 10%;
 }
 
-#jointable {
-	margin-top : 30%;
-	padding : 2%;
-	border: 1px solid whitesmoke;
-	color: white;
-	width: 60%;
-	text-align: center;
-}
-
-caption{
-	font-weight:1px solid whitesmoke;
-	font-size:40px;
-}
-
-.jointd1 {
-	padding : 1%;
-	width: 40%;
-	text-align: right;
-}
-
-.jointd2 {
-	padding : 1%;
-	margin-left:2%;
+#device-right {
+	position: absolute;
+	width: 50%;
+	height: 75%;
+	right: 0;
+	border: 1px solid black;
 	display: flex;
-	justify-content: left;
+	justify-content: center;
+	padding-top: 10%;
 }
 
-
-/*왼쪽 페이지*/
-#selectroad {
-	width: 90%;
-	height: 80%;
-	border: 0;
-	top: 5%;
-	position: absolute;
-	float: left;
-}
-
-#roadtable {
-	font-weight: bolder;
-	margin-top: 5%;
-	width: 80%;
-	border: 0;
-}
-
-caption {
-	margin-bottom: 5%;
-	font-size: 50px;
-	color: black;
-}
-
-label {
-	font-size: 20px;
-	float: right;
-	margin-right: 10px;
-	color: black;
-}
-
-.search {
-	width: 100%;
-	height: 100%;
-}
-
-.searchbox {
-	height: 40px;
-	width: 100%;
-	border: 1px solid black;
-	background: #ffffff;
-	float: right;
-}
-
-.searchbox>button {
-	height: 100%;
-	border: 0px;
-	outline: none;
-	float: right;
-	background-color: white;
-}
-
-input:-ms-input-placeholder {
-	color: silver
-}
-
-input::-webkit-input-placeholder {
-	color: silver
-}
-
-input::-moz-placeholder {
-	color: silver
-}
-
-#searchM {
-	width: 70%;
-}
-
-#searchR {
-	width: 90%;
-}
-
-#top5 {
-	color: black;
-	font-weight: bolder;
-	border: 1px solid silver;
-	width: 80%;
-	height: 40%;
-	margin-top: 15%;
-	top: 30%;
-	position: absolute;
-}
-
-#line_vertical {
-	height: 100%;
-	left: 50%;
-	position: relative;
-}
-
-/*오른쪽 페이지*/
-#roadimgbox {
-	width: 90%;
-	height: 80%;
-	border: 1px solid black;
-	top: 5%;
-	position: absolute;
-	float: right;
-	position: absolute;
-}
-
-#coursename {
-	margin-top: 2%;
-	margin-left: 3%;
-	color: black;
-	font-size: 30px;
-}
-
-#courselevel {
+.devicetable {
+	left:30%;
 	width: 30%;
-	height: 25%;
-	border: 1px solid black;
-	bottom: 2%;
-	right: 2%;
+	color: whitesmoke;
+	border: 1px solid whitesmoke;
+	position: absolute;
+}
+
+.devicetable>caption{
+	border:1px solid whitesmoke;
+	font-size:20px;
+}
+
+.devicetable>tr>td:nth-child(1){
+	width:30%;
+	left:0;
+	position: absolute;
+}
+.devicetable>tr>td:nth-child(2){
+	width:70%;
+	right:0;
 	position: absolute;
 }

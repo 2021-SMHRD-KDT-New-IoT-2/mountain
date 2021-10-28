@@ -30,7 +30,7 @@
 						<!-- 사용자 로그인시 회원가입 = 마이페이지 로 변경후 페이지 링크 -->
 						<li><a href="MemberInfo.jsp">마이페이지</a></li>
 						<!-- 관리자 로그인시 회원가입=회원관리로 변경 후 페이지로 이동 -->
-						<li><a href="ManagerPage.jsp">관리자페이지</a></li>
+						<li><a href="RegistrationDevice.jsp">관리자페이지</a></li>
 
 						<li class="scrollmoving"><a href="#page2">게시판</a></li>
 						<li class="scrollmoving"><a href="#page3">등산로</a></li>
