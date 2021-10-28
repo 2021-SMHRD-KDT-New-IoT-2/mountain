@@ -158,7 +158,7 @@
 
 		<div id="page3-right">
 			<div id="roadimgbox">
-				<img src="images/mudengRoad.png">
+				<img src="images/roadblack.png">
 				<div id="courselevel">
 					<img src="images/roadlevel.png">
 				</div>
