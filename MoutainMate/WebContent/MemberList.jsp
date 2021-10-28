@@ -17,9 +17,8 @@
 					<ul>
 
 						<li><a href="MainPage.jsp">메인페이지</a></li>
-						<li><a href="#">기기등록</a></li>
-						<li><a href="#">회원정보</a></li>
-						<li><a href="#">등산로관리</a></li>
+						<li><a href="RegistrationDevice.jsp">기기등록</a></li>
+						<li><a href="MemberList.jsp">회원정보</a></li>
 					</ul>
 				</nav>
 			</header>
