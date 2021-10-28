@@ -12,8 +12,8 @@
 
 </head>
 <body>
-		
-	
+
+
 	<section>
 
 		<div id="top_header">
@@ -31,9 +31,9 @@
 
 						<!-- <li><h2><a href="LogOut.jsp">로그아웃</a></h2></li>
 				<li><h2><a href="MemberInfo.jsp">회원정보</a></h2></li> -->
-						<li><a href="#page2">게시판</a></li>
-						<li><a href="#page3">등산로</a></li>
-						<li><a href="#page4">둘러보기</a></li>
+						<li class="scrollmoving"><a href="#page2">게시판</a></li>
+						<li class="scrollmoving"><a href="#page3">등산로</a></li>
+						<li class="scrollmoving"><a href="#page4">둘러보기</a></li>
 						<li><a class="btn trigger" href="#menu">≡</a></li>
 					</ul>
 				</nav>
@@ -199,14 +199,78 @@
 
 
 	</section>
-	
+
 	<!-- 밑부분 -->
 	<section id="page5">
 		<footer id="footer">
-		
-		
-		
-		
+			<div id="page5-left">
+				<div>
+					<!--제품 사진들 넣기-->
+					<img id="footer_side-left" src="images/side_left.png">
+					<img id="footer_side-right" src="images/side_right.png">
+					<!-- 이미지 cover로 넣기 -->
+				</div>
+				<div>
+					<span id="explane"> &nbsp;&nbsp;&nbsp;▶ 우리 제품은 등삭객들의 등산로
+						선호도을 확인 할 수 있으며 등산객의 등산 시작, 완료 시간을 기록하여 방문자 기록 자동 저장됩니다. 더불어 블루투스
+						스피커의 역할이 가능하여 등산객들이 자발적 참여을 유도합니다. 'mountainmate'와 함께 산림 관리에 편리함을
+						더해보세요. </span>
+				</div>
+
+			</div>
+
+			<div id="page5-right">
+
+				<table>
+					<caption id="company">(주)산으로오세영</caption>
+					<tr>
+						<td id="phoneimgtd" rowspan="2"><img id="phoneimg"
+							src="images/phonephoto.png"></td>
+						<td id="phonenum" rowspan="2">대표전화</td>
+						<td class="phonenumber">062-123-4567</td>
+					</tr>
+					<tr>
+						<td class="phonenumber">010-1111-2222</td>
+					</tr>
+					<tr>
+						<td class="companyinfo" colspan="3">월~금 PM 1 ~ PM 5</td>
+					</tr>
+					<tr>
+						<td class="companyinfo" colspan="3">광주광역시 동구 스마트 인재 개발원 B반</td>
+
+					</tr>
+				</table>
+
+
+				<div>
+					<form>
+						<table id="Asktable">
+							<tr>
+								<td id="asktabletd1">이메일</td>
+								<td id="asktabletd2">
+								<input id="writerid" type="text" placeholder="이메일을 입력해주세요."> @
+								<input id="select_email_input" type="text" list="select_email">
+									<datalist id="select_email">
+										<option>직접입력</option>
+										<option value="naver.com">naver.com</option>
+										<option value="daum.net">daum.net</option>
+										<option value="gmail.com">gmail.com</option>
+									</datalist></td>
+							</tr>
+							<tr id="asktexttr">
+								<td colspan="2"><textarea id="asktext">
+                                        문의사항을 남겨주시면 빠르게 연락드립니다.
+                                    </textarea></td>
+							</tr>
+							<tr>
+								<td id="send" colspan="2"><input type="submit" value="보내기">
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+
+			</div>
 		</footer>
 	</section>
 
@@ -214,21 +278,11 @@
 
 
 
-
 	<div id="quickscroll">
 		<a href="#top_header"><img id="side_up" src="images/side_up.png"></a>
-		<a href="#page5"><img id="side_down" src="images/side_down.png"></a>
+		<a class="scrollmoving" href="#page5"><img id="side_down"
+			src="images/side_down.png"></a>
 	</div>
-
-
-
-
-
-
-
-
-
-
 
 
 
