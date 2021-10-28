@@ -20,8 +20,8 @@
 			<nav>
 				<ul>
 					<li><a href="MainPage.jsp">메인페이지</a></li>
-					<li><a href="#RegistrationDevice">기기등록</a></li>
-					<li><a href="#MemberInfo.jsp">회원정보관리</a></li>
+					<li><a href="RegistrationDevice.jsp">기기등록</a></li>
+					<li><a href="MemberList.jsp">회원정보관리</a></li>
 				</ul>
 			</nav>
 		</header>
