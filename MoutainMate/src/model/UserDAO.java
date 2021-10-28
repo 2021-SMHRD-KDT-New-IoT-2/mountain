@@ -90,23 +90,21 @@ public class UserDAO {
 		try {
 			connection();
 
-			String sql = "select user_name, user_num from web_member where id=? and pw=?";
+			String sql = "select * from user_table where user_id=? and pw=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			psmt.setString(2, pw);
 
 			rs = psmt.executeQuery();
-			boolean check = rs.next();
+			
 
-			if (check == true) {
+			if (rs.next()) {
 				System.out.println("로그인성공");
 
-				String get_id = rs.getString("id");
-				String get_phoneNumber = rs.getString("user_num");
+				String get_id = rs.getString("user_id");
+				String get_name = rs.getString("user_name");
 				
-
-				vo = new UserVO(get_id, get_phoneNumber);
-
+				UserVO vo=new UserVO(get_id, get_name);
 			} else {
 
 				System.out.println("로그인실패");
@@ -125,13 +123,13 @@ public class UserDAO {
 	}
 	
 	//회원 수정
-	public int update( String id,String pw, String name, String phoneNumber, String birth, String gender) {
+	public int update( String id,String pw, String name, String phoneNumber) {
 		
 		try {
 
 			connection();
 			// 3. 실행할 sql문 정의 (실행할때마다 값이 달라지는부분은 ?적어두면 됨
-			String sql = "update user_table  set pw =?, name=?, phoneNumber=?, birth=?, gender=? where id=?";
+			String sql = "update user_table  set pw =?, user_name=?, user_num=?, where user_id=?";
 
 			// 4. sql 실행객체(PreparedStatemnent)생성
 			psmt = conn.prepareStatement(sql);
@@ -140,8 +138,8 @@ public class UserDAO {
 			psmt.setString(1, pw);
 			psmt.setString(2, name);
 			psmt.setString(3, phoneNumber);
-			psmt.setString(4, gender);
-			psmt.setString(5, id);
+			psmt.setString(4, id);
+			
 
 			// 6. sql문 실행 후 결과 처리
 			cnt = psmt.executeUpdate();

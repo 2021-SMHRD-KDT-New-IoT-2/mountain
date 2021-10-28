@@ -31,9 +31,9 @@ request.setCharacterEncoding("euc-kr");
 			// 세션 값 설정
 			session.setAttribute("User", vo);
 			
-			response.sendRedirect("LoginS.html");
+			response.sendRedirect("MainPage.jsp");
 		}else {
-			response.sendRedirect("LoginF.html");
+			response.sendRedirect("MainPage.jsp");
 		}
 		
 }
