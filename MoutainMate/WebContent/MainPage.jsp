@@ -158,12 +158,9 @@
 
 		<div id="page3-right">
 			<div id="roadimgbox">
-				<p id="coursename">
-					<무등산16코스>
-				</p>
-				<img src="images/무등산등산로지도.png">
+				<img src="images/mudengRoad.png">
 				<div id="courselevel">
-					<img src="images/등산로 난이도.png">
+					<img src="images/roadlevel.png">
 				</div>
 			</div>
 		</div>
