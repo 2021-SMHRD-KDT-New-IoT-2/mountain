@@ -31,10 +31,7 @@
 						<li><a href="MemberInfo.jsp">마이페이지</a></li>
 						<!-- 관리자 로그인시 회원가입=회원관리로 변경 후 페이지로 이동 -->
 						<li><a href="RegistrationDevice.jsp">관리자페이지</a></li>
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-2/mountain.git
 						<li class="scrollmoving"><a href="#page2">게시판</a></li>
 						<li class="scrollmoving"><a href="#page3">등산로</a></li>
 						<li class="scrollmoving"><a href="#page4">둘러보기</a></li>
