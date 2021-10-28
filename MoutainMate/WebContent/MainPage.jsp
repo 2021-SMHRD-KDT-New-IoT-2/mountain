@@ -64,6 +64,12 @@
 				<img id="mainlogo" src="images/mainLogo.png"> <img
 					id="underbar" src="images/underbar.png">
 			</div>
+			<div id="introduce">
+				<span>
+					
+				</span>
+				
+			</div>
 		</main>
 
 
