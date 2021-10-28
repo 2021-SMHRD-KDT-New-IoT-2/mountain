@@ -23,14 +23,15 @@
 				<nav>
 					<ul>
 
-						<li><a href="#menu">로그인</a> <!--<a href="Login.jsp">로그인</a>  -->
-						</li>
+						<li><a href="#menu">로그인</a></li>
+						<!-- 사용자,관리자 둘다 로그인시 로그아웃 -->
+						<li><a href="#menu">로그아웃</a></li>
 						<li><a href="Join.jsp">회원가입</a></li>
+						<!-- 사용자 로그인시 회원가입 = 마이페이지 로 변경후 페이지 링크 -->
+						<li><a href="MemberInfo.jsp">마이페이지</a></li>
 						<!-- 관리자 로그인시 회원가입=회원관리로 변경 후 페이지로 이동 -->
 						<li><a href="ManagerPage.jsp">관리자페이지</a></li>
 
-						<!-- <li><h2><a href="LogOut.jsp">로그아웃</a></h2></li>
-				<li><h2><a href="MemberInfo.jsp">회원정보</a></h2></li> -->
 						<li class="scrollmoving"><a href="#page2">게시판</a></li>
 						<li class="scrollmoving"><a href="#page3">등산로</a></li>
 						<li class="scrollmoving"><a href="#page4">둘러보기</a></li>
