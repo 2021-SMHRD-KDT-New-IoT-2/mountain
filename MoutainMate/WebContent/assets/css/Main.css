@@ -779,6 +779,10 @@ input::-moz-placeholder {
 	font-size: 30px;
 }
 
+#roadimgbox>img{
+	position: absolute;
+}
+
 #courselevel {
 	width: 30%;
 	height: 25%;
@@ -786,6 +790,10 @@ input::-moz-placeholder {
 	bottom: 2%;
 	right: 2%;
 	position: absolute;
+}
+
+#courselevel>img{
+	position:absolute;
 }
 
 /*page4*/

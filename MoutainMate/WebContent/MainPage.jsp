@@ -161,8 +161,9 @@
 				<p id="coursename">
 					<무등산16코스>
 				</p>
+				<img src="images/무등산등산로지도.png">
 				<div id="courselevel">
-					<img>
+					<img src="images/등산로 난이도.png">
 				</div>
 			</div>
 		</div>
