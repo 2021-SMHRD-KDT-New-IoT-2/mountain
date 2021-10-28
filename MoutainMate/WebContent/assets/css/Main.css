@@ -143,7 +143,6 @@ header {
 	font-size:20px;
 	padding: 2px;
 	transition: all .3s;
-	
 }
 
 #mainbtn:hover {
@@ -718,6 +717,7 @@ label {
 
 .searchbox>button {
 	height: 100%;
+	width:10%;
 	border: 0px;
 	outline: none;
 	float: right;

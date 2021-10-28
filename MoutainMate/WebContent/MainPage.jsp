@@ -64,17 +64,15 @@
 				<img id="mainlogo" src="images/mainLogo.png"> <img
 					id="underbar" src="images/underbar.png">
 			</div>
-			
-			
+
+
 			<div id="introduce">
-				<span>
-					친구들과 함께 등산로를 탐색해 보세요.<br>
-					완주한 등산로를 친구들과 공유하며 즐겨보세요.<br>
-					등산이 더울 즐거워 집니다.
-				</span>
-				<img src="images/main_rightside.png">
-				<button id="mainbtn" onclick="location.href='#page3'">등산로 탐색하기</button>
-				
+				<span> 친구들과 함께 등산로를 탐색해 보세요.<br> 완주한 등산로를 친구들과 공유하며
+					즐겨보세요.<br> 등산이 더울 즐거워 집니다.
+				</span> <img src="images/main_rightside.png">
+				<button id="mainbtn" onclick="location.href='#page3'">등산로
+					탐색하기</button>
+
 			</div>
 		</main>
 
@@ -95,37 +93,39 @@
 	<section id="page3">
 		<div id="page3-left">
 			<div id="selectroad">
-				<table id="roadtable">
-					<caption>
-						<b>랜선 등산로 탐방</b>
-					</caption>
-					<tr>
-						<td><label for="searchM">산</label></td>
-						<td>
-							<div class="searchbox">
-								<input id="searchM" type="text" placeholder="검색어를 입력해주세요.">
-								<button>
-									<img class="search" src="images/search.png">
-								</button>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td><label for="searchR">등산로</label></td>
-						<td>
-							<div class="searchbox">
-								<input id="searchR" type="text" list="mroad"
-									placeholder="등산로를 선택해주세요.">
-								<datalist id="mroad">
-									<option value="1">무등1</option>
-									<option value="2">무등2</option>
-									<option value="3">무등3</option>
-									<option value="4">무등4</option>
-								</datalist>
-							</div>
-						</td>
-					</tr>
-				</table>
+				<form>
+					<table id="roadtable">
+						<caption>
+							<b>랜선 등산로 탐방</b>
+						</caption>
+						<tr>
+							<td><label for="searchM">산</label></td>
+							<td>
+								<div class="searchbox">
+									<input id="searchM" type="text" placeholder="검색어를 입력해주세요.">
+									<button>
+										<img class="search" src="images/search.png">
+									</button>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td><label for="searchR">등산로</label></td>
+							<td>
+								<div class="searchbox">
+									<input id="searchR" type="text" list="mroad"
+										placeholder="등산로를 선택해주세요.">
+									<datalist id="mroad">
+										<option value="1">무등1</option>
+										<option value="2">무등2</option>
+										<option value="3">무등3</option>
+										<option value="4">무등4</option>
+									</datalist>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</form>
 
 				<table id="top5">
 					<caption>
@@ -173,20 +173,22 @@
 	<section id="page4">
 		<div id="page4inner">
 			<div id="page4-up">
-				<table id="searchIdtable">
-					<tr>
-						<td id="idtd1"><label id="idlabel" for="searchId">아이디
-								검색</label></td>
-						<td id="idtd2">
-							<div class="searchidbox">
-								<input id="searchId" type="text" placeholder="검색할 아이디를 입력해주세요.">
-								<button>
-									<img class="search" src="images/search.png">
-								</button>
-							</div>
-						</td>
-					</tr>
-				</table>
+				<form>
+					<table id="searchIdtable">
+						<tr>
+							<td id="idtd1"><label id="idlabel" for="searchId">아이디
+									검색</label></td>
+							<td id="idtd2">
+								<div class="searchidbox">
+									<input id="searchId" type="text" placeholder="검색할 아이디를 입력해주세요.">
+									<button>
+										<img class="search" src="images/search.png">
+									</button>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</form>
 			</div>
 
 
@@ -219,8 +221,8 @@
 			<div id="page5-left">
 				<div>
 					<!--제품 사진들 넣기-->
-					<img id="footer_side-left" src="images/side_left.png">
-					<img id="footer_side-right" src="images/side_right.png">
+					<img id="footer_side-left" src="images/side_left.png"> <img
+						id="footer_side-right" src="images/side_right.png">
 					<!-- 이미지 cover로 넣기 -->
 				</div>
 				<div>
@@ -260,9 +262,9 @@
 						<table id="Asktable">
 							<tr>
 								<td id="asktabletd1">이메일</td>
-								<td id="asktabletd2">
-								<input id="writerid" type="text" placeholder="이메일을 입력해주세요."> @
-								<input id="select_email_input" type="text" list="select_email">
+								<td id="asktabletd2"><input id="writerid" type="text"
+									placeholder="이메일을 입력해주세요."> @ <input
+									id="select_email_input" type="text" list="select_email">
 									<datalist id="select_email">
 										<option>직접입력</option>
 										<option value="naver.com">naver.com</option>
