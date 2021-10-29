@@ -157,7 +157,7 @@ public class UserDAO {
 
 			connection();
 			// 3. 실행할 sql문 정의 (실행할때마다 값이 달라지는부분은 ?적어두면 됨
-			String sql = "update user_table  set pw =?, user_name=?, user_num=?, where user_id=?";
+			String sql = "update user_table  set pw =?, user_name=?, user_num=?, where pw=?";
 
 			// 4. sql 실행객체(PreparedStatemnent)생성
 			psmt = conn.prepareStatement(sql);

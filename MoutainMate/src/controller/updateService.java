@@ -20,12 +20,15 @@ public class updateService extends HttpServlet {
 		request.setCharacterEncoding("euc-kr"); //요청데이터의 인코딩 방식 지정
 		
 		HttpSession session=request.getSession(); //세션 객체 생성
-		UserVO vo=(UserVO)session.getAttribute("member");//현재 로그인한 사용자의(수정전) 정보
+		UserVO vo=(UserVO)session.getAttribute("User");//현재 로그인한 사용자의(수정전) 정보
+		String id =vo.getid(); //현재 로그인한 id
 		
 		//수정에 사용할 정보
 		String pw=request.getParameter("pw");
 		String name=request.getParameter("name");
 		String phoneNumber=request.getParameter("phoneNumber");
+		String birth= request.getParameter("birth");
+		String gender= request.getParameter("gender");
 		
 		
 		
@@ -34,6 +37,16 @@ public class updateService extends HttpServlet {
 		// 수정 실패일 경우에는 콘솔 -> "수정 실패!"
 		
 		UserDAO dao = new UserDAO();
+		int cnt=dao.update(id, pw, name, phoneNumber);
+		if(cnt>0) {
+			System.out.println("수정 성공");
+			UserVO vo2 = new UserVO(pw, name, phoneNumber, birth, gender);
+			session.setAttribute("User", vo2);
+			response.sendRedirect("main.jsp");
+		}else {
+			System.out.println("수정실패");
+			response.sendRedirect("MemberInfo.jsp");
+		}
 		
 }
 
