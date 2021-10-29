@@ -52,5 +52,32 @@ public class DeviceDAO {
 		}
 	}
 	
-	
+public int join(String id, String pw, String name, String phoneNumber, String birth, String gender) {
+		
+		try {
+			connection();
+
+			String sql = "insert into user_table values(?,?,?,?,?,?,?)";
+
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, id);
+			psmt.setString(3, pw);
+			psmt.setString(2, name);
+			psmt.setString(4, phoneNumber);
+			psmt.setString(5, birth);
+			psmt.setString(6, gender);
+			psmt.setInt(7,0);
+			
+
+			cnt = psmt.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("가입실패");
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
 }
