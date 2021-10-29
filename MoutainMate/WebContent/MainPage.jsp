@@ -14,7 +14,7 @@
 </head>
 <body>
 	<%
-		UserVO uvo = (UserVO)session.getAttribute("User");
+		UserVO vo = (UserVO)session.getAttribute("User");
 	%>
 
 	<section>
@@ -25,7 +25,7 @@
 
 				<nav>
 					<ul>
-						<%if (uvo==null){ %>
+						<%if (vo==null){ %>
 						<li><a href="#menu">로그인</a></li>
 						
 						<%} else { %>
@@ -34,12 +34,12 @@
 						<li><a href="logoutService">로그아웃</a></li>
 						<%} %>
 						
-						<%if (uvo==null){%>
+						<%if (vo==null){%>
 						<li><a href="Join.jsp">회원가입</a></li>
 						<!-- 사용자 로그인시 회원가입 = 마이페이지 로 변경후 페이지 링크 -->
-						<%} else if (uvo != null){ %>
+						<%} else if (vo != null){ %>
 						<li><a href="MemberInfo.jsp">마이페이지</a></li>
-						<%} else if (uvo.getmgr().equals("1")){%>
+						<%} else if (vo.getmgr().equals("1")){%>
 						<!-- 관리자 로그인시 회원가입=회원관리로 변경 후 페이지로 이동 -->
 						<li><a href="RegistrationDevice.jsp">관리자페이지</a></li>
 						<%}  %>

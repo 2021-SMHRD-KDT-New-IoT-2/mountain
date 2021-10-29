@@ -14,10 +14,11 @@ import model.UserVO;
 
 @WebServlet("/loginService")
 public class loginService extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-request.setCharacterEncoding("euc-kr");
+
+	protected void service(HttpServletRequest request, HttpServletResponse response) 
+	throws ServletException, IOException {
+
 		
 		String id =request.getParameter("id");
 		String pw =request.getParameter("pw");
@@ -31,14 +32,14 @@ request.setCharacterEncoding("euc-kr");
 		if(vo != null) {
 			//技记按眉积己
 			HttpSession session =request.getSession();
+			
 			// 技记 蔼 汲沥
 			session.setAttribute("User", vo);
 			
-			System.out.println("logS");
 			response.sendRedirect("MainPage.jsp");
 		}else {
 			response.sendRedirect("MainPage.jsp");
-			System.out.println("logF");
+			
 		}
 		
 }

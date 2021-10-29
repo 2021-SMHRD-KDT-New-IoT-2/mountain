@@ -11,10 +11,11 @@ public class UserDAO {
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	UserVO vo =null;
-	
+	int cnt = 0;	
 	ArrayList<UserVO> arr =null;
-	int cnt = 0;
-
+	
+	
+	
 	public void connection() { // db연결
 		try {
 			// 1. 드라이브 동적로딩
@@ -43,9 +44,13 @@ public class UserDAO {
 			if(rs!=null) {
 				rs.close();
 			}
+			if(rs!=null) {
 			psmt.close();
+			}
+			if(rs!=null) {
 			conn.close();
-			} catch (Exception e2) {
+			} 
+		} catch (Exception e2) {
 			e2.printStackTrace();
 		}
 	}
@@ -93,13 +98,13 @@ public class UserDAO {
 
 			rs = psmt.executeQuery();
 			
-
+			
 			if (rs.next()) {
 				System.out.println("로그인성공");
-				String getid =rs.getString("id");
-				String getpw =rs.getString("pw");
+				String get_id =rs.getString("id");
+				String get_pw =rs.getString("pw");
 				
-				vo = new UserVO(getid,getpw);
+				vo = new UserVO(get_id,get_pw);
 			} else {
 
 				System.out.println("로그인실패");
