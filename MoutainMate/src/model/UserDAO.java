@@ -259,7 +259,9 @@ public class UserDAO {
 
 				System.out.println(get_birth);
 				System.out.println(get_mgr);
-
+				
+				
+				
 				if (get_gender.equals("0")) {// 남자
 					get_gender = "man";
 				} else if (get_gender.equals("1")) {
@@ -268,13 +270,14 @@ public class UserDAO {
 					get_gender = "";
 				}
 
-				if (get_mgr != null) {
+				if (get_mgr.equals("1")) {
 					get_mgr = "매니저";
 				} else {
 					get_mgr = "";
 				}
 
-				if (get_birth == null) {
+				if (get_birth!=null) {
+				}else {
 					get_birth = "";
 				}
 

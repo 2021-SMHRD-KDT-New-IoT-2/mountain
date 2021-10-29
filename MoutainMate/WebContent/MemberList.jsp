@@ -40,7 +40,7 @@
 						<td>매니저여부</td>
 					</tr>
 					<%
-						UserDAO dao = new UserDAO();
+					UserDAO dao = new UserDAO();
 					ArrayList<UserVO> al = dao.selectAll();
 					for (int i = 0; i < al.size(); i++) {
 						UserVO vo = al.get(i);
