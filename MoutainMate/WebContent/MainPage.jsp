@@ -16,13 +16,6 @@
 	<%
 		UserVO uvo = (UserVO)session.getAttribute("User");
 	%>
-	<%
-		if (uvo==null){
-			System.out.print("성공");
-		} else {
-			System.out.print("실패");
-		}
-	%>
 
 	<section>
 
@@ -32,8 +25,9 @@
 
 				<nav>
 					<ul>
-						<%if (uvo==null){ 	System.out.print("uvoF");%>
+						<%if (uvo==null){ %>
 						<li><a href="#menu">로그인</a></li>
+						
 						<%} else { %>
 					
 						<!-- 사용자,관리자 둘다 로그인시 로그아웃 -->

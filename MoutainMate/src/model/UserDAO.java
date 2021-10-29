@@ -96,11 +96,10 @@ public class UserDAO {
 
 			if (rs.next()) {
 				System.out.println("로그인성공");
-
-				String get_id = rs.getString("user_id");
-				String get_name = rs.getString("user_name");
+				String getid =rs.getString("id");
+				String getpw =rs.getString("pw");
 				
-				UserVO vo=new UserVO(get_id, get_name);
+				vo = new UserVO(getid,getpw);
 			} else {
 
 				System.out.println("로그인실패");

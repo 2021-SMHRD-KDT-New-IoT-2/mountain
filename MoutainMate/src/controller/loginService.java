@@ -22,8 +22,11 @@ request.setCharacterEncoding("euc-kr");
 		String id =request.getParameter("id");
 		String pw =request.getParameter("pw");
 		
+		
 		UserDAO dao = new UserDAO();
 		UserVO vo =dao.login(id, pw);
+		
+		System.out.println(vo);
 		
 		if(vo != null) {
 			//技记按眉积己
@@ -31,9 +34,11 @@ request.setCharacterEncoding("euc-kr");
 			// 技记 蔼 汲沥
 			session.setAttribute("User", vo);
 			
+			System.out.println("logS");
 			response.sendRedirect("MainPage.jsp");
 		}else {
 			response.sendRedirect("MainPage.jsp");
+			System.out.println("logF");
 		}
 		
 }
