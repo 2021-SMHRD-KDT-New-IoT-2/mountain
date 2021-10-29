@@ -60,3 +60,29 @@ public class UserVO {
 		public String getmgr() {
 			return mgr;
 		}
+		
+		//회원수정용
+		public UserVO(String pw, String name, String phoneNumber, String birth, String gender) {
+			this.pw= pw;
+			this.name=name;
+			this.phoneNumber=phoneNumber;
+			this.birth = birth;
+			this.gender = gender;
+		}
+		
+		public String get_pw() {
+			return pw;
+		}
+		public String get_name() {
+			return name;
+		}
+		public String get_phoneNumber() {
+			return phoneNumber;
+		}
+		public String get_birth() {
+			return birth;
+		}
+		public String get_gender() {
+			return gender;
+		}
+	}
