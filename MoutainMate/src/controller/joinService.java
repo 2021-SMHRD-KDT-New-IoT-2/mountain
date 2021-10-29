@@ -38,12 +38,7 @@ public class joinService extends HttpServlet {
 		
 		response.setContentType("text/html;charset=euc-kr");
 		
-		if(id.equals("")) {
-			out.println("<script>");
-			out.println("alert('Please enter your Email');");
-			out.println("history.back();");
-			out.println("</script>");
-		}else {
+		
 			UserDAO dao = new UserDAO();
 			int cnt =dao.join(id, pw, name, phoneNumber, birth, gender);
 		
@@ -67,8 +62,8 @@ public class joinService extends HttpServlet {
 			}
 		
 		
-		}
 		
+	
 	}
 
 }

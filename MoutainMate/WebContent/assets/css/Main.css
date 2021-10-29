@@ -1,13 +1,12 @@
-@charset "UTF-8";
+@charset "euc-kr";
 
-@import url(font-awesome.min.css);
 
 @import
 	url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic")
 	;
 
 @font-face {
-    font-family: 'ë©”ì¸';
+    font-family: '¸ŞÀÎ';
     src: url('../srcs/fonts/NeonPlanetDisplay.ttf') format('truetype');
 }
 
@@ -29,7 +28,7 @@ a {
 	transition: all .3s;
 	text-decoration: none;
 }
-/*ë¹ ë¥¸ ìŠ¤í¬ë¡¤*/
+/*ºü¸¥ ½ºÅ©·Ñ*/
 #quickscroll {
 	width: 20px;
 	height: 40px;
@@ -60,21 +59,21 @@ section {
 	width: 100%;
 	height: 100vh;
 	margin: 0;
-	/* %ë¥¼ ì‚¬ìš©í–ˆì„ì‹œ body íƒœê·¸ í¬ê¸°ë¥¼ ì¡°ì ˆí•´ì•¼í•˜ëŠ” ë²ˆê±°ë¡œì›€
-    vhë¥¼ ì‚¬ìš©í•˜ë©´ ë¬´ì‹œí•˜ê³  ì ìš©í•¨ */
-	/* radial-gradient ë°°ê²½í™”ë©´ì„ ì‚´ì§ ì–´ë‘¡ê²Œ í•´ì£¼ëŠ” íš¨ê³¼
-    ë‘ê°€ì§€ ìƒ‰ì„ ì„ìŒ */
+	/* %¸¦ »ç¿ëÇßÀ»½Ã body ÅÂ±× Å©±â¸¦ Á¶ÀıÇØ¾ßÇÏ´Â ¹ø°Å·Î¿ò
+    vh¸¦ »ç¿ëÇÏ¸é ¹«½ÃÇÏ°í Àû¿ëÇÔ */
+	/* radial-gradient ¹è°æÈ­¸éÀ» »ìÂ¦ ¾îµÓ°Ô ÇØÁÖ´Â È¿°ú
+    µÎ°¡Áö »öÀ» ¼¯À½ */
 }
 
 header {
 	width: 100%;
 	margin: 0 auto;
-	/* ë‚¨ëŠ”ê³µê°„ 20í¼ë¥¼ ìë™ìœ¼ë¡œ ë¶„ë°°í•´ì„œ ë‚˜ëˆ ì¤Œ */
+	/* ³²´Â°ø°£ 20ÆÛ¸¦ ÀÚµ¿À¸·Î ºĞ¹èÇØ¼­ ³ª´²ÁÜ */
 	display: flex;
 	justify-content: space-between;
-	/* íƒœê·¸ì˜ ìœ„ì¹˜ë¥¼ ì–‘ëìœ¼ë¡œ ì´ë™ */
+	/* ÅÂ±×ÀÇ À§Ä¡¸¦ ¾ç³¡À¸·Î ÀÌµ¿ */
 	align-items: center;
-	/* ì˜ì—­ì˜ ìˆ˜ì§ë°©í–¥ (ìœ„ì•„ë˜ ì¤‘ì•™ìœ¼ë¡œ ìœ„ì¹˜ì‹œì¼œì¤Œ) */
+	/* ¿µ¿ªÀÇ ¼öÁ÷¹æÇâ (À§¾Æ·¡ Áß¾ÓÀ¸·Î À§Ä¡½ÃÄÑÁÜ) */
 	font
 }
 
@@ -104,7 +103,7 @@ header {
 	left: 0;
 }
 
-/*main ì†Œê°œê¸€*/
+/*main ¼Ò°³±Û*/
 #introduce {
 	width: 80%;
 	height: 20%;
@@ -213,29 +212,29 @@ input {
 }
 
 main>button {
-	/* ë²„íŠ¼ ë°°ê²½ìƒ‰ ì œê±° */
+	/* ¹öÆ° ¹è°æ»ö Á¦°Å */
 	background: none;
-	/* ë²„íŠ¼ìœ„ì— ì˜¬ë¦´ë•Œ ì»¤ì„œ */
+	/* ¹öÆ°À§¿¡ ¿Ã¸±¶§ Ä¿¼­ */
 	cursor: pointer;
-	/* ê²½ê³„ì„  ì œê±° */
+	/* °æ°è¼± Á¦°Å */
 	outline: none;
-	/* ê²½ê²Œì„  í¬ê¸° í°ìƒ‰ */
+	/* °æ°Ô¼± Å©±â Èò»ö */
 	border: 2px solid white;
-	/* ë²„íŠ¼ ì•ˆ ìƒ‰ê¹” */
+	/* ¹öÆ° ¾È »ö±ò */
 	color: white;
-	/* ë²„íŠ¼ ê²½ê³„ì„  ë‘¥ê¸€ê²Œ */
+	/* ¹öÆ° °æ°è¼± µÕ±Û°Ô */
 	border-radius: 20px;
-	/* ê²½ê³„ì„  ê±°ë¦¬ ì¦ê°€ ìœ„ ì•„ë˜ë¡œ */
+	/* °æ°è¼± °Å¸® Áõ°¡ À§ ¾Æ·¡·Î */
 	padding: 15px 20px;
-	/* ëª¨ë“  ë³€í™” ì‘ì—…ì„ 0.5ì´ˆ ê±¸ë¦¬ê²Œ */
+	/* ¸ğµç º¯È­ ÀÛ¾÷À» 0.5ÃÊ °É¸®°Ô */
 	transition: all 1s;
 }
-/* ë²„íŠ¼ì— ì˜¬ë ¸ì„ë•Œ ìƒ‰ê¹” ë³€í™” */
+/* ¹öÆ°¿¡ ¿Ã·ÈÀ»¶§ »ö±ò º¯È­ */
 main>button:hover {
 	background-color: #b9b9b9;
 }
 
-/*íšŒì›ê°€ì…í˜ì´ì§€*/
+/*È¸¿ø°¡ÀÔÆäÀÌÁö*/
 #joindiv {
 	display: flex;
 	justify-content: center;
@@ -672,7 +671,7 @@ body.is-menu-visible #menu .inner {
 	float: right;
 }
 
-/*ì™¼ìª½ í˜ì´ì§€*/
+/*¿ŞÂÊ ÆäÀÌÁö*/
 #selectroad {
 	width: 90%;
 	height: 80%;
@@ -761,7 +760,7 @@ input::-moz-placeholder {
 	position: relative;
 }
 
-/*ì˜¤ë¥¸ìª½ í˜ì´ì§€*/
+/*¿À¸¥ÂÊ ÆäÀÌÁö*/
 #roadimgbox {
 	width: 90%;
 	height: 85%;
@@ -883,7 +882,7 @@ input::-moz-placeholder {
 	width: 70%;
 }
 
-/*ì•„ë˜í˜ì´ì§€*/
+/*¾Æ·¡ÆäÀÌÁö*/
 #down-left {
 	display: inline;
 	width: 50%;
