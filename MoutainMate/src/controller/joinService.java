@@ -30,7 +30,11 @@ public class joinService extends HttpServlet {
 		String phoneNumber = request.getParameter("phoneNumber");
 		String birth = request.getParameter("birth");
 		String gender = request.getParameter("gender");
+		
+		
 		System.out.println( id + " " + pw + " " + name + " " + phoneNumber + " " + birth + " " + gender );
+		
+		RequestDispatcher rd=null;
 		
 		response.setContentType("text/html;charset=euc-kr");
 		
@@ -41,12 +45,12 @@ public class joinService extends HttpServlet {
 			out.println("</script>");
 		}else {
 			UserDAO dao = new UserDAO();
-			int cnt =dao.join(id, pw, name, phoneNumber, birth,Integer.parseInt(gender));
+			int cnt =dao.join(id, pw, name, phoneNumber, birth, gender);
 		
 			if(cnt>0) {
 				System.out.println("가입성공");
 				//forward 방식으로 페이지 이동
-				RequestDispatcher rd=request.getRequestDispatcher("MainPage.jsp");
+				rd=request.getRequestDispatcher("MainPage.jsp");
 				
 				//request영역에 기억해야할 데이터 설정
 				request.setAttribute("id", id);
@@ -58,10 +62,7 @@ public class joinService extends HttpServlet {
 				//response.sendRedirect("join_success.jsp?email="+email);
 			}else {
 				System.out.println("가입실패");
-				out.println("<script>");
-				out.println("alert('가입에 실패하였습니다.');");
-				out.println("history.back();");
-				out.println("</script>");
+
 				response.sendRedirect("MainPage.jsp");
 			}
 		
