@@ -274,7 +274,7 @@ public class UserDAO {
 					get_mgr = "";
 				}
 
-				if (get_mgr == null) {
+				if (get_birth == null) {
 					get_birth = "";
 				}
 
