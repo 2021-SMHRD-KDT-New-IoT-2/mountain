@@ -15,6 +15,7 @@
 <body>
 	<%
 		UserVO vo = (UserVO)session.getAttribute("User");
+	
 	%>
 
 	<section>
@@ -27,22 +28,21 @@
 					<ul>
 						<%if (vo==null){ %>
 						<li><a href="#menu">로그인</a></li>
-						
-						<%} else { %>
-					
+						<li><a href="Join.jsp">회원가입</a></li>						
+						<%} else {
+							if(vo.getmgr().equals("0")) {%>
 						<!-- 사용자,관리자 둘다 로그인시 로그아웃 -->
 						<li><a href="logoutService">로그아웃</a></li>
-						<%} %>
-						
-						<%if (vo==null){%>
-						<li><a href="Join.jsp">회원가입</a></li>
-						<!-- 사용자 로그인시 회원가입 = 마이페이지 로 변경후 페이지 링크 -->
-						<%} else if (vo != null){ %>
 						<li><a href="MemberInfo.jsp">마이페이지</a></li>
-						<%} else if (vo.getmgr().equals("1")){%>
-						<!-- 관리자 로그인시 회원가입=회원관리로 변경 후 페이지로 이동 -->
-						<li><a href="RegistrationDevice.jsp">관리자페이지</a></li>
-						<%}  %>
+						<%} else if(vo.getmgr().equals("1")){%>
+							<li><a href="RegistrationDevice.jsp">관리자페이지</a></li>
+						<%} }%>
+						
+						
+						<!-- 사용자 로그인시 회원가입 = 마이페이지 로 변경후 페이지 링크 -->
+						
+					
+						
 
 						<li class="scrollmoving"><a href="#page2">게시판</a></li>
 						<li class="scrollmoving"><a href="#page3">등산로</a></li>
