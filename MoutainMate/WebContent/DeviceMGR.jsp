@@ -69,8 +69,8 @@
 							</datalist></td>
 					</tr>
 					<tr>
-						<td colspan="2" id="send"><input type="submit" class="btn"
-							value="기기등록"></td>
+						<td colspan="2" id="send"><input type="button" class="btn"
+							value="기기등록" onClick="RegiSuccess()"></td>
 					</tr>
 				</table>
 			</form>
@@ -113,6 +113,27 @@
 		
 		
 		function deviceRegi(){
+			var p_id = $("#input_id").val();
+			var m_id = $("#select_mountain").val();
+									
+			$.ajax({
+				type : "post", // 데이터 전송 받식
+				data : {
+					"deviceid" : p_id,
+					"mountainid":m_id
+				}, // 전송하는 데이터
+				url : "deviceRegiService", //데이터를 전송하는 (요청하는) 서버페이지 url
+				dataType : "text", //응답데이터의 형식
+				success : function(data) {
+					alert("등록완료");
+				},
+				error : function() {
+					alert("통신실패");
+				}
+			});
+		}
+		
+		function RegiSuccess(){
 			var input = $("#input_id").val();
 			$.ajax({
 				type : "post", // 데이터 전송 받식
@@ -124,8 +145,9 @@
 				success : function(data) {
 					if (data == "true") {
 						$("#sp_result").html("이미 사용중인 id입니다.");
+						alert("중복된 아이디가 존재합니다.");
 					} else {
-						$("#sp_result").html("사용가능한 id 입니다.");
+						deviceRegi();
 					}
 				},
 				error : function() {

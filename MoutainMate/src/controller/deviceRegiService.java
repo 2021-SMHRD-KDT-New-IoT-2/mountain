@@ -22,14 +22,14 @@ public class deviceRegiService extends HttpServlet {
 	
 		request.setCharacterEncoding("euc-kr");
 		
-		String p_id = request.getParameter("deviceid");
-		String m_id = request.getParameter("mountainid");
+		String deviceid = request.getParameter("deviceid");
+		String mountainid = request.getParameter("mountainid");
 		
 		
 		response.setContentType("text/html;charset=euc-kr");
 		
 		DeviceDAO dao = new DeviceDAO();
-		int cnt =dao.registration(p_id,m_id);
+		int cnt =dao.registration(deviceid,mountainid);
 	
 		if(cnt>0) {
 			System.out.println("서블릿 :기기등록 성공");
@@ -37,7 +37,7 @@ public class deviceRegiService extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("DeviceMGR.jsp");
 			
 			//request영역에 기억해야할 데이터 설정
-			request.setAttribute("p_id", p_id);
+			request.setAttribute("p_id", deviceid);
 			
 			// 페이지 이동할 시 request, response 객체 전달
 			rd.forward(request, response);
