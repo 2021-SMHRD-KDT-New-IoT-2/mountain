@@ -101,7 +101,7 @@ public class UserDAO {
 			
 			if (rs.next()) {
 				System.out.println("로그인성공");
-				String get_id =rs.getString("id");
+				String get_id =rs.getString("USER_ID");
 				String get_pw =rs.getString("pw");
 				
 				vo = new UserVO(get_id,get_pw);

@@ -23,8 +23,10 @@ public class loginService extends HttpServlet {
 		String id =request.getParameter("id");
 		String pw =request.getParameter("pw");
 		
+		System.out.println("main에서 dao로 넘어온 값 : "+id+" "+pw);
 		
 		UserDAO dao = new UserDAO();
+		
 		UserVO vo =dao.login(id, pw);
 		
 		System.out.println(vo);
