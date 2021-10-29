@@ -125,36 +125,30 @@ public class MountainDAO {
 //		return arr;
 //	}
 
-	public JSONArray selectAllroad(String m_id) {
-		
-		JSONArray al = new JSONArray();
-		
+	public ArrayList<MountainVO> selectAllroad(String m_id) {
+		arr = new ArrayList<MountainVO>();
+			
 		try {
 			connection();
 
-			String sql = "select * from MROAD_TABLE where M_ID=" + m_id;
+			String sql = "select * from MROAD_TABLE where M_ID=?";
 			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, m_id);
+			
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
 				System.out.println("mountain dao MROAD rs 값 있음 ");
-				String mountain_id = rs.getString("M_ID");
-				String mroad_id = rs.getNString("Mroad_id");
-				String mroad_name = rs.getNString("Mroad_NAME");
-
-				System.out.println("서블릿 rs.getNString('Mroad_NAME') : " + mroad_name);
 				
-				JSONObject sObject = new JSONObject();
-				sObject.put("m_id", mountain_id);
-		        sObject.put("mroad_id", mroad_id);
-		        sObject.put("mroad_name", mroad_name);
-		        
-		        al.put(sObject);
-		        
+				String mountain_id = rs.getString("M_ID");
+				String mroad_id = rs.getNString("road_id");
+				String mroad_name = rs.getNString("road_name");
 
-				System.out.println("sObject.get(\"m_id\") : " + sObject.get("m_id"));
-
-
+				System.out.println("서블릿 rs.getNString(Mroad_NAME) : " + mroad_name);
+				
+				vo = new MountainVO(mountain_id,mroad_id,mroad_name);
+				arr.add(vo);
+			
 			}
 
 		} catch (Exception e) {
@@ -165,7 +159,7 @@ public class MountainDAO {
 			// 2. 예외처리
 			close();
 		}
-		return al;
+		return arr;
 	}
 
 }

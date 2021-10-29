@@ -169,8 +169,23 @@
 										url : "selectRoad", //데이터를 전송하는 (요청하는) 서버페이지 url
 										dataType : "json", //응답데이터의 형식
 										success : function(data) {
-											const obj = JSON.stringify(data);
-											conso.log("객체 가져옴");
+											var obj = JSON.stringify(data);
+											alert("통신 성공!!");
+											alert(obj);
+											alert(obj.length());
+											
+											List<HashMap<String, Object>> indicatorMapList = 
+												MountainDAO.getGrowthIndicatorDataList(groupIdList);
+											JSONArray jsonArrayList = new JSONArray();
+											for(int j = 0; j < indicatorMapList.size(); j++){ 
+												//가져온 hashmap 데이터의 갯수만큼 반복
+												//오브젝트를 생성해 가져온 JSONObject를 담는다.
+												JSONObject indicatorJobj = JSONObject.fromObject(indicatorMapList.get(j));
+												jsonArrayList.add(indicatorJobj); 
+												//Object.keys(obj).length
+												var jsonobj = obj.
+												$("#sp_result").html(obj.mroad_name);
+											}
 										},
 										error : function() {
 											alert("통신실패");
@@ -195,7 +210,7 @@
 										for (int i = 0; i < al.size(); i++) {
 											MountainVO road_vo = al.get(i);
 										%>
-										<option value="<%=road_vo.getMroad_id()%>"><%=road_vo.getMroad_name()%></option>
+										<option id="sp_result" value="<%=road_vo.getMroad_id()%>"><%=road_vo.getMroad_name()%></option>
 										<%
 											}
 										%>
