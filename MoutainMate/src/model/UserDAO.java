@@ -213,29 +213,53 @@ public class UserDAO {
 		try {
 			connection();
 
-			String sql = "select id, name, phoneNumber, birth, gender from user_table";
+			String sql = "select * from USER_TABLE";
 			psmt = conn.prepareStatement(sql);
-			
 			rs = psmt.executeQuery();
 			
 
 			while (rs.next()) {
 			
 
-				String get_id = rs.getString("id");
+				String get_id = rs.getString("user_id");
 				String get_pw = rs.getNString("pw");
-				String get_name = rs.getString("name");
-				String get_phoneNumber = rs.getString("phoneNumber");
+				String get_name = rs.getString("user_name");
+				String get_tel = rs.getString("user_num");
 				String get_birth = rs.getString("birth");
 				String get_gender = rs.getString("gender");
+				String get_mgr = rs.getString("mgr");
 				
-
+				System.out.println(get_birth);
+				System.out.println(get_mgr);
 				
+				
+				if(get_gender.equals("0")) {//남자
+					get_gender="man";
+				}else if(get_gender.equals("1")) {
+					get_gender="woman";
+				}else {
+					get_gender="";
+				}
+				
+				if(get_mgr!=null) {
+					get_mgr="매니저";
+				}else {
+					get_mgr="";
+				}
+				
+				if(get_mgr==null) {
+					get_birth="";
+				}
+				
+				
+				
+				vo=new UserVO(get_id,get_pw,get_name,get_tel,get_birth, get_gender, get_mgr);
+				System.out.println(get_id+" "+get_pw+" "+get_name+" "+get_tel+" "+get_birth+" "+get_gender+" "+get_mgr);
 			
 			} 
 
 		} catch (Exception e) {
-			System.out.println("조회실패");
+			System.out.println("dao 회원조회실패");
 			e.printStackTrace();
 		} finally {
 			// 1. 지역변수

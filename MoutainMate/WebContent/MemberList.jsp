@@ -1,12 +1,15 @@
+<%@page import="model.UserVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
-	<link rel="stylesheet" href="assets/css/join.css">
+<link rel="stylesheet" href="assets/css/join.css">
 <body>
 	<section>
 		<div id="top_header">
@@ -23,9 +26,8 @@
 				</nav>
 			</header>
 		</div>
-		
-			<div id="joindiv">
-			<form id="joinform" action="joinService" method="post">
+
+		<div id="joindiv">
 
 				<table id="jointable">
 					<caption>회원 목록</caption>
@@ -35,21 +37,36 @@
 						<td>전화번호</td>
 						<td>생년월일</td>
 						<td>성별</td>
+						<td>매니저여부</td>
 					</tr>
-					
-					
+					<%
+						UserDAO dao = new UserDAO();
+					ArrayList<UserVO> al = dao.selectAll();
+					for (int i = 0; i < al.size(); i++) {
+						UserVO vo = al.get(i);
+					%>
+					<tr>
+						<td><%=vo.getid() %></td>
+						<td><%=vo.getname() %></td>
+						<td><%=vo.getphoneNumber() %></td>
+						<td><%=vo.getbirth() %></td>
+						<td><%=vo.getgender() %></td>
+						<td><%=vo.getmgr() %></td>
+
+
+					</tr>
+					<%
+					}
+					%>
 				</table>
 
-			</form>
 
 
 		</div>
-			
-			
+
+
 		<!-- 메인 -->
-		<main>
-		
-		</main>
+		<main></main>
 
 
 		<!-- 밑부분 -->
