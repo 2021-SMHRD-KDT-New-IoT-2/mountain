@@ -10,10 +10,12 @@ public class UserDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
-	UserVO vo = null;
-	int cnt = 0;
-	ArrayList<UserVO> arr = null;
-
+	UserVO vo =null;
+	int cnt = 0;	
+	ArrayList<UserVO> arr =null;
+	
+	
+	
 	public void connection() { // db연결
 		try {
 			// 1. 드라이브 동적로딩

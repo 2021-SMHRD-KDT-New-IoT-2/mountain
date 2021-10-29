@@ -6,13 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class DeviceDAO {
+public class MountainDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
-	DeviceVO vo = null;
+	MountainVO vo = null;
 	int cnt = 0;
-	ArrayList<DeviceVO> arr = null;
+	ArrayList<MountainVO> arr = null;
 
 	public void connection() { // db연결
 		try {
@@ -52,59 +52,38 @@ public class DeviceDAO {
 		}
 	}
 
-	public int registration(String p_id, String m_id) {
-
+	// 회원 검색
+	public ArrayList<MountainVO> selectAll() {
+		arr = new ArrayList<MountainVO>();
 		try {
 			connection();
 
-			String sql = "insert into p_table values(?,?)";
-
+			String sql = "select * from M_TABLE";
 			psmt = conn.prepareStatement(sql);
-
-			psmt.setString(1, p_id);
-			psmt.setString(2, m_id);
-
-			cnt = psmt.executeUpdate();
-
-		} catch (Exception e) {
-			System.out.println("dao실패");
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return cnt;
-	}
-
-//중복체크
-	public boolean idCheck(String id) {
-		boolean check = true;
-		try {
-			connection();
-
-			System.out.println(id);
-			String sql = "select * from P_TABLE where P_ID=?";
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, id);
-
 			rs = psmt.executeQuery();
-			check = rs.next();
-			System.out.println(check);
 			
-			if (check) {
-				System.out.println("중복되는 id가 있습니다.");
-			} else {
-				System.out.println("dao id 사용가능");
+	
+			while (rs.next()) {
+				System.out.println("mountain dao rs값 있음 ");
+				String m_id = rs.getString("M_ID");
+				String m_name = rs.getNString("M_NAME");
+
+				vo = new MountainVO(m_id, m_name);
+				System.out.println(vo.getM_name());
+				
+				arr.add(vo);
+
 			}
 
 		} catch (Exception e) {
-
+			System.out.println("dao 산조회실패");
 			e.printStackTrace();
 		} finally {
 			// 1. 지역변수
 			// 2. 예외처리
 			close();
 		}
-		return check;
+		return arr;
 	}
 
 }

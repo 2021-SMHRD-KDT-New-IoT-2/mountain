@@ -10,6 +10,16 @@ public class DeviceVO {
 	String r_return_time;
 	
 	
+	public DeviceVO(String p_id, String m_id) {
+		this.p_id = p_id;
+		this.m_id = m_id;
+	}
+	
+	public DeviceVO(String p_id) {
+		this.p_id = p_id;
+	}
+	
+	
 	public String getP_id() {
 		return p_id;
 	}
