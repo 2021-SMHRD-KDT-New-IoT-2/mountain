@@ -110,6 +110,29 @@
 				}
 			});
 		}
+		
+		
+		function deviceRegi(){
+			var input = $("#input_id").val();
+			$.ajax({
+				type : "post", // 데이터 전송 받식
+				data : {
+					"deviceid" : input
+				}, // 전송하는 데이터
+				url : "deviceIdCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
+				dataType : "text", //응답데이터의 형식
+				success : function(data) {
+					if (data == "true") {
+						$("#sp_result").html("이미 사용중인 id입니다.");
+					} else {
+						$("#sp_result").html("사용가능한 id 입니다.");
+					}
+				},
+				error : function() {
+					alert("통신실패");
+				}
+			});
+		}
 	</script>
 
 </body>
