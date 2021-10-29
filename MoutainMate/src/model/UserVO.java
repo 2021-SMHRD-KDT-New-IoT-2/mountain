@@ -60,5 +60,3 @@ public class UserVO {
 		public String getmgr() {
 			return mgr;
 		}
-		
-	}

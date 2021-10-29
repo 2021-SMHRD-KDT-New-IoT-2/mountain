@@ -99,7 +99,6 @@
 		<!-- 밑부분 -->
 		<footer> </footer>
 	</section>
-
 		
 		
 </body>

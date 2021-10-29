@@ -20,12 +20,11 @@ public class updateService extends HttpServlet {
 		request.setCharacterEncoding("euc-kr"); //요청데이터의 인코딩 방식 지정
 		
 		HttpSession session=request.getSession(); //세션 객체 생성
-		UserVO vo=(UserVO)session.getAttribute("member");//현재 로그인한 사용자의(수정전) 정보
+		UserVO vo=(UserVO)session.getAttribute("User");//현재 로그인한 사용자의(수정전) 정보
 		
 		//수정에 사용할 정보
 		String pw=request.getParameter("pw");
 		String name=request.getParameter("name");
-		String phoneNumber=request.getParameter("phoneNumber");
 		
 		
 		
