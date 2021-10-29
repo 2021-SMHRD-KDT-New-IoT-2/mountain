@@ -84,9 +84,20 @@
 
 	</section>
 
-<script>
+<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script>
 			function idCheck(){
-				
+				//요소의 실제 값을 가지고 오는 방법
+				//1. innerText : 태그 사이에 텍스트를 가지오 오는 방법<p> 스마트그리드</p> ->스마트 그리드
+				//2. innerHTML : 태그 사이에 모든 요소를 가지고 오는 방법 <p><span>SP</span></p> -> <span>SP</span>
+				//3. value : input 태그의 value 속성값 가지고 올때 
 				var input =document.getElementById("input_id");
 				/* alert(input.value); //-> vanilla js 사용
 				
@@ -96,7 +107,7 @@
 				$.ajax({
 					type: "post", // 데이터 전송 받식
 					data: {"id" : input.value}, // 전송하는 데이터
-					url : "idCheckServise", //데이터를 전송하는 (요청하는) 서버페이지 url
+					url : "idCheckService", //데이터를 전송하는 (요청하는) 서버페이지 url
 					dataType : "text", //응답데이터의 형식
 					success : function(data){ //통신성공
 						var sp_result=document.getElementById("sp_result");

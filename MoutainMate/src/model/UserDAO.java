@@ -158,7 +158,7 @@ public class UserDAO {
 		try {
 			connection();
 
-			String sql = "select user_id from  user_table where id=? ";
+			String sql = "select user_id from  user_table where user_id=? ";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			

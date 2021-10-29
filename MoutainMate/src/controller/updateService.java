@@ -26,8 +26,7 @@ public class updateService extends HttpServlet {
 		String pw=request.getParameter("pw");
 		String name=request.getParameter("name");
 		String phoneNumber=request.getParameter("phoneNumber");
-		String birth=request.getParameter("birth");
-		String gender=request.getParameter("gender");
+		
 		
 		
 		//dao 기능 호출 -> 수정 여부를 판단 할 수 있는 값 반환
