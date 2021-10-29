@@ -260,7 +260,8 @@ public class UserDAO {
 				
 				vo=new UserVO(get_id,get_pw,get_name,get_tel,get_birth, get_gender, get_mgr);
 				System.out.println(get_id+" "+get_pw+" "+get_name+" "+get_tel+" "+get_birth+" "+get_gender+" "+get_mgr);
-			
+				
+				arr.add(vo);
 			} 
 
 		} catch (Exception e) {

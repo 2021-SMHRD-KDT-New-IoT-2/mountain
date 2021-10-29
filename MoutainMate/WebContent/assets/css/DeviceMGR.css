@@ -90,7 +90,8 @@ nav>ul>li {
 #san_logo {
 	top: 1%;
 	height: 35%;
-	width: 10%; background-image : url(../../images/san_logo.png);
+	width: 10%;
+	background-image: url(../../images/san_logo.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -120,7 +121,7 @@ main {
 	width: 100%;
 	height: 90%;
 	top: 10%;
-	left:0;
+	left: 0;
 	position: absolute;
 }
 
@@ -164,31 +165,31 @@ main>button:hover {
 	background-color: #b9b9b9;
 }
 
-
-
 /*기기등록페이지*/
-
-#maindiv{
-	width:100%;
-	height:100%;
-	position:absolute;
+#maindiv {
+	width: 100%;
+	height: 100%;
+	position: absolute;
 }
 
-
 .devicetable {
-	padding: 2%;
-	left : 30%;
+	padding: 1%;
+	left: 30%;
 	width: 30%;
 	color: whitesmoke;
 	border: 1px solid whitesmoke;
 	position: absolute;
-	top:25%;
+	top: 25%;
 }
 
-.devicetd{
-	width:40%;
-	font-size:20px;
-	text-align:right;
+.devicetd {
+	width: 30%;
+	font-size: 20px;
+	text-align: right;
+}
+
+.deviceinputtd {
+	width: 60%;
 }
 
 .devicetable>caption {
@@ -197,7 +198,31 @@ main>button:hover {
 	margin-bottom: 3%;
 }
 
-.send {
-	padding-top:5%;
-	padding-left:40%;
+#input_id {
+	width: 50%;
+}
+
+.btn {
+	/* 버튼 배경색 제거 */
+	background: none;
+	/* 버튼위에 올릴때 커서 */
+	cursor: pointer;
+	border: 1px solid white;
+	color: white;
+}
+
+.deviceinputtd>.btn {
+	position: absolute;
+	height: 12%;
+	font-size: 13px;
+	padding :2px;
+}
+#sp_result{
+	text-align:center;
+}
+
+#send {
+	padding-top: 5%;
+	padding-left: 40%;
+
 }

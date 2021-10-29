@@ -40,8 +40,8 @@
 					<caption>회원가입</caption>
 					<tr>
 						<td class="jointd1">* 아이디</td>
-						<td class="jointd2"><input type="text"  id="input_id" name="id" required="required"
-							placeholder="ID를 입력하세요">
+						<td class="jointd2">
+						<input type="text"  id="input_id" name="id" required="required" placeholder="ID를 입력하세요">
 							<input type="button" value="ID중복체크" onclick="idCheck()">
 							
 					</tr>
@@ -67,19 +67,19 @@
 					</tr>
 					<tr>
 						<td class="jointd1">생일</td>
-						<td class="jointd2"><input type="date" name="birth"></td>
+						<td class="jointd2"><input type="date" id="input_birth" name="birth"></td>
 					</tr>
 					<tr>
 						<td class="jointd1">성별</td>
 						<td class="jointd2">
-						남 <input type="radio" name="gender" value="0">
-						여 <input type="radio" name="gender" value="1">
+						남 <input type="radio" name="gender" id="input_gender" value="0">
+						여 <input type="radio" name="gender" id="input_gender"  value="1">
 						</td>
 					</tr>
 					
 					<tr>
 						<td colspan="2" align="center">
-							<input type="submit" value="Join">
+							<input type="button" value="Join" onClick="joinCheck()">
 						</td>
 					</tr>
 					
@@ -110,9 +110,9 @@
 					dataType : "text", //응답데이터의 형식
 					success : function(data){
 						if(data=="true"){
-							$("#sp_result").html("이미 사용중인 이메일입니다.");
+							$("#sp_result").html("이미 사용중인 id입니다.");
 						}else{
-							$("#sp_result").html("사용가능한 이메일 입니다.");
+							$("#sp_result").html("사용가능한 id 입니다.");
 						}
 					},
 					error : function(){
@@ -127,12 +127,23 @@
 				var input_pw = $("#input_pw").val();
 				var input_name = $("#input_name").val();
 				var input_tel = $("#input_tel").val();
+				var input_birth = $("#input_birth").val();
+				var input_gender = $("#input_gender").val();
 				
-				if(input_id!=null&&input_pw!=null&&input_name!=null&&input_tel!=null){
+				if((input_id!="")&&(input_pw!="")&&(input_name!="")&&(input_tel!="")){
+					
+					alert("if문 안에 들어옴");
 					$.ajax({
 						type: "post", // 데이터 전송 받식
-						data: {"id" : input,"pw":input,"name":input,"phoneNumber":input,"birth":input,"gender":input}, // 전송하는 데이터
-						url : "JoinService", //데이터를 전송하는 (요청하는) 서버페이지 url
+						data: { // 전송하는 데이터
+							"id" : input_id,
+							"pw":input_pw,
+							"name":input_name,
+							"phoneNumber":input_tel,
+							"birth":input_birth,
+							"gender":input_gender
+							},
+						url : "joinService", //데이터를 전송하는 (요청하는) 서버페이지 url
 						dataType : "text", //응답데이터의 형식
 						success : function(data){
 							alert("가입완료");
