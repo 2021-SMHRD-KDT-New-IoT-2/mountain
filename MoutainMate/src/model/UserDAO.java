@@ -11,7 +11,7 @@ public class UserDAO {
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	UserVO vo =null;
-	boolean check = false;
+	
 	ArrayList<UserVO> arr =null;
 	int cnt = 0;
 
@@ -155,6 +155,7 @@ public class UserDAO {
 	
 	//중복체크
 	public boolean idCheck(String id) {
+		boolean check = true;
 		try {
 			connection();
 
@@ -165,14 +166,11 @@ public class UserDAO {
 
 			rs = psmt.executeQuery();
 			
-
-			if (rs.next()) {
-				//입력한 이메일을 사용 할 수 없을 때
-				check=true;
+			check = rs.next();
+			if (check) {
+				System.out.println("중복되는 email이 있습니다.");
 			} else {
-				//입력한 이메일을 사용할 수 있을 때 
-				
-				check=false;
+
 			}
 
 		} catch (Exception e) {

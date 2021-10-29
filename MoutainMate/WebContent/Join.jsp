@@ -70,6 +70,11 @@
 						¿© <input type="radio" name="gender" value="1">
 						</td>
 					</tr>
+					<%
+					
+					VO idcheck = (UserVO)
+					
+					%>
 					<tr>
 						<td colspan="2" align="center">
 							<input type="submit" value="Join">
