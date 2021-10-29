@@ -65,8 +65,8 @@ public class UserDAO {
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, id);
-			psmt.setString(2, pw);
-			psmt.setString(3, name);
+			psmt.setString(2, name);
+			psmt.setString(3, pw);
 			psmt.setString(4, phoneNumber);
 			psmt.setString(5, birth);
 			psmt.setInt(6, gender);
@@ -99,7 +99,7 @@ public class UserDAO {
 			
 
 			if (rs.next()) {
-				System.out.println("로그인성공");
+				System.out.println("dao로그인성공");
 
 				String get_id = rs.getString("user_id");
 				String get_name = rs.getString("user_name");
@@ -107,7 +107,7 @@ public class UserDAO {
 				UserVO vo=new UserVO(get_id, get_name);
 			} else {
 
-				System.out.println("로그인실패");
+				System.out.println("dao로그인실패");
 
 			}
 
