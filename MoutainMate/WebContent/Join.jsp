@@ -66,14 +66,14 @@
 							pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="000-0000-0000"></td>
 					</tr>
 					<tr>
-						<td class="jointd1">积老</td>
-						<td class="jointd2"><input type="date" id="input_birth" name="birth"></td>
+						<td class="jointd1">* 积老</td>
+						<td class="jointd2"><input type="date" id="input_birth" name="birth" required="required"></td>
 					</tr>
 					<tr>
-						<td class="jointd1">己喊</td>
-						<td class="jointd2">
-						巢 <input type="radio" name="gender" id="input_gender" value="0">
-						咯 <input type="radio" name="gender" id="input_gender"  value="1">
+						<td class="jointd1">* 己喊</td>
+						<td class="jointd2" >
+						巢 <input type="radio" name="gender" id="input_gender" value="0" required="required">
+						咯 <input type="radio" name="gender" id="input_gender"  value="1" required="required">
 						</td>
 					</tr>
 					

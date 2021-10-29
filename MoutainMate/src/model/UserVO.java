@@ -42,6 +42,15 @@ public class UserVO {
 			this.mgr = mgr;
 		}
 		
+		public UserVO(String id, String name, String phoneNumber, String birth, String gender, String mgr) {
+			this.id=id;
+			this.name = name;
+			this.phoneNumber = phoneNumber;
+			this.birth = birth;
+			this.gender=gender;
+			this.mgr=mgr;
+			
+		}
 		//¸Þ¼­µå(get)
 		public String getid() {
 			return id;
@@ -89,4 +98,5 @@ public class UserVO {
 		public String get_gender() {
 			return gender;
 		}
+		
 	}

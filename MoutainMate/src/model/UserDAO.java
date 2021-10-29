@@ -83,7 +83,6 @@ public class UserDAO {
 		return cnt;
 	}
 
-
 	// ·Î±×ÀÎ
 	public UserVO login(String id, String pw) {
 
