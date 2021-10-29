@@ -11,6 +11,13 @@
 </head>
 <link rel="stylesheet" href="assets/css/join.css">
 <body>
+	
+	<%
+	UserDAO dao = new UserDAO();
+	ArrayList<UserVO> arr = dao.selectAll();
+	System.out.println(arr.size());
+	%>
+	
 	<section>
 		<div id="top_header">
 			<header id="header" class="">
@@ -29,36 +36,33 @@
 
 		<div id="joindiv">
 
-				<table id="jointable">
-					<caption>회원 목록</caption>
-					<tr>
-						<td>아이디</td>
-						<td>이름</td>
-						<td>전화번호</td>
-						<td>생년월일</td>
-						<td>성별</td>
-						<td>매니저여부</td>
-					</tr>
-					<%
-						UserDAO dao = new UserDAO();
-					ArrayList<UserVO> al = dao.selectAll();
-					for (int i = 0; i < al.size(); i++) {
-						UserVO vo = al.get(i);
-					%>
-					<tr>
-						<td><%=vo.getid() %></td>
-						<td><%=vo.getname() %></td>
-						<td><%=vo.getphoneNumber() %></td>
-						<td><%=vo.getbirth() %></td>
-						<td><%=vo.getgender() %></td>
-						<td><%=vo.getmgr() %></td>
+			<table id="jointable">
+				<caption>회원 목록</caption>
+				<tr>
+					<td>아이디</td>
+					<td>이름</td>
+					<td>전화번호</td>
+					<td>생년월일</td>
+					<td>성별</td>
+					<td>매니저여부</td>
+				</tr>
 
-
-					</tr>
-					<%
+				<%
+					for (UserVO vo : arr) {
+				%>
+				<tr>
+					<td><%=vo.getid()%></td>
+					<td><%=vo.getname()%></td>
+					<td><%=vo.getphoneNumber()%></td>
+					<td><%=vo.getbirth()%></td>
+					<td><%=vo.getgender()%></td>
+					<td><%=vo.getmgr()%></td>
+					<td><a href="deleteService?id=<%=vo.getid()%>">삭제</a>
+				</tr>
+				<%
 					}
-					%>
-				</table>
+				%>
+			</table>
 
 
 
@@ -72,6 +76,9 @@
 		<!-- 밑부분 -->
 		<footer> </footer>
 	</section>
+	
+	
+	
 
 </body>
 </html>

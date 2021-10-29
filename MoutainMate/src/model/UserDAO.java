@@ -217,7 +217,7 @@ public class UserDAO {
 
 			connection();
 			// 3. 실행할 sql문 정의 (실행할때마다 값이 달라지는부분은 ?적어두면 됨
-			String sql = "delete from user_table where id=?";
+			String sql = "delete from user_table where USER_id=?";
 
 			// 4. sql 실행객체(PreparedStatemnent)생성
 			psmt = conn.prepareStatement(sql);
@@ -243,45 +243,39 @@ public class UserDAO {
 		try {
 			connection();
 
-			String sql = "select * from USER_TABLE";
+			String sql = "select USER_ID, USER_NAME, USER_NUM, birth, gender, mgr from USER_TABLE";
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
 
 				String get_id = rs.getString("user_id");
-				String get_pw = rs.getNString("pw");
 				String get_name = rs.getString("user_name");
 				String get_tel = rs.getString("user_num");
 				String get_birth = rs.getString("birth");
 				String get_gender = rs.getString("gender");
 				String get_mgr = rs.getString("mgr");
-
-				System.out.println(get_birth);
-				System.out.println(get_mgr);
-
-				if (get_gender.equals("0")) {// 남자
-					get_gender = "man";
-				} else if (get_gender.equals("1")) {
-					get_gender = "woman";
+				
+				
+			
+				if(get_mgr.equals("1")) {
+					get_mgr = "관리자";
 				} else {
-					get_gender = "";
+					get_mgr = "사용자";
 				}
-
-				if (get_mgr != null) {
-					get_mgr = "매니저";
+				
+				if(get_gender.equals("0")) {
+					get_gender = "남자";
 				} else {
-					get_mgr = "";
+					get_gender = "여자";
 				}
-
-				if (get_birth == null) {
-					get_birth = "";
-				}
-
-				vo = new UserVO(get_id, get_pw, get_name, get_tel, get_birth, get_gender, get_mgr);
-				System.out.println(get_id + " " + get_pw + " " + get_name + " " + get_tel + " " + get_birth + " "
+				
+				
+				
+				vo = new UserVO(get_id, get_name, get_tel, get_birth, get_gender, get_mgr);
+				System.out.println(get_id + " " + get_name + " " + get_tel + " " + get_birth + " "
 						+ get_gender + " " + get_mgr);
-
+				arr.add(vo);
 			}
 
 		} catch (Exception e) {

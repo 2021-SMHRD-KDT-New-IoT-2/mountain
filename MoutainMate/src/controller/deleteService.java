@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import model.UserDAO;
 
 
-@WebServlet("/deleteServise")
-public class deleteServise extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+@WebServlet("/deleteService")
+public class deleteService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id =request.getParameter("id");
@@ -26,12 +25,12 @@ public class deleteServise extends HttpServlet {
 		if(cnt>0) {
 			System.out.println("삭제성공");
 			//forward 방식으로 페이지 이동
-			response.sendRedirect("MainPage.jsp");
+			response.sendRedirect("MemberList.jsp");
 			
 		}else {
 			System.out.println("삭제실패");
 			
-			
+			response.sendRedirect("MemberList.jsp");
 		}
 	}
 
