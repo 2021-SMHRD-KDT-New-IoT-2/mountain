@@ -36,7 +36,11 @@ public class UserVO {
 			this.mgr=mgr;
 		}
 	
-		
+		public UserVO(String id, String pw, String mgr) {
+			this.id = id;
+			this.pw = pw;
+			this.mgr = mgr;
+		}
 		
 		//¸Þ¼­µå(get)
 		public String getid() {

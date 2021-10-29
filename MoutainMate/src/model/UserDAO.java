@@ -90,7 +90,7 @@ public class UserDAO {
 		try {
 			connection();
 
-			String sql = "select * from user_table where mgr=1";
+			String sql = "select * from user_table where mgr='1'";
 			psmt = conn.prepareStatement(sql);
 
 			rs = psmt.executeQuery();
@@ -121,9 +121,7 @@ public class UserDAO {
 
 		try {
 			connection();
-			
-			String mgrC = mgrCheck(id, pw);
-			
+		
 				String sql = "select * from user_table where user_id=? and pw=?";
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, id);
@@ -132,8 +130,10 @@ public class UserDAO {
 				rs = psmt.executeQuery();
 
 				if (rs.next()) {
-					rs.getString("mgr");
-					System.out.println("로그인성공");
+					String mgr = rs.getString("mgr");
+					
+					System.out.println("dao 로그인성공 mgr : "+mgr);
+					vo = new UserVO(id,pw,mgr);
 
 				} else {
 

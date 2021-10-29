@@ -19,15 +19,15 @@ public class loginService extends HttpServlet {
 
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		String mgr = request.getParameter("mgr");
 
-		System.out.println("main에서 dao로 넘어온 값 : " + id + " " + pw+" "+mgr);
+		System.out.println("main에서 dao로 넘어온 값 : " + id + " " + pw);
 
 		UserDAO dao = new UserDAO();
 
 		UserVO vo = dao.login(id, pw);
 
 		if (vo != null) {
+			System.out.println("서블릿 vo 값 넘어감");
 			// 세션객체생성
 			HttpSession session = request.getSession();
 
