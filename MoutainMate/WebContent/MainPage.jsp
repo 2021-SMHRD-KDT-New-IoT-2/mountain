@@ -1,4 +1,7 @@
 
+<%@page import="model.MountainVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.MountainDAO"%>
 <%@page import="model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=euc-kr"
 	pageEncoding="euc-kr"%>
@@ -13,8 +16,16 @@
 
 </head>
 <body>
+	<!-- 제이쿼리추가 -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
 	<%
-		UserVO vo = (UserVO)session.getAttribute("User");
+		UserVO vo = (UserVO) session.getAttribute("User");
 	%>
 
 	<section>
@@ -122,13 +133,55 @@
 							<td><label for="searchM">산</label></td>
 							<td>
 								<div class="searchbox">
-									<input id="searchM" type="text" placeholder="검색어를 입력해주세요.">
-									<button>
-										<img class="search" src="images/search.png">
-									</button>
+									<input id="searchM" type="text" list="select_mountain"
+										name="select_mountain" placeholder="산을 선택해주세요.">
+
+									<datalist id="select_mountain">
+										<%
+											MountainDAO dao = new MountainDAO();
+										ArrayList<MountainVO> al = dao.selectAll();
+
+										for (int i = 0; i < al.size(); i++) {
+											MountainVO M_vo = al.get(i);
+										%>
+										<option value="<%=M_vo.getM_id()%>"><%=M_vo.getM_name()%></option>
+										<%
+											}
+										%>
+									</datalist>
 								</div>
 							</td>
 						</tr>
+
+						<script>
+							$("#searchM").change(function() {
+								
+								var selectM = $("#searchM").val();
+								alert("스크립트 안에 들어옴 "+selectM);
+							
+								if (selectM != "") {
+									alert("if문 안에 들어옴");
+									$.ajax({
+										type : "post", // 데이터 전송 받식
+										data : {
+											"select_mountain" : selectM
+										}, // 전송하는 데이터
+										url : "selectRoad", //데이터를 전송하는 (요청하는) 서버페이지 url
+										dataType : "json", //응답데이터의 형식
+										success : function(data) {
+											const obj = JSON.stringify(data);
+											conso.log("객체 가져옴");
+										},
+										error : function() {
+											alert("통신실패");
+										}
+									});
+								}
+
+							});
+						</script>
+
+
 						<tr>
 							<td><label for="searchR">등산로</label></td>
 							<td>
@@ -136,10 +189,16 @@
 									<input id="searchR" type="text" list="mroad"
 										placeholder="등산로를 선택해주세요.">
 									<datalist id="mroad">
-										<option value="1">무등1</option>
-										<option value="2">무등2</option>
-										<option value="3">무등3</option>
-										<option value="4">무등4</option>
+										<%
+											MountainDAO road_dao = new MountainDAO();
+
+										for (int i = 0; i < al.size(); i++) {
+											MountainVO road_vo = al.get(i);
+										%>
+										<option value="<%=road_vo.getMroad_id()%>"><%=road_vo.getMroad_name()%></option>
+										<%
+											}
+										%>
 									</datalist>
 								</div>
 							</td>
@@ -319,14 +378,7 @@
 
 
 
-	<!-- 제이쿼리추가 -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="assets/js/main.js"></script>
+
 
 </body>
 </html>

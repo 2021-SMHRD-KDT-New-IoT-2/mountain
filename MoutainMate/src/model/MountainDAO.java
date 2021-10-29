@@ -6,6 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 public class MountainDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
@@ -52,7 +55,7 @@ public class MountainDAO {
 		}
 	}
 
-	// 회원 검색
+	// 산 전체 검색
 	public ArrayList<MountainVO> selectAll() {
 		arr = new ArrayList<MountainVO>();
 		try {
@@ -61,8 +64,7 @@ public class MountainDAO {
 			String sql = "select * from M_TABLE";
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
-			
-	
+
 			while (rs.next()) {
 				System.out.println("mountain dao rs값 있음 ");
 				String m_id = rs.getString("M_ID");
@@ -70,7 +72,7 @@ public class MountainDAO {
 
 				vo = new MountainVO(m_id, m_name);
 				System.out.println(vo.getM_name());
-				
+
 				arr.add(vo);
 
 			}
@@ -84,6 +86,86 @@ public class MountainDAO {
 			close();
 		}
 		return arr;
+	}
+
+	// 등산로 전체 검색
+//	public ArrayList<MountainVO> selectAllroad(String m_id) {
+//		arr = new ArrayList<MountainVO>();
+//		try {
+//			connection();
+//
+//			String sql = "select * from MROAD_TABLE where M_ID=" + m_id;
+//			psmt = conn.prepareStatement(sql);
+//			rs = psmt.executeQuery();
+//
+//			while (rs.next()) {
+//				System.out.println("mountain dao MROAD rs 값 있음 ");
+//				String mountain_id = rs.getString("M_ID");
+//				String mroad_id = rs.getNString("Mroad_id");
+//				String mroad_name = rs.getNString("Mroad_NAME");
+//
+//				System.out.println("서블릿 rs.getNString('Mroad_NAME') : " + mroad_name);
+//
+//				vo = new MountainVO(mountain_id, mroad_id, mroad_name);
+//
+//				System.out.println("서블릿 vo.getMroad_name() : " + vo.getMroad_name());
+//
+//				arr.add(vo);
+//
+//			}
+//
+//		} catch (Exception e) {
+//			System.out.println("dao 산조회실패");
+//			e.printStackTrace();
+//		} finally {
+//			// 1. 지역변수
+//			// 2. 예외처리
+//			close();
+//		}
+//		return arr;
+//	}
+
+	public JSONArray selectAllroad(String m_id) {
+		
+		JSONArray al = new JSONArray();
+		
+		try {
+			connection();
+
+			String sql = "select * from MROAD_TABLE where M_ID=" + m_id;
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				System.out.println("mountain dao MROAD rs 값 있음 ");
+				String mountain_id = rs.getString("M_ID");
+				String mroad_id = rs.getNString("Mroad_id");
+				String mroad_name = rs.getNString("Mroad_NAME");
+
+				System.out.println("서블릿 rs.getNString('Mroad_NAME') : " + mroad_name);
+				
+				JSONObject sObject = new JSONObject();
+				sObject.put("m_id", mountain_id);
+		        sObject.put("mroad_id", mroad_id);
+		        sObject.put("mroad_name", mroad_name);
+		        
+		        al.put(sObject);
+		        
+
+				System.out.println("sObject.get(\"m_id\") : " + sObject.get("m_id"));
+
+
+			}
+
+		} catch (Exception e) {
+			System.out.println("dao 산조회실패");
+			e.printStackTrace();
+		} finally {
+			// 1. 지역변수
+			// 2. 예외처리
+			close();
+		}
+		return al;
 	}
 
 }

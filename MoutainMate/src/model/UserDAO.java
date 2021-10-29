@@ -83,38 +83,6 @@ public class UserDAO {
 		return cnt;
 	}
 
-	public String mgrCheck(String id, String pw) {
-
-		String mgrCheck = "";
-
-		try {
-			connection();
-
-			String sql = "select * from user_table where mgr='1'";
-			psmt = conn.prepareStatement(sql);
-
-			rs = psmt.executeQuery();
-
-			if (rs.next()) {
-				mgrCheck = "1";
-				System.out.println("로그인성공");
-
-			} else {
-				mgrCheck = "0";
-				System.out.println("로그인실패");
-
-			}
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		} finally {
-			// 1. 지역변수
-			// 2. 예외처리
-			close();
-		}
-		return mgrCheck;
-	}
 
 	// 로그인
 	public UserVO login(String id, String pw) {
