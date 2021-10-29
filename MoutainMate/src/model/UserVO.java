@@ -12,6 +12,11 @@ public class UserVO {
 		private String pw;
 
 		//»ý¼ºÀÚ
+		
+		public UserVO(String id) {
+			this.id=id;
+		}
+		
 		public UserVO(String id, String name) {
 			
 			this.id=id;

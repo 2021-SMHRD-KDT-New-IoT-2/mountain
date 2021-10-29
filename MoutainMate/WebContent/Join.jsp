@@ -1,4 +1,5 @@
 
+<%@page import="model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=euc-kr"
 	pageEncoding="euc-kr"%>
 <!DOCTYPE html>
@@ -42,22 +43,27 @@
 						<td class="jointd2"><input type="text"  id="input_id" name="id" required="required"
 							placeholder="ID를 입력하세요">
 							<input type="button" value="ID중복체크" onclick="idCheck()">
+							
+					</tr>
+					<tr>
+						<td colspan="2" align="center" color="red">
 							<span id="sp_result"></span>
+						</td>
 					</tr>
 					<tr>
 						<td class="jointd1">* 비밀번호</td>
-						<td class="jointd2"><input type="password" name="pw" required="required"
+						<td class="jointd2"><input type="password" id="input_pw"name="pw" required="required"
 							placeholder="PW를 입력하세요"></td>
 					</tr>
 					<tr>
 						<td class="jointd1">* 이름</td>
-						<td class="jointd2"><input type="text" name="name" required="required"
+						<td class="jointd2"><input type="text" id="input_name" name="name" required="required"
 							placeholder="이름을 입력하세요"></td>
 					</tr>
 					<tr>
 						<td class="jointd1">* 전화번호</td>
-						<td class="jointd2"><input type="tel" name="phoneNumber" required="required"
-							pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="전화 번호를 입력하세요"></td>
+						<td class="jointd2"><input type="tel" id="input_tel" name="phoneNumber" required="required"
+							pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="000-0000-0000"></td>
 					</tr>
 					<tr>
 						<td class="jointd1">생일</td>
@@ -70,11 +76,13 @@
 						여 <input type="radio" name="gender" value="1">
 						</td>
 					</tr>
+					
 					<tr>
 						<td colspan="2" align="center">
 							<input type="submit" value="Join">
 						</td>
 					</tr>
+					
 				</table>
 
 			</form>
@@ -94,35 +102,53 @@
 			<script src="assets/js/main.js"></script>
 			<script>
 			function idCheck(){
-				//요소의 실제 값을 가지고 오는 방법
-				//1. innerText : 태그 사이에 텍스트를 가지오 오는 방법<p> 스마트그리드</p> ->스마트 그리드
-				//2. innerHTML : 태그 사이에 모든 요소를 가지고 오는 방법 <p><span>SP</span></p> -> <span>SP</span>
-				//3. value : input 태그의 value 속성값 가지고 올때 
-				var input =document.getElementById("input_id");
-				/* alert(input.value); //-> vanilla js 사용
-				
-				alert($('#input_id').val()); //jqery 사용 */
-				
-				//ajax 
+				var input = $("#input_id").val();
 				$.ajax({
 					type: "post", // 데이터 전송 받식
-					data: {"id" : input.value}, // 전송하는 데이터
-					url : "idCheckService", //데이터를 전송하는 (요청하는) 서버페이지 url
+					data: {"id" : input}, // 전송하는 데이터
+					url : "IdCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
 					dataType : "text", //응답데이터의 형식
-					success : function(data){ //통신성공
-						var sp_result=document.getElementById("sp_result");
-						//alert(data)
+					success : function(data){
 						if(data=="true"){
-							sp_result.innerText="사용불가능한 아이디";
-							
+							$("#sp_result").html("이미 사용중인 이메일입니다.");
 						}else{
-							$("#sp_result").text("사용 가능한 아이디");
+							$("#sp_result").html("사용가능한 이메일 입니다.");
 						}
 					},
-					error: function(){
-						alert("통신실패!")
-					}
+					error : function(){
+						alert("통신실패");
+		           	}
 				});
+			}
+			
+			
+			function joinCheck(){
+				var input_id = $("#input_id").val();
+				var input_pw = $("#input_pw").val();
+				var input_name = $("#input_name").val();
+				var input_tel = $("#input_tel").val();
+				
+				if(input_id!=null&&input_pw!=null&&input_name!=null&&input_tel!=null){
+					$.ajax({
+						type: "post", // 데이터 전송 받식
+						data: {"id" : input,"pw":input,"name":input,"phoneNumber":input,"birth":input,"gender":input}, // 전송하는 데이터
+						url : "JoinService", //데이터를 전송하는 (요청하는) 서버페이지 url
+						dataType : "text", //응답데이터의 형식
+						success : function(data){
+							alert("가입완료");
+				
+						},
+						error : function(){
+							alert("통신실패");
+			           	}
+					});
+				}else{
+					alert("필수 입력란을 모두 입력해 주세요.");
+				}
+				
+				
+				
+				
 			}
 			</script>
 </body>

@@ -11,7 +11,7 @@ public class UserDAO {
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	UserVO vo =null;
-	boolean check = false;
+	
 	ArrayList<UserVO> arr =null;
 	int cnt = 0;
 
@@ -40,37 +40,33 @@ public class UserDAO {
 
 	public void close() {
 		try {
-			if (rs != null) {
+			if(rs!=null) {
 				rs.close();
 			}
-			if (psmt != null) {
-				psmt.close();
-			}
-			if (conn != null) {
-				conn.close();
-			}
-		} catch (Exception e2) {
+			psmt.close();
+			conn.close();
+			} catch (Exception e2) {
 			e2.printStackTrace();
 		}
 	}
 
 	// 회원가입 기능
-	public int join(String id, String pw, String name, String phoneNumber, String birth, int gender) {
+	public int join(String id, String pw, String name, String phoneNumber, String birth, String gender) {
 		
 		try {
 			connection();
 
-			String sql = "insert into user_table values(?,?,?,?,?,?)";
+			String sql = "insert into user_table values(?,?,?,?,?,?,?)";
 
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, id);
-			psmt.setString(2, name);
 			psmt.setString(3, pw);
+			psmt.setString(2, name);
 			psmt.setString(4, phoneNumber);
 			psmt.setString(5, birth);
-			psmt.setInt(6, gender);
-			
+			psmt.setString(6, gender);
+			psmt.setInt(7,0);
 			
 
 			cnt = psmt.executeUpdate();
@@ -99,7 +95,7 @@ public class UserDAO {
 			
 
 			if (rs.next()) {
-				System.out.println("dao로그인성공");
+				System.out.println("로그인성공");
 
 				String get_id = rs.getString("user_id");
 				String get_name = rs.getString("user_name");
@@ -107,7 +103,7 @@ public class UserDAO {
 				UserVO vo=new UserVO(get_id, get_name);
 			} else {
 
-				System.out.println("dao로그인실패");
+				System.out.println("로그인실패");
 
 			}
 
@@ -155,24 +151,22 @@ public class UserDAO {
 	
 	//중복체크
 	public boolean idCheck(String id) {
+		boolean check = true;
 		try {
 			connection();
-
-			String sql = "select user_id from  user_table where user_id=? ";
+			
+			System.out.println(id);
+			String sql = "select * from USER_TABLE where USER_ID=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			
-
 			rs = psmt.executeQuery();
-			
-
-			if (rs.next()) {
-				//입력한 이메일을 사용 할 수 없을 때
-				check=true;
+			check = rs.next();
+			System.out.println(check);
+			if (check) {
+				System.out.println("중복되는 id가 있습니다.");
 			} else {
-				//입력한 이메일을 사용할 수 있을 때 
-				
-				check=false;
+				System.out.println("dao id 사용가능");
 			}
 
 		} catch (Exception e) {
