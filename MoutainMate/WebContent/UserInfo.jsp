@@ -1,11 +1,10 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>산으로 오세영 회원정보</title>
+<title>마이페이지</title>
 
 <link rel="stylesheet" href="assets/css/join.css">
 
@@ -22,9 +21,9 @@
 
 						<li><a href="#menu">로그아웃</a></li>
 						<li><a href="UserInfo.jsp">마이페이지</a></li>
-						<li><a href="#page2">게시판</a></li>
-						<li><a href="#page3">등산로</a></li>
-						<li><a href="#page4">둘러보기</a></li>
+						<li><a href="MainPage.jsp">게시판</a></li>
+						<li><a href="MainPage.jsp">등산로</a></li>
+						<li><a href="MainPage.jsp">둘러보기</a></li>
 					<li><a class="btn trigger" href="#menu">≡</a></li>
 					</ul>
 				</nav>
@@ -36,19 +35,18 @@
 			<form id="joinform" action="updateService" method="post">
 
 				<table id="jointable">
-					<caption>마이페이지</caption>
+					<caption>마이 페이지</caption>
 					
 					<tr>
 						<td class="jointd1">* 비밀번호</td>
 						<td class="jointd2"><input type="password" id="input_pw" name="pw" required="required"
-							placeholder="PW를 입력하세요"></td>
+							placeholder="PW를 입력해주세요">
+							&nbsp;<input type="button" value="check" onclick="pwCheck()">
+							</td>
 					</tr>
-						<tr>
-						<td colspan="2" align="center">
-							<input type="button" value="비밀번호확인" onclick="pwCheck()">
-						</td>						
+										
 					<tr>
-						<td colspan="2" align="center"><strong>정보 수정</strong></td>
+						<td colspan="2" align="center"><strong></strong></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center" color="red">
@@ -58,33 +56,33 @@
 					<tr>
 						<td class="jointd1">* 비밀번호</td>
 						<td class="jointd2"><input type="password" name="pw" required="required"
-							placeholder="PW를 입력하세요"></td>
+							placeholder="PW를 입력해주세요"></td>
 					</tr>
 						
 					<tr>
 						<td class="jointd1">* 이름</td>
 						<td class="jointd2"><input type="text" name="name" required="required"
-							placeholder="이름을 입력하세요"></td>
+							placeholder="이름을 입력해주세요"></td>
 					</tr>
 					<tr>
 						<td class="jointd1">* 전화번호</td>
 						<td class="jointd2"><input type="tel" name="phoneNumber" required="required"
-							pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="전화 번호를 입력하세요"></td>
+							pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="000-0000-0000"></td>
 					</tr>
 					<tr>
-						<td class="jointd1">생일</td>
+						<td class="jointd1">* 생일</td>
 						<td class="jointd2"><input type="date" name="birth"></td>
 					</tr>
 					<tr>
-						<td class="jointd1">성별</td>
+						<td class="jointd1">* 성별</td>
 						<td class="jointd2">
-						남 <input type="radio" name="gender" value="0">
-						여 <input type="radio" name="gender" value="1">
+						남자 <input type="radio" name="gender" value="0">
+						여자 <input type="radio" name="gender" value="1">
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center">
-							<input type="submit" value="수정완료">
+							<input type="submit" value="submit">
 						</td>
 					</tr>
 				</table>
@@ -93,15 +91,12 @@
 
 
 		</div>
-		
-		
-		<!-- 메인 -->
+	
 		<main>
 
 		</main>
 
 
-		<!-- 밑부분 -->
 		<footer> </footer>
 	</section>
 	
@@ -116,23 +111,24 @@
 	function pwCheck(){
 		var input = $("#input_pw").val();
 		$.ajax({
-			type: "post", // 데이터 전송 받식
-			data: {"pw" : input}, // 전송하는 데이터
-			url : "pwCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
-			dataType : "text", //응답데이터의 형식
+			type: "post", 
+			data: {"pw" : input}, 
+			url : "pwCheck", 
+			dataType : "text",
 			success : function(data){
 				if(data=="true"){
-					$("#sp_result").html("비밀번호가 맞습니다.");
+					$("#sp_result").html("비밀번호가 일치합니다.");
 				}else{
-					$("#sp_result").html("비밀번호가 맞지 않습니다.");
+					$("#sp_result").html("잘못된 비밀번호 입니다.");
 				}
 			},
 			error : function(){
-				alert("통신실패");
+				alert("통신오류");
            	}
 		});
 	}</script>
 		
 		
+
 </body>
 </html>

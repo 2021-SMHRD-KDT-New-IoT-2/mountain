@@ -51,6 +51,7 @@
 						<%
 							} else if ((vo.getmgr()).equals("1")) {
 						%>
+						<li><a href="logoutService">로그아웃</a></li>
 						<li><a href="DeviceMGR.jsp">관리자페이지</a></li>
 						<%
 							}
