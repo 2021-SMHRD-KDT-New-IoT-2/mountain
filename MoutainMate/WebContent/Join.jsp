@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="euc-kr">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>산으로 오세영 회원가입</title>
 
 <link rel="stylesheet" href="assets/css/join.css">
