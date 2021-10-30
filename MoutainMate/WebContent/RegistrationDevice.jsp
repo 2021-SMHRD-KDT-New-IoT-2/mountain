@@ -10,6 +10,14 @@
 
 
 </head>
+<!-- 제이쿼리추가 -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="assets/js/main.js"></script>
 <body>
 
 
@@ -31,49 +39,195 @@
 	<!-- 메인 -->
 	<main>
 
-			<div id="device-left">
-				<form>
-					<table class="devicetable" action="RentalDevice" method="post">
-						<caption>기기대여시작</caption>
-						
-						<tr>
-							<td class="devicetd">* 기기ID&nbsp;</td>
-							<td class="deviceinputtd"><input type="text" name="pid"></td>
-						</tr>
-						<tr>
-							<td class="devicetd">* 사용자ID&nbsp;</td>
-							<td><input type="text" name="id"></td>
-						</tr>
-						<tr>
-							<td colspan="2" class="send"><input type="submit" value="대여시작"></td>
-						</tr>
-					</table>
-				</form>
-			</div>
-			<div id="device-right">
-				<form>
-					<table class="devicetable">
-						<caption>기기반납완료</caption>
-						<tr>
-							<td class="devicetd">* 기기ID&nbsp;</td>
-							<td class="deviceinputtd"><input type="text"></td>
-						</tr>
-						<tr>
-							<td class="devicetd">* 사용자ID&nbsp;</td>
-							<td><input type="text"></td>
-						</tr>
-						<tr>
-							<td colspan="2"  class="send"><input type="submit" value="반납완료"></td>
-						</tr>
-					</table>
-				</form>
-			</div>
+		<div id="device-left">
+			<form>
+				<table class="devicetable" action="RentalDevice" method="post">
+					<caption>기기대여시작</caption>
+
+					<tr>
+						<td class="devicetd">* 기기ID&nbsp;</td>
+						<td class="deviceinputtd"><input type="text" name="pid"
+							id="input_deviceid"></td>
+					</tr>
+					<tr>
+						<td class="devicetd">* 사용자ID&nbsp;</td>
+						<td><input type="text" name="id" id="input_id"></td>
+					</tr>
+					<tr>
+						<td colspan="2" class="send"><input type="button"
+							value="대여시작" onClick="idCheck()"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+
+
+		<div id="device-right">
+			<form>
+				<table class="devicetable">
+					<caption>기기반납완료</caption>
+					<tr>
+						<td class="devicetd">* 기기ID&nbsp;</td>
+						<td class="deviceinputtd"><input type="text" name="pid2"
+							id="input_deviceid2"></td>
+					</tr>
+					<tr>
+						<td class="devicetd">* 사용자ID&nbsp;</td>
+						<td><input type="text" name="id2" id="input_id2"></td>
+					</tr>
+					<tr>
+						<td colspan="2" class="send"><input type="button"
+							value="반납완료" onClick=""></td>
+					</tr>
+				</table>
+			</form>
+		</div>
 
 
 	</main>
 
+	<script>
+		function idCheck() {
+			var input = $("#input_id").val();
+			$.ajax({
+				type : "post", // 데이터 전송 받식
+				data : {
+					"id" : input
+				}, // 전송하는 데이터
+				url : "IdCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
+				dataType : "text", //응답데이터의 형식
+				success : function(data) {
+					if (data == "true") {
+						alert("아이디 확인 완료.");
+						deviceIdCheck();
+					} else {
+						alert("존재하지 않는 아이디입니다.");
+					}
+				},
+				error : function() {
+					alert("idCheck() 통신실패");
+				}
+			});
+		}
 
-	<!-- 밑부분 -->
-	<footer> </footer>
+		function deviceIdCheck() {
+			var input = $("#input_deviceid").val();
+			$.ajax({
+				type : "post", // 데이터 전송 받식
+				data : {
+					"deviceid" : input
+				}, // 전송하는 데이터
+				url : "deviceIdCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
+				dataType : "text", //응답데이터의 형식
+				success : function(data) {
+					if (data == "true") {
+						alert("아이디 확인 완료.");
+						rentalStart();
+					} else {
+						alert("존재하지 않는 아이디입니다.");
+					}
+				},
+				error : function() {
+					alert("deviceIdCheck() 통신실패");
+				}
+			});
+		}
+
+		function rentalStart() {
+
+			var input_id = $("#input_id").val();
+			var input_deviceid = $("#input_deviceid").val();
+			$.ajax({
+				type : "post", // 데이터 전송 받식
+				data : {
+					"id" : input_id,
+					"deviceid" : input_deviceid
+				}, // 전송하는 데이터
+				url : "RentalDeviceS", //데이터를 전송하는 (요청하는) 서버페이지 url
+				dataType : "text", //응답데이터의 형식
+				success : function(data) {
+					if (data == "true") {
+						alert("대여시작");
+					} else {
+						alert("대여실패");
+					}
+				},
+				error : function() {
+					alert("rentalStart() 통신실패");
+				}
+			});
+		}
+
+		function idCheck2() {
+			var input = $("#input_id2").val();
+			$.ajax({
+				type : "post", // 데이터 전송 받식
+				data : {
+					"id" : input
+				}, // 전송하는 데이터
+				url : "IdCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
+				dataType : "text", //응답데이터의 형식
+				success : function(data) {
+					if (data == "true") {
+						alert("아이디 확인 완료.");
+						deviceIdCheck();
+					} else {
+						alert("존재하지 않는 아이디입니다.");
+					}
+				},
+				error : function() {
+					alert("idCheck() 통신실패");
+				}
+			});
+		}
+
+		function deviceIdCheck2() {
+			var input = $("#input_deviceid2").val();
+			$.ajax({
+				type : "post", // 데이터 전송 받식
+				data : {
+					"deviceid" : input
+				}, // 전송하는 데이터
+				url : "deviceIdCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
+				dataType : "text", //응답데이터의 형식
+				success : function(data) {
+					if (data == "true") {
+						alert("아이디 확인 완료.");
+						rentalFinish();
+					} else {
+						alert("존재하지 않는 아이디입니다.");
+					}
+				},
+				error : function() {
+					alert("deviceIdCheck() 통신실패");
+				}
+			});
+		}
+
+		function rentalFinish() {
+			var input_id = $("#input_id2").val();
+			var input_deviceid = $("#input_deviceid2").val();
+			$.ajax({
+				type : "post", // 데이터 전송 받식
+				data : {
+					"id" : input_id,
+					"deviceid" : input_deviceid
+				}, // 전송하는 데이터
+				url : "RentalDeviceF", //데이터를 전송하는 (요청하는) 서버페이지 url
+				dataType : "text", //응답데이터의 형식
+				success : function(data) {
+					if (data == "true") {
+						alert("반납완료");
+					} else {
+						alert("반납실패");
+					}
+				},
+				error : function() {
+					alert("rentalFinish() 통신실패");
+				}
+			});
+		}
+	</script>
 </body>
 </html>

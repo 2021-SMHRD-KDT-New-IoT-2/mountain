@@ -89,7 +89,7 @@ public class DeviceDAO {
 			rs = psmt.executeQuery();
 			check = rs.next();
 			System.out.println(check);
-			
+
 			if (check) {
 				System.out.println("중복되는 id가 있습니다.");
 			} else {
@@ -105,5 +105,84 @@ public class DeviceDAO {
 			close();
 		}
 		return check;
+	}
+
+// 대여
+	public String sysDate() {
+		String sysdate = "";
+
+		try {
+			connection();
+
+			String sql = "SELECT SYSDATE FROM DUAL";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			sysdate = rs.getString("SYSDATE");
+			System.out.println(sysdate);
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return sysdate;
+	}
+
+	public int deviceRentalStart(String deviceId, String userId) {
+
+		try {
+			connection();
+
+			String sysdate = sysDate();
+			String date = sysdate.substring(0, 10);
+			String time = sysdate.substring(11);
+
+			String sql = "INSERTE INTO RENTAL_TABLE VALUES (?,?,?,?,?)";
+
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, deviceId);
+			psmt.setString(2, userId);
+			psmt.setString(3, date);
+			psmt.setString(4, time);
+			psmt.setString(5, "");
+
+			cnt = psmt.executeUpdate();
+			System.out.println("dao 대여 시작 - 대여테이블 입력 완료");
+		} catch (Exception e) {
+			System.out.println("dao 대여 실패");
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+
+	public int deviceRentalFinish(String deviceId, String userId) {
+		try {
+			connection();
+
+			String sysdate = sysDate();
+			String date = sysdate.substring(0, 10);
+			String time = sysdate.substring(11);
+
+			String sql = "update RENTAL_TABLE set r_return_time=? where p_id=? and user_id=? and rental_date=?";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, time);
+			psmt.setString(2, deviceId);
+			psmt.setString(3, userId);
+			psmt.setString(4, date);
+
+			cnt = psmt.executeUpdate();
+			System.out.println("dao 반납 완료 - 대여테이블 입력 완료");
+		} catch (Exception e) {
+			System.out.println("dao 반납 실패");
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
 	}
 }
