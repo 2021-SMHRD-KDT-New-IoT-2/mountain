@@ -56,10 +56,15 @@
 					</tr>
 					<tr>
 						<td class="jointd1">* 비밀번호</td>
-						<td class="jointd2"><input type="password" name="pw" required="required"
-							> </td>
+						<td class="jointd2">
+						<input type="password" name="pw" required="required">&nbsp;
+						<input type="button" id="pwcheck" onClick="pwCheck()" value="비밀번호확인">
+						</td>
 					</tr>
-						
+					<tr>
+						<td>
+						</td>
+					</tr>
 						
 						
 					<tr>
