@@ -21,9 +21,9 @@
 
 						<li><a href="#menu">로그아웃</a></li>
 						<li><a href="UserInfo.jsp">마이페이지</a></li>
-						<li><a href="MainPage.jsp">게시판</a></li>
-						<li><a href="MainPage.jsp">등산로</a></li>
-						<li><a href="MainPage.jsp">둘러보기</a></li>
+						<li><a href="MainPage.jsp#page2">게시판</a></li>
+						<li><a href="MainPage.jsp#page3">등산로</a></li>
+						<li><a href="MainPage.jsp#page4">둘러보기</a></li>
 					<li><a class="btn trigger" href="#menu">≡</a></li>
 					</ul>
 				</nav>
