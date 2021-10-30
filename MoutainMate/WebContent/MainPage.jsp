@@ -51,7 +51,7 @@
 						<%
 							} else if ((vo.getmgr()).equals("1")) {
 						%>
-						<li><a href="RegistrationDevice.jsp">관리자페이지</a></li>
+						<li><a href="DeviceMGR.jsp">관리자페이지</a></li>
 						<%
 							}
 						}
@@ -157,10 +157,9 @@
 							$("#searchM").change(function() {
 								
 								var selectM = $("#searchM").val();
-								alert("스크립트 안에 들어옴 "+selectM);
 							
 								if (selectM != "") {
-									alert("if문 안에 들어옴");
+									//alert("if문 안에 들어옴");
 									$.ajax({
 										type : "post", // 데이터 전송 받식
 										data : {
@@ -171,7 +170,7 @@
 										success : function(data) {
 											var obj = JSON.stringify(data);
 											var obj2 = data;
-											alert("통신 성공!!");
+											//alert("통신 성공!!");
 											console.log(data[0]);
 											console.log(data.length);
 											
@@ -181,8 +180,6 @@
 												$("#mroad").append(temp_html);
 							
 											}
-										
-											
 										},
 										error : function() {
 											alert("통신실패");
@@ -194,7 +191,6 @@
 							
 							
 						</script>
-
 
 						<tr>
 							<td><label for="searchR">등산로</label></td>
