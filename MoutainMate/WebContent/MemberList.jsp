@@ -67,7 +67,7 @@
 							<td><%=vo.getbirth()%></td>
 							<td><%=vo.getgender()%></td>
 							<td><%=vo.getmgr()%></td>
-							<td><button>삭제</button></td>
+							<td><a href="deleteService?id=<%=vo.getid()%>">삭제</a></td>
 						</tr>
 						<%
 							}

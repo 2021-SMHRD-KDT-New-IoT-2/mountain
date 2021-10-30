@@ -184,17 +184,19 @@ public class UserDAO {
 		try {
 
 			connection();
-			// 3. 실행할 sql문 정의 (실행할때마다 값이 달라지는부분은 ?적어두면 됨
+			System.out.println("dao 로딩완료");
+			
 			String sql = "delete from user_table where user_id=?";
 
-			// 4. sql 실행객체(PreparedStatemnent)생성
 			psmt = conn.prepareStatement(sql);
 
-			// 5. 바인드변수 (?) 채우기
 			psmt.setString(1, id);
-
-			// 6. sql문 실행 후 결과 처리
+			System.out.println("dao sql 입력완료");
 			cnt = psmt.executeUpdate();
+			System.out.println("dao 삭제 완료");
+			
+			sql = "commit";
+			psmt = conn.prepareStatement(sql);
 
 		} catch (Exception e) {
 			System.out.println("삭제실패");
