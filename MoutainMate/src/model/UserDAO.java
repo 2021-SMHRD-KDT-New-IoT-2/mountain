@@ -186,7 +186,7 @@ public class UserDAO {
 
 			connection();
 			// 3. 실행할 sql문 정의 (실행할때마다 값이 달라지는부분은 ?적어두면 됨
-			String sql = "delete from user_table where id=?";
+			String sql = "delete from user_table where user_id=?";
 
 			// 4. sql 실행객체(PreparedStatemnent)생성
 			psmt = conn.prepareStatement(sql);
@@ -222,14 +222,10 @@ public class UserDAO {
 				String get_pw = rs.getNString("pw");
 				String get_name = rs.getString("user_name");
 				String get_tel = rs.getString("user_num");
-				String get_birth = rs.getString("birth");
+				String get_birth = (rs.getString("birth")).substring(0, 10);
 				String get_gender = rs.getString("gender");
 				String get_mgr = rs.getString("mgr");
 
-				System.out.println(get_birth);
-				System.out.println(get_mgr);
-				
-				
 				
 				if (get_gender.equals("0")) {// 남자
 					get_gender = "man";
@@ -240,14 +236,15 @@ public class UserDAO {
 				if (get_mgr.equals("1")) {
 					get_mgr = "관리자";
 				} else {
-					get_mgr = "사용자";
+					get_mgr = "";
 				}
 
 
-				vo = new UserVO(get_id, get_pw, get_name, get_tel, get_birth, get_gender, get_mgr);
+				vo = new UserVO(get_id, get_name, get_tel, get_birth, get_gender, get_mgr, get_pw);
 				System.out.println(get_id + " " + get_pw + " " + get_name + " " + get_tel + " " + get_birth + " "
 						+ get_gender + " " + get_mgr);
-
+				
+				arr.add(vo);
 			}
 
 		} catch (Exception e) {
