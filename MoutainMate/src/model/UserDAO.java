@@ -255,15 +255,16 @@ public class UserDAO {
 	}
 
 	// pw 중복체크
-	public boolean pwCheck(String pw) {
+	public boolean pwCheck(String id, String pw) {
 		boolean check = true;
 		try {
 			connection();
 
 			System.out.println(pw);
-			String sql = "select pw from user_table where pw=? ";
+			String sql = "select pw from user_table where pw=? and user_id";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, pw);
+			psmt.setString(2, id);
 
 			rs = psmt.executeQuery();
 			check = rs.next();
@@ -272,7 +273,7 @@ public class UserDAO {
 			if (check) {
 				System.out.println("비밀번호가 맞습니다..");
 			} else {
-				System.out.println("비밀번호가 맞지않습ㄴ");
+				System.out.println("비밀번호가 맞지않습니다.");
 			}
 
 		} catch (Exception e) {
