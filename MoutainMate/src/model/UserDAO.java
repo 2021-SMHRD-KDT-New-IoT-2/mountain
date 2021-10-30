@@ -235,20 +235,14 @@ public class UserDAO {
 					get_gender = "man";
 				} else if (get_gender.equals("1")) {
 					get_gender = "woman";
-				} else {
-					get_gender = "";
 				}
 
 				if (get_mgr.equals("1")) {
-					get_mgr = "매니저";
+					get_mgr = "관리자";
 				} else {
-					get_mgr = "";
+					get_mgr = "사용자";
 				}
 
-				if (get_birth!=null) {
-				}else {
-					get_birth = "";
-				}
 
 				vo = new UserVO(get_id, get_pw, get_name, get_tel, get_birth, get_gender, get_mgr);
 				System.out.println(get_id + " " + get_pw + " " + get_name + " " + get_tel + " " + get_birth + " "
