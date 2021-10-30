@@ -37,15 +37,15 @@ public class updateService extends HttpServlet {
 		// 수정 실패일 경우에는 콘솔 -> "수정 실패!"
 		
 		UserDAO dao = new UserDAO();
-		int cnt=dao.update(pw, name, phoneNumber, birth, gender);
+		int cnt=dao.update(pw, name, phoneNumber, gender,id);//생일 
 		if(cnt>0) {
 			System.out.println("수정 성공");
-			UserVO vo2 = new UserVO(pw, name, phoneNumber, birth, gender);
+			UserVO vo2 = new UserVO(name, phoneNumber, birth, gender, id);
 			session.setAttribute("User", vo2);
-			response.sendRedirect("main.jsp");
+			response.sendRedirect("UserInfo.jsp");
 		}else {
 			System.out.println("수정실패");
-			response.sendRedirect("MemberInfo.jsp");
+			response.sendRedirect("UserInfo.jsp");
 		}
 		
 }

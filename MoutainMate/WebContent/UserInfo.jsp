@@ -1,3 +1,4 @@
+<%@page import="model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,7 +11,9 @@
 
 </head>
 <body>
-
+<%
+		UserVO vo = (UserVO) session.getAttribute("User");
+	%>
 	<section>
 		<div id="top_header">
 			<header id="header" class="">
@@ -37,52 +40,53 @@
 				<table id="jointable">
 					<caption>마이 페이지</caption>
 					
-					<tr>
-						<td class="jointd1">* 비밀번호</td>
-						<td class="jointd2"><input type="password" id="input_pw" name="pw" required="required"
-							placeholder="PW를 입력해주세요">
-							&nbsp;<input type="button" value="check" onclick="pwCheck()">
-							</td>
-					</tr>
-										
-					<tr>
-						<td colspan="2" align="center"><strong></strong></td>
-					</tr>
+					
 					<tr>
 						<td colspan="2" align="center" color="red">
 							<span id="sp_result"></span>
 						</td>
 					</tr>
 					<tr>
+						<td class="jointd1">* 아이디</td>
+						<td class="jointd2"><%=vo.getid() %> </td>
+					</tr>
+					<tr>
 						<td class="jointd1">* 비밀번호</td>
 						<td class="jointd2"><input type="password" name="pw" required="required"
-							placeholder="PW를 입력해주세요"></td>
+							> </td>
 					</tr>
 						
 					<tr>
 						<td class="jointd1">* 이름</td>
-						<td class="jointd2"><input type="text" name="name" required="required"
-							placeholder="이름을 입력해주세요"></td>
+						<td class="jointd2"><input value="<%=vo.getname()%>" type="text" name="name" required="required"
+							> </td>
 					</tr>
 					<tr>
 						<td class="jointd1">* 전화번호</td>
-						<td class="jointd2"><input type="tel" name="phoneNumber" required="required"
+						<td class="jointd2"><input value="<%=vo.getphoneNumber()%>" type="tel" name="phoneNumber" required="required"
 							pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="000-0000-0000"></td>
 					</tr>
 					<tr>
 						<td class="jointd1">* 생일</td>
 						<td class="jointd2"><input type="date" name="birth"></td>
 					</tr>
+					
+				<%-- 	<%String gender;
+					
+					if(vo.getgender().equals("0")){
+						gender = "남자"; 
+						}else{
+						gender="여자";
+						}%> --%>
+						
+					
 					<tr>
 						<td class="jointd1">* 성별</td>
-						<td class="jointd2">
-						남자 <input type="radio" name="gender" value="0">
-						여자 <input type="radio" name="gender" value="1">
-						</td>
+						<td class="jointd2"><%=vo.getgender() %></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center">
-							<input type="submit" value="submit">
+							<input type="submit" value="수정">
 						</td>
 					</tr>
 				</table>
