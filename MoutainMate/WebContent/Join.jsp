@@ -22,8 +22,7 @@
 				<nav>
 					<ul>
 
-						<li><a href="MainPage.jsp">로그인</a> <!--<a href="Login.jsp">로그인</a>  -->
-						</li>
+						<li><a href="MainPage.jsp">로그인</a></li>
 						<li><a href="MainPage.jsp">게시판</a></li>
 						<li><a href="MainPage.jsp">등산로</a></li>
 						<li><a href="MainPage.jsp">둘러보기</a></li>
@@ -68,13 +67,13 @@
 					</tr>
 					<tr>
 						<td class="jointd1">* 생일</td>
-						<td class="jointd2"><input type="date" id="input_birth" name="birth" required="required"></td>
+						<td class="jointd2"><input type="date" id="input_birth" name="birth"></td>
 					</tr>
 					<tr>
 						<td class="jointd1">* 성별</td>
 						<td class="jointd2" >
-						남 <input type="radio" name="gender" id="input_gender" value="0" required="required">
-						여 <input type="radio" name="gender" id="input_gender"  value="1" required="required">
+						남 <input type="radio" name="gender" id="input_gender0" value="0">
+						여 <input type="radio" name="gender" id="input_gender1"  value="1">
 						</td>
 					</tr>
 					
@@ -129,10 +128,11 @@
 				var input_name = $("#input_name").val();
 				var input_tel = $("#input_tel").val();
 				var input_birth = $("#input_birth").val();
-				var input_gender = $("#input_gender").val();
-				
-				if((input_id!="")&&(input_pw!="")&&(input_name!="")&&(input_tel!="")){
+				var input_gender = $(":input:radio[name='gender']:checked").val();
+			
 					
+				if((input_id!="")&&(input_pw!="")&&(input_name!="")&&(input_tel!="")&&(input_birth!="")&&(input_gender!="")){
+					alert("빈칸없음");
 					alert("if문 안에 들어옴");
 					$.ajax({
 						type: "post", // 데이터 전송 받식
@@ -147,8 +147,8 @@
 						url : "joinService", //데이터를 전송하는 (요청하는) 서버페이지 url
 						dataType : "text", //응답데이터의 형식
 						success : function(data){
-							alert("가입완료");
-				
+							alert("joincheck완료");
+							window.location.assign("joinsuccess.jsp");
 						},
 						error : function(){
 							alert("통신실패");
@@ -160,6 +160,10 @@
 				
 			}
 			
+			function radioCheck(){
+				var rcheck = $(":input:radio[name='gender']").length;
+				var checkval = $(":input:radio[name='gender']:checked").val();
+			}
 			
 			function join(){
 				var input = $("#input_id").val();
