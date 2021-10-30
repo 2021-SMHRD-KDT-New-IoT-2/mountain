@@ -9,7 +9,7 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
-<link rel="stylesheet" href="assets/css/join.css">
+<link rel="stylesheet" href="assets/css/Device.css">
 <body>
 	
 	<%
@@ -27,8 +27,9 @@
 					<ul>
 
 						<li><a href="MainPage.jsp">메인페이지</a></li>
-						<li><a href="RegistrationDevice.jsp">기기등록</a></li>
-						<li><a href="MemberList.jsp">회원정보</a></li>
+						<li><a href="DeviceMGR.jsp">기기등록</a></li>
+						<li><a href="RegistrationDevice.jsp">기기대여</a></li>
+						<li><a href="MemberList.jsp">회원정보관리</a></li>
 					</ul>
 				</nav>
 			</header>

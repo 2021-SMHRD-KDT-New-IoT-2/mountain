@@ -37,7 +37,7 @@ public class updateService extends HttpServlet {
 		// 수정 실패일 경우에는 콘솔 -> "수정 실패!"
 		
 		UserDAO dao = new UserDAO();
-		int cnt=dao.update(id, pw, name, phoneNumber);
+		int cnt=dao.update(pw, name, phoneNumber, birth, gender);
 		if(cnt>0) {
 			System.out.println("수정 성공");
 			UserVO vo2 = new UserVO(pw, name, phoneNumber, birth, gender);

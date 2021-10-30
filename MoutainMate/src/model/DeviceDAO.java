@@ -75,7 +75,7 @@ public class DeviceDAO {
 		return cnt;
 	}
 
-//중복체크
+// id 중복체크
 	public boolean idCheck(String id) {
 		boolean check = true;
 		try {
@@ -106,5 +106,4 @@ public class DeviceDAO {
 		}
 		return check;
 	}
-
 }
