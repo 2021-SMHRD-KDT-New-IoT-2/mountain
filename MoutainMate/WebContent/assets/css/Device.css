@@ -213,5 +213,33 @@ main>button:hover {
 }
 
 /*회원관리 페이지*/
+#memberlistdiv{
+	width:100%;
+	top:5%;
+	position:absolute;
+	display:flex;
+	justify-content: center;
+	
+}
+
+.membertable{
+	color:white;
+	padding:1%;
+	width:60%;
+	top:40%;
+	position:absolute;
+	text-align:center;
+}
+
+#membercolumn{
+	border:1px solid whitesmoke;
+}
+
+#membercolumn>caption{
+	margin:2%;
+	font-weight:1px;
+	font-size:30px;
+}
+
 
 
