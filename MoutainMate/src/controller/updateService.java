@@ -19,45 +19,56 @@ public class updateService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("euc-kr"); //요청데이터의 인코딩 방식 지정
-
+		HttpSession session = request.getSession();
+		request.setCharacterEncoding("euc-kr");
+		UserVO vo = (UserVO) session.getAttribute("User");
+		
+		String id = vo.getid();
+		String voname = vo.getname();
+		String vophoneNumber = vo.getphoneNumber();
+		String vobirth = vo.getbirth();
+		String vogender = vo.getgender();
+		
+		
 		
 		//수정에 사용할 정보
-		String id=request.getParameter("id");
-		String pw=request.getParameter("pw");
-		String name=request.getParameter("name");
-		String phoneNumber=request.getParameter("phoneNumber");
-		String birth= request.getParameter("birth");
-		String gender= request.getParameter("gender");
+		String pw = request.getParameter("pw");
+		String name = request.getParameter("name");
+		String phoneNumber = request.getParameter("phoneNumber");
+		String birth = request.getParameter("birth");
+		String gender = request.getParameter("gender");
 		
-		if(gender.equals("man")) {
-			gender="0";
-		}else if(gender.equals("woman")) {
-			gender="1";
+		if(name.equals("")) {
+			name=voname;
+		}
+		if(phoneNumber.equals("")) {
+			phoneNumber=vophoneNumber;
+		}
+		if(birth.equals("")) {
+			birth = vobirth;
+		}
+		if(gender==null){
+			gender = vogender;
 		}
 		
-		UserDAO dao = new UserDAO();
-		int cnt=dao.update(pw, name, phoneNumber,birth, gender,id);//생일 
+		System.out.println(pw + " "+ name + " "+phoneNumber + " "+birth+ " "+ gender);
 		
-		UserVO vo = new UserVO(id, name, phoneNumber, birth, gender, pw);
+//		if(gender.equals("man")) {
+//			gender="0";
+//		}else if(gender.equals("woman")) {
+//			gender="1";
+//		}
+//		
+		UserDAO dao = new UserDAO();
+		int cnt=dao.update(pw, name, phoneNumber,birth, gender,id);
+		UserVO vo2 = new UserVO(id, name, phoneNumber, birth, gender, pw);
 		
 		if(cnt>0) {
 			System.out.println("서블릿 수정 성공");
-			HttpSession session = request.getSession();
-
-			// 세션 값 설정
-			session.setAttribute("User", vo);
-
-			//forward 방식으로 페이지 이동
-			RequestDispatcher rd=request.getRequestDispatcher("MainPage.jsp");
-			
-			//request영역에 기억해야할 데이터 설정
-			request.setAttribute("id", id);
-			
-			// 페이지 이동할 시 request, response 객체 전달
-			rd.forward(request, response);
-
-
+		
+			session.setAttribute("User", vo2);
+	
+//			response.sendRedirect("UserInfo.jsp");
 		}else {
 			System.out.println("서블릿 수정실패");
 			response.sendRedirect("UserInfo.jsp");

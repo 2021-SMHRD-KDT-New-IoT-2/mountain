@@ -13,10 +13,35 @@
 </head>
 <body>
 	<%
-		UserVO vo = (UserVO) session.getAttribute("User");
+	UserVO vo = (UserVO) session.getAttribute("User");
 	String id = vo.getid();
+	System.out.println("vo.getid() : "+id);
 	UserDAO dao = new UserDAO();
-	UserVO uservo = dao.selectOne(id);
+	
+	vo = dao.selectOne(id);
+	String gender = "";
+	String mgr = "";
+	
+	String vogender = vo.getgender();
+	String vomgr = vo.getmgr();
+	
+	System.out.println("vogender : "+vogender);
+	System.out.println("vomgr : "+vomgr);
+	
+		if (vogender.equals("0")) {// 남자
+			gender = "man";
+		} else if (vogender.equals("1")) {
+			gender = "woman";
+		}
+
+		if ((vo.getmgr()).equals("1")) {
+			mgr = "관리자";
+		} else {
+			mgr = "";
+		}
+	
+	
+	
 	%>
 	<section>
 		<div id="top_header">
@@ -49,7 +74,7 @@
 						<caption>마이 페이지</caption>
 						<tr>
 							<td class="jointd1">* 아이디</td>
-							<td class="jointd2" name="id"><%=uservo.getid()%></td>
+							<td class="jointd2" name="id"><%=vo.getid()%></td>
 						</tr>
 						<tr>
 							<td class="jointd1">* 비밀번호</td>
@@ -65,19 +90,20 @@
 
 						<tr>
 							<td class="jointd1">* 이름</td>
-							<td class="jointd2"><input value="<%=uservo.getname()%>"
-								type="text" name="name" required="required"></td>
+							<td class="jointd2">
+								<input placeholder="<%=vo.getname()%>" type="text" id="input_name" name="name">
+							</td>
 						</tr>
 						<tr>
 							<td class="jointd1">* 전화번호</td>
-							<td class="jointd2"><input
-								value="<%=uservo.getphoneNumber()%>" type="tel"
-								name="phoneNumber" required="required"
-								pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="000-0000-0000"></td>
+							<td class="jointd2">
+								<input placeholder="<%=vo.getphoneNumber()%>" type="tel" name="phoneNumber"
+								id="input_tel" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="000-0000-0000">
+							</td>
 						</tr>
 						<tr>
 							<td class="jointd1">* 생일</td>
-							<td class="jointd2"><%=uservo.getbirth()%></td>
+							<td class="jointd2"><%=vo.getbirth()%></td>
 						</tr>
 						<tr>
 							<td class="jointd1"></td>
@@ -88,7 +114,7 @@
 
 						<tr>
 							<td class="jointd1">* 성별</td>
-							<td class="jointd2"><%=uservo.getgender()%></td>
+							<td class="jointd2"><%=gender%></td>
 						</tr>
 						<tr>
 							<td class="jointd1"></td>
@@ -121,11 +147,13 @@
 	<script src="assets/js/main.js"></script>
 	<script>
 		function pwCheck() {
-			var input = $("#input_pw").val();
+		
+			var input_pw = $("#input_pw").val();
 			$.ajax({
 				type : "post",
 				data : {
-					"pw" : input
+					
+					"pw" : input_pw
 				},
 				url : "pwCheck",
 				dataType : "text",
@@ -144,7 +172,7 @@
 		}
 
 		function modifyCheck() {
-			var input_id = $("#input_id").val();
+	
 			var input_pw = $("#input_pw").val();
 			var input_name = $("#input_name").val();
 			var input_tel = $("#input_tel").val();
@@ -154,7 +182,7 @@
 			$.ajax({
 				type : "post", // 데이터 전송 받식
 				data : { // 전송하는 데이터
-					"id" : input_id,
+				
 					"pw" : input_pw,
 					"name" : input_name,
 					"phoneNumber" : input_tel,
@@ -165,7 +193,7 @@
 				dataType : "text", //응답데이터의 형식
 				success : function(data) {
 					alert("수정완료");
-					window.location.assign("UserInfo.jsp");
+					window.location("MainPage.jsp");
 				},
 				error : function() {
 					alert("통신실패");
@@ -174,11 +202,13 @@
 		}
 		
 		function modify() {
-			var input = $("#input_pw").val();
+	
+			var input_pw = $("#input_pw").val();
 			$.ajax({
 				type : "post",
 				data : {
-					"pw" : input
+				
+					"pw" : input_pw
 				},
 				url : "pwCheck",
 				dataType : "text",

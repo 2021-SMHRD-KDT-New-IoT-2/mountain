@@ -25,13 +25,14 @@ public class loginService extends HttpServlet {
 		UserDAO dao = new UserDAO();
 
 		UserVO vo = dao.login(id, pw);
+		
 
 		if (vo != null) {
 			System.out.println("서블릿 vo 값 넘어감");
-			// 세션객체생성
+			vo=dao.selectOne(id);
+				
 			HttpSession session = request.getSession();
 
-			// 세션 값 설정
 			session.setAttribute("User", vo);
 
 			response.sendRedirect("MainPage.jsp");
