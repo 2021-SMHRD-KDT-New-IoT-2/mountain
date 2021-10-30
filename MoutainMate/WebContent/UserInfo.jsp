@@ -12,7 +12,7 @@
 </head>
 <body>
 <%
-		UserVO vo = (UserVO) session.getAttribute("User");
+		UserVO vo = (UserVO)session.getAttribute("User");
 	%>
 	<section>
 		<div id="top_header">
@@ -48,18 +48,16 @@
 					</tr>
 					<tr>
 						<td class="jointd1">* 아이디</td>
-						<td class="jointd2"><%=vo.getid() %> </td>
+						<td class="jointd2"><%=vo.getid()%> </td>
 					</tr>
 					<tr>
 						<td class="jointd1">* 비밀번호</td>
-						<td class="jointd2"><input type="password" name="pw" required="required"
-							> </td>
+						<td class="jointd2"><input type="password" name="pw" required="required"> </td>
 					</tr>
 						
 					<tr>
 						<td class="jointd1">* 이름</td>
-						<td class="jointd2"><input value="<%=vo.getname()%>" type="text" name="name" required="required"
-							> </td>
+						<td class="jointd2"><input type="text" name="name" required="required" value= "<%=vo.getname()%>"> </td>
 					</tr>
 					<tr>
 						<td class="jointd1">* 전화번호</td>
@@ -82,7 +80,7 @@
 					
 					<tr>
 						<td class="jointd1">* 성별</td>
-						<td class="jointd2"><%=vo.getgender() %></td>
+						<td class="jointd2"><%=vo.getgender()%></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center">

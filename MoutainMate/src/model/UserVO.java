@@ -42,12 +42,12 @@ public class UserVO {
 			this.mgr = mgr;
 		}
 		
-		public UserVO(String id, String name, String phoneNumber, String birth, String gender, String mgr) {
-			this.id=id;
+		public UserVO(String name, String phoneNumber, String birth, String mgr, String gender) {
+			//this.id=id;
 			this.name = name;
 			this.phoneNumber = phoneNumber;
 			this.birth = birth;
-			this.gender=gender;
+			this.gender = gender;
 			this.mgr=mgr;
 			
 		}
@@ -75,7 +75,7 @@ public class UserVO {
 		}
 		
 		//회원수정용
-		public UserVO(String pw, String name, String phoneNumber, String birth, String gender) {
+		public UserVO(String id, String pw, String name, String phoneNumber, String birth, String gender) {
 			this.pw= pw;
 			this.name=name;
 			this.phoneNumber=phoneNumber;
