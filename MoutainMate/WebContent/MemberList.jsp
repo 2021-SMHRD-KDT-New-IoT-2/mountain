@@ -13,9 +13,8 @@
 <body>
 
 	<%
-	UserDAO dao = new UserDAO();
+		UserDAO dao = new UserDAO();
 	ArrayList<UserVO> arr = dao.selectAll();
-	System.out.println(arr.size());
 	%>
 
 	<section>
@@ -36,7 +35,6 @@
 		</div>
 
 
-
 		<!-- 메인 -->
 		<main>
 
@@ -45,34 +43,37 @@
 				<table class="membertable" id="membercolumn">
 					<caption>회원 목록</caption>
 					<tr>
-						<td>아이디</td>
-						<td>이름</td>
-						<td>전화번호</td>
-						<td>생년월일</td>
-						<td>성별</td>
-						<td>매니저여부</td>
-						<td>삭제</td>
-					</tr>
+						<td id="1">아이디</td>
+						<td id="2">이름</td>
+						<td id="3">전화번호</td>
+						<td id="4">생년월일</td>
+						<td id="5">성별</td>
+						<td id="6">매니저여부</td>
+						<td id="7">삭제</td>
+					</tr> 
 				</table>
-				<table class="membertable" id="memberlist">
-					<%
-						for (UserVO vo : arr) {
-					%>
+				<div id="listpage">
+					<table class="membertable" id="memberlist">
+						<%
+							for (int i = 0; i < arr.size(); i++) {
+							UserVO vo = arr.get(i);
+							
+						%>
 
-					<tr>
-						<td><%=vo.getid()%></td>
-						<td><%=vo.getname()%></td>
-						<td><%=vo.getphoneNumber()%></td>
-						<td><%=vo.getbirth()%></td>
-						<td><%=vo.getgender()%></td>
-						<td><%=vo.getmgr()%></td>
-						<td><button>삭제</button></td>
-					</tr>
-					<%
-						}
-					%>
-				</table>
-
+						<tr>
+							<td><%=vo.getid()%></td>
+							<td><%=vo.getname()%></td>
+							<td><%=vo.getphoneNumber()%></td>
+							<td><%=vo.getbirth()%></td>
+							<td><%=vo.getgender()%></td>
+							<td><%=vo.getmgr()%></td>
+							<td><button>삭제</button></td>
+						</tr>
+						<%
+							}
+						%>
+					</table>
+				</div>
 
 
 			</div>

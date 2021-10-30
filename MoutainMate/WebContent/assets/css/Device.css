@@ -212,7 +212,7 @@ main>button:hover {
 	padding-left:40%;
 }
 
-/*회원관리 페이지*/
+/*-----------------------회원관리 페이지------------------------*/
 #memberlistdiv{
 	width:100%;
 	top:5%;
@@ -242,4 +242,19 @@ main>button:hover {
 }
 
 
+
+#listpage{
+	margin-top:11%;
+	width:60%;
+	height:50vh;
+	overflow-y:scroll;
+	position:absolute;
+}
+#memberlist{
+	top:0;
+	width:100%;
+	heigth:100%;
+	text-align:center;
+	position:absolute;
+}
 
