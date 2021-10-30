@@ -33,16 +33,16 @@
 
 			<div id="device-left">
 				<form>
-					<table class="devicetable">
+					<table class="devicetable" action="RentalDevice" method="post">
 						<caption>기기대여시작</caption>
 						
 						<tr>
 							<td class="devicetd">* 기기ID&nbsp;</td>
-							<td class="deviceinputtd"><input type="text"></td>
+							<td class="deviceinputtd"><input type="text" name="pid"></td>
 						</tr>
 						<tr>
 							<td class="devicetd">* 사용자ID&nbsp;</td>
-							<td><input type="text"></td>
+							<td><input type="text" name="id"></td>
 						</tr>
 						<tr>
 							<td colspan="2" class="send"><input type="submit" value="대여시작"></td>
