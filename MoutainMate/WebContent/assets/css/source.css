@@ -1,0 +1,116 @@
+@charset "EUC-KR";@charset "euc-kr";
+
+@import url(font-awesome.min.css);
+
+@import
+	url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic")
+	;
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	scroll-behavior: smooth;
+}
+
+a {
+	transition: all .3s;
+}
+
+header {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	/* 남는공간 20퍼를 자동으로 분배해서 나눠줌 */
+	display: flex;
+	justify-content: space-between;
+	/* 태그의 위치를 양끝으로 이동 */
+	align-items: center;
+	/* 영역의 수직방향 (위아래 중앙으로 위치시켜줌) */
+}
+
+
+#top_header {
+	height: 10%;
+	background-color: white;
+}
+
+nav>ul>li {
+	display: inline-block;
+	margin: 0 10px;
+}
+
+#san_logo {
+	top: 1%;
+	height: 35%;
+	width: 10%; background-image : url(../../images/san_logo.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	background-image: url(../../images/san_logo.png)
+}
+
+#header>nav>ul>li>a {
+	border: 1px;
+	font-size: 100%;
+	color: white;
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+}
+
+#header>nav {
+	top: 3%;
+	right: 2%;
+	position: absolute;
+}
+
+main {
+	background: radial-gradient(rgba(49, 49, 49, 0.8), rgba(51, 51, 51, 0.8)),
+		url(../../images/mudengsan.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 90%;
+	top: 10%;
+	left:0;
+	position: absolute;
+}
+
+
+
+input {
+	border: 2px solid black;
+	border-radius: 0px;
+	font-size: 16px;
+	padding: 1%;
+	border: 0px;
+	outline: none;
+	float: left;
+}
+
+main>button {
+	/* 버튼 배경색 제거 */
+	background: none;
+	/* 버튼위에 올릴때 커서 */
+	cursor: pointer;
+	/* 경계선 제거 */
+	outline: none;
+	/* 경게선 크기 흰색 */
+	border: 2px solid white;
+	/* 버튼 안 색깔 */
+	color: white;
+	/* 버튼 경계선 둥글게 */
+	border-radius: 20px;
+	/* 경계선 거리 증가 위 아래로 */
+	padding: 15px 20px;
+	/* 모든 변화 작업을 0.5초 걸리게 */
+	transition: all 1s;
+}
+/* 버튼에 올렸을때 색깔 변화 */
+main>button:hover {
+	background-color: #b9b9b9;
+}
+
