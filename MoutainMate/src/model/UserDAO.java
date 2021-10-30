@@ -10,12 +10,10 @@ public class UserDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
-	UserVO vo =null;
-	int cnt = 0;	
-	ArrayList<UserVO> arr =null;
-	
-	
-	
+	UserVO vo = null;
+	int cnt = 0;
+	ArrayList<UserVO> arr = null;
+
 	public void connection() { // db연결
 		try {
 			// 1. 드라이브 동적로딩
@@ -88,23 +86,23 @@ public class UserDAO {
 
 		try {
 			connection();
-		
-				String sql = "select * from user_table where user_id=? and pw=?";
-				psmt = conn.prepareStatement(sql);
-				psmt.setString(1, id);
-				psmt.setString(2, pw);
 
-				rs = psmt.executeQuery();
+			String sql = "select * from user_table where user_id=? and pw=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, pw);
 
-				if (rs.next()) {
-					String mgr = rs.getString("mgr");
-					
-					System.out.println("dao 로그인성공 mgr : "+mgr);
-					vo = new UserVO(id,pw,mgr);
+			rs = psmt.executeQuery();
 
-				} else {
+			if (rs.next()) {
+				String mgr = rs.getString("mgr");
 
-					System.out.println("로그인실패");
+				System.out.println("dao 로그인성공 mgr : " + mgr);
+				vo = new UserVO(id, pw, mgr);
+
+			} else {
+
+				System.out.println("로그인실패");
 			}
 		} catch (Exception e) {
 
@@ -118,7 +116,7 @@ public class UserDAO {
 	}
 
 	// 회원 수정
-	public int update( String pw, String name, String phoneNumber, String birth, String id) {
+	public int update(String pw, String name, String phoneNumber, String birth, String id) {
 
 		try {
 
@@ -134,7 +132,7 @@ public class UserDAO {
 			psmt.setString(2, name);
 			psmt.setString(3, phoneNumber);
 			psmt.setString(4, birth);
-			
+
 			psmt.setString(5, id);
 
 			// 6. sql문 실행 후 결과 처리
@@ -226,7 +224,6 @@ public class UserDAO {
 				String get_gender = rs.getString("gender");
 				String get_mgr = rs.getString("mgr");
 
-				
 				if (get_gender.equals("0")) {// 남자
 					get_gender = "man";
 				} else if (get_gender.equals("1")) {
@@ -239,11 +236,10 @@ public class UserDAO {
 					get_mgr = "";
 				}
 
-
 				vo = new UserVO(get_id, get_name, get_tel, get_birth, get_gender, get_mgr, get_pw);
 				System.out.println(get_id + " " + get_pw + " " + get_name + " " + get_tel + " " + get_birth + " "
 						+ get_gender + " " + get_mgr);
-				
+
 				arr.add(vo);
 			}
 
@@ -257,35 +253,84 @@ public class UserDAO {
 		}
 		return arr;
 	}
-//	//pw 중복체크
-//		public boolean pwCheck(String pw) {
-//			boolean check = true;
-//			try {
-//				connection();
-//
-//				System.out.println(pw);
-//				String sql = "select pw from user_table where pw=? ";
-//				psmt = conn.prepareStatement(sql);
-//				psmt.setString(1, pw);
-//
-//				rs = psmt.executeQuery();
-//				check = rs.next();
-//				System.out.println(check);
-//				
-//				if (check) {
-//					System.out.println("비밀번호가 맞습니다..");
-//				} else {
-//					System.out.println("비밀번호가 맞지않습ㄴ");
-//				}
-//
-//			} catch (Exception e) {
-//
-//				e.printStackTrace();
-//			} finally {
-//				// 1. 지역변수
-//				// 2. 예외처리
-//				close();
-//			}
-//			return check;
-//		}
+
+	// pw 중복체크
+	public boolean pwCheck(String pw) {
+		boolean check = true;
+		try {
+			connection();
+
+			System.out.println(pw);
+			String sql = "select pw from user_table where pw=? ";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, pw);
+
+			rs = psmt.executeQuery();
+			check = rs.next();
+			System.out.println(check);
+
+			if (check) {
+				System.out.println("비밀번호가 맞습니다..");
+			} else {
+				System.out.println("비밀번호가 맞지않습ㄴ");
+			}
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			// 1. 지역변수
+			// 2. 예외처리
+			close();
+		}
+		return check;
+	}
+
+	// 회원 검색
+	public UserVO selectOne(String id) {
+		
+		try {
+			connection();
+
+			String sql = "select * from USER_TABLE where user_id=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+
+				String get_id = rs.getString("user_id");
+				String get_pw = rs.getNString("pw");
+				String get_name = rs.getString("user_name");
+				String get_tel = rs.getString("user_num");
+				String get_birth = (rs.getString("birth")).substring(0, 10);
+				String get_gender = rs.getString("gender");
+				String get_mgr = rs.getString("mgr");
+
+				if (get_gender.equals("0")) {// 남자
+					get_gender = "man";
+				} else if (get_gender.equals("1")) {
+					get_gender = "woman";
+				}
+
+				if (get_mgr.equals("1")) {
+					get_mgr = "관리자";
+				} else {
+					get_mgr = "";
+				}
+
+				vo = new UserVO(get_id, get_name, get_tel, get_birth, get_gender, get_mgr, get_pw);
+				System.out.println(get_id + " " + get_pw + " " + get_name + " " + get_tel + " " + get_birth + " "
+						+ get_gender + " " + get_mgr);
+
+			}
+
+		} catch (Exception e) {
+			System.out.println("dao 회원조회실패");
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return vo;
+	}
 }

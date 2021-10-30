@@ -1,3 +1,4 @@
+<%@page import="model.UserDAO"%>
 <%@page import="model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -13,6 +14,9 @@
 <body>
 <%
 		UserVO vo = (UserVO) session.getAttribute("User");
+		String id = vo.getid();
+		UserDAO dao = new UserDAO();
+		UserVO uservo = dao.selectOne(id);
 	%>
 	<section>
 		<div id="top_header">
@@ -48,7 +52,7 @@
 					</tr>
 					<tr>
 						<td class="jointd1">* 아이디</td>
-						<td class="jointd2"><%=vo.getid() %> </td>
+						<td class="jointd2"><%=uservo.getid() %> </td>
 					</tr>
 					<tr>
 						<td class="jointd1">* 비밀번호</td>
@@ -56,33 +60,31 @@
 							> </td>
 					</tr>
 						
+						
+						
 					<tr>
 						<td class="jointd1">* 이름</td>
-						<td class="jointd2"><input value="<%=vo.getname()%>" type="text" name="name" required="required"
+						<td class="jointd2"><input value="<%=uservo.getname()%>" type="text" name="name" required="required"
 							> </td>
 					</tr>
 					<tr>
 						<td class="jointd1">* 전화번호</td>
-						<td class="jointd2"><input value="<%=vo.getphoneNumber()%>" type="tel" name="phoneNumber" required="required"
+						<td class="jointd2"><input value="<%=uservo.getphoneNumber()%>" type="tel" name="phoneNumber" required="required"
 							pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="000-0000-0000"></td>
 					</tr>
 					<tr>
 						<td class="jointd1">* 생일</td>
-						<td class="jointd2"><input type="date" name="birth"></td>
+						<td class="jointd2"><%=uservo.getbirth() %></td>
 					</tr>
-					
-				<%-- 	<%String gender;
-					
-					if(vo.getgender().equals("0")){
-						gender = "남자"; 
-						}else{
-						gender="여자";
-						}%> --%>
+					<tr>
+						<td class="jointd1"></td>
+						<td class="jointd2"><input type="date" name="birth"></td>
 						
-					
+					</tr>
+			
 					<tr>
 						<td class="jointd1">* 성별</td>
-						<td class="jointd2"><%=vo.getgender() %></td>
+						<td class="jointd2"><%=uservo.getgender() %></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center">

@@ -82,21 +82,6 @@ public class UserVO {
 			this.birth = birth;
 			this.gender = gender;
 		}
-		
-		public String get_pw() {
-			return pw;
-		}
-		public String get_name() {
-			return name;
-		}
-		public String get_phoneNumber() {
-			return phoneNumber;
-		}
-		public String get_birth() {
-			return birth;
-		}
-		public String get_gender() {
-			return gender;
-		}
+	
 		
 	}
