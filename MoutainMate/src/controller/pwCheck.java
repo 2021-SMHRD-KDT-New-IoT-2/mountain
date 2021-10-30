@@ -19,19 +19,21 @@ public class pwCheck extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		HttpSession session = request.getSession();
 		request.setCharacterEncoding("euc-kr");
-
+		UserVO vo = (UserVO) session.getAttribute("User");
+		String id = vo.getid();
+		
+		
 		// 요청 데이터 받아주기
-		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-
+		System.out.println("서블릿으로 넘어온 id :" + id);
 		System.out.println("서블릿으로 넘어온 pw :" + pw);
 
 		UserDAO dao = new UserDAO();
 		boolean check = dao.pwCheck(id, pw);
 
-		UserVO vo = new UserVO(id,pw);
+		UserVO vo2 = new UserVO(id,pw);
 		
 		PrintWriter out = response.getWriter();
 		out.print(check);
@@ -39,8 +41,8 @@ public class pwCheck extends HttpServlet {
 		response.setContentType("charset=utf-8");
 		
 		//세션 객체 생성
-		HttpSession session = request.getSession();
-		session.setAttribute("pwcheck", vo);
+		
+		session.setAttribute("pwcheck", vo2);
 
 		if (check) {
 			System.out.println(" 비밀번호 맞음 _ 서블릿");

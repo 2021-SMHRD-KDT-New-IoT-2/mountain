@@ -122,7 +122,7 @@ public class UserDAO {
 
 			connection();
 			// 3. 실행할 sql문 정의 (실행할때마다 값이 달라지는부분은 ?적어두면 됨
-			String sql = "update user_table  set pw =?, user_name=?, user_num=?, birth=?, gender=? where id=?";
+			String sql = "update user_table set pw =?, user_name=?, user_num=?, birth=?, gender=? where user_id=?";
 
 			// 4. sql 실행객체(PreparedStatemnent)생성
 			psmt = conn.prepareStatement(sql);
@@ -262,13 +262,14 @@ public class UserDAO {
 			connection();
 
 			System.out.println(pw);
-			String sql = "select pw from user_table where pw=? and user_id=?";
+			String sql = "select * from user_table where pw=? and user_id=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, pw);
 			psmt.setString(2, id);
 
 			rs = psmt.executeQuery();
 			check = rs.next();
+			
 			System.out.println(check);
 
 			if (check) {
@@ -308,18 +309,6 @@ public class UserDAO {
 				String get_birth = (rs.getString("birth")).substring(0, 10);
 				String get_gender = rs.getString("gender");
 				String get_mgr = rs.getString("mgr");
-
-				if (get_gender.equals("0")) {// 남자
-					get_gender = "man";
-				} else if (get_gender.equals("1")) {
-					get_gender = "woman";
-				}
-
-				if (get_mgr.equals("1")) {
-					get_mgr = "관리자";
-				} else {
-					get_mgr = "";
-				}
 
 				vo = new UserVO(get_id, get_name, get_tel, get_birth, get_gender, get_mgr, get_pw);
 				System.out.println(get_id + " " + get_pw + " " + get_name + " " + get_tel + " " + get_birth + " "
