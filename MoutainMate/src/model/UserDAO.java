@@ -118,13 +118,13 @@ public class UserDAO {
 	}
 
 	// 회원 수정
-	public int update(String id, String pw, String name, String phoneNumber) {
+	public int update( String pw, String name, String phoneNumber, String birth, String gender) {
 
 		try {
 
 			connection();
 			// 3. 실행할 sql문 정의 (실행할때마다 값이 달라지는부분은 ?적어두면 됨
-			String sql = "update user_table  set pw =?, user_name=?, user_num=?, where pw=?";
+			String sql = "update user_table  set pw =?, user_name=?, user_num=?, birth=?, gender=? where pw=?";
 
 			// 4. sql 실행객체(PreparedStatemnent)생성
 			psmt = conn.prepareStatement(sql);
@@ -133,7 +133,9 @@ public class UserDAO {
 			psmt.setString(1, pw);
 			psmt.setString(2, name);
 			psmt.setString(3, phoneNumber);
-			psmt.setString(4, id);
+			psmt.setString(4, birth);
+			psmt.setString(3, gender);
+			psmt.setString(4, pw);
 
 			// 6. sql문 실행 후 결과 처리
 			cnt = psmt.executeUpdate();
@@ -264,4 +266,35 @@ public class UserDAO {
 		}
 		return arr;
 	}
+	//pw 중복체크
+		public boolean pwCheck(String pw) {
+			boolean check = true;
+			try {
+				connection();
+
+				System.out.println(pw);
+				String sql = "select pw from user_table where pw=? ";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, pw);
+
+				rs = psmt.executeQuery();
+				check = rs.next();
+				System.out.println(check);
+				
+				if (check) {
+					System.out.println("비밀번호가 맞습니다..");
+				} else {
+					System.out.println("비밀번호가 맞지않습ㄴ");
+				}
+
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			} finally {
+				// 1. 지역변수
+				// 2. 예외처리
+				close();
+			}
+			return check;
+		}
 }
