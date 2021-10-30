@@ -22,8 +22,7 @@
 				<nav>
 					<ul>
 
-						<li><a href="MainPage.jsp">로그인</a> <!--<a href="Login.jsp">로그인</a>  -->
-						</li>
+						<li><a href="MainPage.jsp">로그인</a></li>
 						<li><a href="MainPage.jsp">게시판</a></li>
 						<li><a href="MainPage.jsp">등산로</a></li>
 						<li><a href="MainPage.jsp">둘러보기</a></li>
@@ -149,7 +148,7 @@
 						dataType : "text", //응답데이터의 형식
 						success : function(data){
 							alert("joincheck완료");
-				
+							window.location.assign("joinsuccess.jsp");
 						},
 						error : function(){
 							alert("통신실패");

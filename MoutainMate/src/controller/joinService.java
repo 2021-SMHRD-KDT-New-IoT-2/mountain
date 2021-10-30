@@ -44,6 +44,11 @@ public class joinService extends HttpServlet {
 		
 			if(cnt>0) {
 				System.out.println("가입성공");
+				HttpSession session = request.getSession();
+
+				// 세션 값 설정
+				session.setAttribute("joinId", id);
+
 				//forward 방식으로 페이지 이동
 				rd=request.getRequestDispatcher("MainPage.jsp");
 				
