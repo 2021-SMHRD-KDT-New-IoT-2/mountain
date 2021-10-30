@@ -170,22 +170,19 @@
 										dataType : "json", //응답데이터의 형식
 										success : function(data) {
 											var obj = JSON.stringify(data);
+											var obj2 = data;
 											alert("통신 성공!!");
-											alert(obj);
-											alert(obj.length());
+											console.log(data[0]);
+											console.log(data.length);
 											
-											List<HashMap<String, Object>> indicatorMapList = 
-												MountainDAO.getGrowthIndicatorDataList(groupIdList);
-											JSONArray jsonArrayList = new JSONArray();
-											for(int j = 0; j < indicatorMapList.size(); j++){ 
-												//가져온 hashmap 데이터의 갯수만큼 반복
-												//오브젝트를 생성해 가져온 JSONObject를 담는다.
-												JSONObject indicatorJobj = JSONObject.fromObject(indicatorMapList.get(j));
-												jsonArrayList.add(indicatorJobj); 
-												//Object.keys(obj).length
-												var jsonobj = obj.
-												$("#sp_result").html(obj.mroad_name);
+											for(var i=0; i<data.length; i++){
+												console.log(data[i].mroad_name);
+												var temp_html = "<option value='"+(i+1)+"'>"+data[i].mroad_name+"</option>";
+												$("#mroad").append(temp_html);
+							
 											}
+										
+											
 										},
 										error : function() {
 											alert("통신실패");
@@ -194,6 +191,8 @@
 								}
 
 							});
+							
+							
 						</script>
 
 
@@ -204,16 +203,9 @@
 									<input id="searchR" type="text" list="mroad"
 										placeholder="등산로를 선택해주세요.">
 									<datalist id="mroad">
-										<%
-											MountainDAO road_dao = new MountainDAO();
-
-										for (int i = 0; i < al.size(); i++) {
-											MountainVO road_vo = al.get(i);
-										%>
-										<option id="sp_result" value="<%=road_vo.getMroad_id()%>"><%=road_vo.getMroad_name()%></option>
-										<%
-											}
-										%>
+										
+										<!--<option id="sp_result" value=""></option>  -->
+										
 									</datalist>
 								</div>
 							</td>
