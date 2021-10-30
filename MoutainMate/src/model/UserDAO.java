@@ -182,19 +182,16 @@ public class UserDAO {
 	// 특정회원삭제
 	public int delete(String id) {
 		try {
-
 			connection();
-			System.out.println("dao 로딩완료");
-			
+	
 			String sql = "delete from user_table where user_id=?";
 
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, id);
-			System.out.println("dao sql 입력완료");
-			cnt = psmt.executeUpdate();
-			System.out.println("dao 삭제 완료");
 			
+			cnt = psmt.executeUpdate();
+		
 			sql = "commit";
 			psmt = conn.prepareStatement(sql);
 

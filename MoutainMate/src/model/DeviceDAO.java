@@ -38,12 +38,16 @@ public class DeviceDAO {
 
 	public void close() {
 		try {
-			if(rs!=null) {
+			if (rs != null) {
 				rs.close();
 			}
-			psmt.close();
-			conn.close();
-			} catch (Exception e2) {
+			if (rs != null) {
+				psmt.close();
+			}
+			if (rs != null) {
+				conn.close();
+			}
+		} catch (Exception e2) {
 			e2.printStackTrace();
 		}
 	}
