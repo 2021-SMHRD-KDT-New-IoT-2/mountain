@@ -164,10 +164,6 @@
 
 		}
 
-		function radioCheck() {
-			var rcheck = $(":input:radio[name='gender']").length;
-			var checkval = $(":input:radio[name='gender']:checked").val();
-		}
 
 		function join() {
 			var input = $("#input_id").val();

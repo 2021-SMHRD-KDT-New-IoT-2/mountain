@@ -47,12 +47,6 @@
 
 					<table id="jointable">
 						<caption>마이 페이지</caption>
-
-
-						<tr>
-							<td colspan="2" align="center" color="red"><span
-								id="sp_result"></span></td>
-						</tr>
 						<tr>
 							<td class="jointd1">* 아이디</td>
 							<td class="jointd2" name="id"><%=uservo.getid()%></td>
@@ -61,8 +55,8 @@
 							<td class="jointd1">* 비밀번호</td>
 							<td class="jointd2"><input type="password" name="pw"
 								required="required" id="input_pw">&nbsp; <input
-								type="button" id="pwcheck" onClick="pwCheck()" value="check">
-							</td>
+								type="button" id="pwcheck" class="btn" onClick="pwCheck()"
+								value="check"></td>
 						</tr>
 						<tr>
 							<td colspan="2"><span id="sp_result"></span></td>
@@ -87,7 +81,8 @@
 						</tr>
 						<tr>
 							<td class="jointd1"></td>
-							<td class="jointd2"><input type="date" name="birth"></td>
+							<td class="jointd2"><input type="date" id="input_birth"
+								name="birth"></td>
 
 						</tr>
 
@@ -96,8 +91,14 @@
 							<td class="jointd2"><%=uservo.getgender()%></td>
 						</tr>
 						<tr>
-							<td colspan="2" align="center"><input type="submit"
-								value="수정"></td>
+							<td class="jointd1"></td>
+							<td class="jointd2">남 <input type="radio" name="gender"
+								value="0"> 여 <input type="radio" name="gender" value="1">
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center"><input class="btn"
+								type="button" value="수정" onClick="modify()"></td>
 						</tr>
 					</table>
 
@@ -133,7 +134,7 @@
 					if (data == "true") {
 						$("#sp_result").html("비밀번호가 일치합니다.");
 					} else {
-						$("#sp_result").html("잘못된 비밀번호 입니다.");
+						$("#sp_result").html("비밀번호가 일치하지 않습니다.");
 					}
 				},
 				error : function() {
@@ -141,6 +142,63 @@
 				}
 			});
 		}
+
+		function modifyCheck() {
+			var input_id = $("#input_id").val();
+			var input_pw = $("#input_pw").val();
+			var input_name = $("#input_name").val();
+			var input_tel = $("#input_tel").val();
+			var input_birth = $("#input_birth").val();
+			var input_gender = $(":input:radio[name='gender']:checked").val();
+
+			$.ajax({
+				type : "post", // 데이터 전송 받식
+				data : { // 전송하는 데이터
+					"id" : input_id,
+					"pw" : input_pw,
+					"name" : input_name,
+					"phoneNumber" : input_tel,
+					"birth" : input_birth,
+					"gender" : input_gender
+				},
+				url : "updateService", //데이터를 전송하는 (요청하는) 서버페이지 url
+				dataType : "text", //응답데이터의 형식
+				success : function(data) {
+					alert("수정완료");
+					window.location.assign("UserInfo.jsp");
+				},
+				error : function() {
+					alert("통신실패");
+				}
+			});
+		}
+		
+		function modify() {
+			var input = $("#input_pw").val();
+			$.ajax({
+				type : "post",
+				data : {
+					"pw" : input
+				},
+				url : "pwCheck",
+				dataType : "text",
+				success : function(data) {
+					console.log(data);
+					if (data == "true") {
+						modifyCheck();
+						
+					} else {
+						alert("비밀번호가 일치하지 않습니다.");
+						$("#sp_result").html("비밀번호가 일치하지 않습니다.");
+						
+					}
+				},
+				error : function() {
+					alert("통신오류");
+				}
+			});
+		}
+		
 	</script>
 
 

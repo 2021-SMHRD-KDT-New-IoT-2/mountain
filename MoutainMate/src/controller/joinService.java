@@ -57,9 +57,7 @@ public class joinService extends HttpServlet {
 				
 				// 페이지 이동할 시 request, response 객체 전달
 				rd.forward(request, response);
-	
-				//쿼리스트링 방식으로 데이터 전송 -> 받을때는 getParameter()로
-				//response.sendRedirect("join_success.jsp?email="+email);
+
 			}else {
 				System.out.println("가입실패");
 
