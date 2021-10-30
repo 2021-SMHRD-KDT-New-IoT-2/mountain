@@ -38,16 +38,12 @@ public class DeviceDAO {
 
 	public void close() {
 		try {
-			if (rs != null) {
+			if(rs!=null) {
 				rs.close();
 			}
-			if (rs != null) {
-				psmt.close();
-			}
-			if (rs != null) {
-				conn.close();
-			}
-		} catch (Exception e2) {
+			psmt.close();
+			conn.close();
+			} catch (Exception e2) {
 			e2.printStackTrace();
 		}
 	}
@@ -113,12 +109,17 @@ public class DeviceDAO {
 
 		try {
 			connection();
+			System.out.println("sysdate 메소드 안에 들어옴");
 
-			String sql = "SELECT SYSDATE FROM DUAL";
+			String sql = "SELECT SYSDATE+9/24 FROM DUAL";
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
-			sysdate = rs.getString("SYSDATE");
+			rs.next();
+			sysdate = rs.getString(1);
+
 			System.out.println(sysdate);
+			System.out.println(sysdate.substring(0, 10));
+			System.out.println(sysdate.substring(11));
 
 		} catch (Exception e) {
 
@@ -127,6 +128,39 @@ public class DeviceDAO {
 			close();
 		}
 		return sysdate;
+	}
+
+	public boolean rentalCheck(String deviceId) {
+		boolean check = true;
+		try {
+			connection();
+	
+			String sql = "select * from RENTAL_TABLE where p_id=? and r_return_time=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, deviceId);
+			psmt.setString(2, "0");
+			
+			System.out.println(sql);
+			rs = psmt.executeQuery();
+			check = rs.next();
+			
+			System.out.println("dao check:"+check);
+			
+			if (check) {
+				System.out.println("dao - 이미 랜탈중");
+			} else {
+				System.out.println("dao - 사용가능기기");
+			}
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			// 1. 지역변수
+			// 2. 예외처리
+			close();
+		}
+		return check;
 	}
 
 	public int deviceRentalStart(String deviceId, String userId) {
@@ -138,18 +172,22 @@ public class DeviceDAO {
 			String date = sysdate.substring(0, 10);
 			String time = sysdate.substring(11);
 
-			String sql = "INSERTE INTO RENTAL_TABLE VALUES (?,?,?,?,?)";
+			System.out.println(date + "/" + time);
 
+			String sql = "insert into RENTAL_TABLE values(?,?,?,?,?)";
+			System.out.println("dao sql 작성");
 			psmt = conn.prepareStatement(sql);
+			System.out.println("dao sql 뿌려주기");
 
 			psmt.setString(1, deviceId);
 			psmt.setString(2, userId);
 			psmt.setString(3, date);
 			psmt.setString(4, time);
-			psmt.setString(5, "");
+			psmt.setString(5, "0");
 
 			cnt = psmt.executeUpdate();
 			System.out.println("dao 대여 시작 - 대여테이블 입력 완료");
+			
 		} catch (Exception e) {
 			System.out.println("dao 대여 실패");
 			e.printStackTrace();
@@ -170,6 +208,7 @@ public class DeviceDAO {
 			String sql = "update RENTAL_TABLE set r_return_time=? where p_id=? and user_id=? and rental_date=?";
 
 			psmt = conn.prepareStatement(sql);
+			
 			psmt.setString(1, time);
 			psmt.setString(2, deviceId);
 			psmt.setString(3, userId);

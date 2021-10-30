@@ -1,3 +1,4 @@
+<%@page import="model.DeviceDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -46,7 +47,7 @@
 
 					<tr>
 						<td class="devicetd">* 기기ID&nbsp;</td>
-						<td class="deviceinputtd"><input type="text" name="pid"
+						<td class="deviceinputtd"><input type="text" name="deviceid"
 							id="input_deviceid"></td>
 					</tr>
 					<tr>
@@ -54,8 +55,9 @@
 						<td><input type="text" name="id" id="input_id"></td>
 					</tr>
 					<tr>
+
 						<td colspan="2" class="send"><input type="button"
-							value="대여시작" onClick="idCheck()"></td>
+							value="대여시작" onClick="rentalCheck()"></td>
 					</tr>
 				</table>
 			</form>
@@ -78,7 +80,7 @@
 					</tr>
 					<tr>
 						<td colspan="2" class="send"><input type="button"
-							value="반납완료" onClick=""></td>
+							value="반납완료" onClick="rentalCheck2()"></td>
 					</tr>
 				</table>
 			</form>
@@ -88,6 +90,30 @@
 	</main>
 
 	<script>
+		function rentalCheck() {
+			var input_id = $("#input_id").val();
+			var input_deviceid = $("#input_deviceid").val();
+
+			$.ajax({
+				type : "post", // 데이터 전송 받식
+				data : {
+					"id" : input_id,
+					"deviceid" : input_deviceid
+				}, // 전송하는 데이터
+				url : "RentalCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
+				dataType : "text", //응답데이터의 형식
+				success : function(data) {
+					if (data == "true") {
+						alert("이미 대여중인 기기입니다.");
+					} else {
+						idCheck();
+					}
+				},
+				error : function() {
+					alert("rentalCheck() 통신실패");
+				}
+			});
+		}
 		function idCheck() {
 			var input = $("#input_id").val();
 			$.ajax({
@@ -123,7 +149,9 @@
 				success : function(data) {
 					if (data == "true") {
 						alert("아이디 확인 완료.");
+
 						rentalStart();
+
 					} else {
 						alert("존재하지 않는 아이디입니다.");
 					}
@@ -135,9 +163,9 @@
 		}
 
 		function rentalStart() {
-
 			var input_id = $("#input_id").val();
 			var input_deviceid = $("#input_deviceid").val();
+
 			$.ajax({
 				type : "post", // 데이터 전송 받식
 				data : {
@@ -159,6 +187,35 @@
 			});
 		}
 
+		
+		
+		
+		
+		function rentalCheck2() {
+			var input_id = $("#input_id2").val();
+			var input_deviceid = $("#input_deviceid2").val();
+
+			$.ajax({
+				type : "post", // 데이터 전송 받식
+				data : {
+					"id" : input_id,
+					"deviceid" : input_deviceid
+				}, // 전송하는 데이터
+				url : "RentalCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
+				dataType : "text", //응답데이터의 형식
+				success : function(data) {
+					if (data == "true") {
+						idCheck2();
+					} else {
+						alert("기기의 대여 내역이 없습니다.");
+					}
+				},
+				error : function() {
+					alert("rentalCheck() 통신실패");
+				}
+			});
+		}
+
 		function idCheck2() {
 			var input = $("#input_id2").val();
 			$.ajax({
@@ -170,10 +227,10 @@
 				dataType : "text", //응답데이터의 형식
 				success : function(data) {
 					if (data == "true") {
-						alert("아이디 확인 완료.");
-						deviceIdCheck();
+						alert("idCheck2() 아이디 확인 완료.");
+						deviceIdCheck2();
 					} else {
-						alert("존재하지 않는 아이디입니다.");
+						alert("idCheck2() 존재하지 않는 아이디입니다.");
 					}
 				},
 				error : function() {
@@ -193,10 +250,10 @@
 				dataType : "text", //응답데이터의 형식
 				success : function(data) {
 					if (data == "true") {
-						alert("아이디 확인 완료.");
+						alert("deviceIdCheck2() 아이디 확인 완료.");
 						rentalFinish();
 					} else {
-						alert("존재하지 않는 아이디입니다.");
+						alert("deviceIdCheck2() 존재하지 않는 아이디입니다.");
 					}
 				},
 				error : function() {
@@ -224,7 +281,7 @@
 					}
 				},
 				error : function() {
-					alert("rentalFinish() 통신실패");
+					alert("rental() 통신실패");
 				}
 			});
 		}
