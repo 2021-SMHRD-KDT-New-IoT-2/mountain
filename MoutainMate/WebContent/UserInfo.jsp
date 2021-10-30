@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>마이페이지</title>
 
-<link rel="stylesheet" href="assets/css/join.css">
+<link rel="stylesheet" href="assets/css/UserInfo.css">
 
 </head>
 <body>
