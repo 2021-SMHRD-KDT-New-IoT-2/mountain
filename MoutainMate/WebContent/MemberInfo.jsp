@@ -33,22 +33,27 @@
 		
 		
 		<div id="joindiv">
-			<form id="joinform" action="joinService" method="post">
+			<form id="joinform" action="updateService" method="post">
 
 				<table id="jointable">
 					<caption>마이페이지</caption>
 					
 					<tr>
 						<td class="jointd1">* 비밀번호</td>
-						<td class="jointd2"><input type="password" name="pw" required="required"
+						<td class="jointd2"><input type="password" id="input_pw" name="pw" required="required"
 							placeholder="PW를 입력하세요"></td>
 					</tr>
 						<tr>
 						<td colspan="2" align="center">
-							<input type="submit" value="비밀번호확인">
+							<input type="button" value="비밀번호확인" onclick="pwCheck()">
 						</td>						
 					<tr>
 						<td colspan="2" align="center"><strong>정보 수정</strong></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center" color="red">
+							<span id="sp_result"></span>
+						</td>
 					</tr>
 					<tr>
 						<td class="jointd1">* 비밀번호</td>
@@ -108,18 +113,18 @@
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
 	<script>
-	function idCheck(){
-		var input = $("#input_id").val();
+	function pwCheck(){
+		var input = $("#input_pw").val();
 		$.ajax({
 			type: "post", // 데이터 전송 받식
-			data: {"id" : input}, // 전송하는 데이터
-			url : "IdCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
+			data: {"pw" : input}, // 전송하는 데이터
+			url : "pwCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
 			dataType : "text", //응답데이터의 형식
 			success : function(data){
 				if(data=="true"){
-					$("#sp_result").html("이미 사용중인 id입니다.");
+					$("#sp_result").html("비밀번호가 맞습니다.");
 				}else{
-					$("#sp_result").html("사용가능한 id 입니다.");
+					$("#sp_result").html("비밀번호가 맞지 않습니다.");
 				}
 			},
 			error : function(){
