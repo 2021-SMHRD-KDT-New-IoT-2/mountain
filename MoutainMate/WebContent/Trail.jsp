@@ -57,13 +57,14 @@
 						<td><input type="text" list="mroad"
 							name="mroad"> <datalist id="mroad">
 								<%
-									MountainDAO dao = new MountainDAO();
-								ArrayList<MountainVO> al = dao.selectAll();
+								MountainDAO dao = new MountainDAO();
+								ArrayList<MountainVO> al = dao.selectAllroad2();
 
 								for (int i = 0; i < al.size(); i++) {
 									MountainVO vo = al.get(i);
+									System.out.println("jsp¿¡¼­ mroad_name : "+vo.getMroad_name());
 								%>
-								<option value="<%=vo.getM_id()%>"><%=vo.getM_name()%></option>
+								<option value="<%=vo.getMroad_id()%>"><%=vo.getMroad_name()%></option>
 								<%
 									}
 								%>
