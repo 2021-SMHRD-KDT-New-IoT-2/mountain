@@ -350,11 +350,10 @@ public class UserDAO {
 		return vo;
 	}
 
-	public String totalTime(String id,String date) {
-		String total_time = "";
+	public int totalTime(String id, String date) {
+		int totalTime = 0;
 		try {
 			connection();
-			
 
 			String sql = "select * from rental_table where user_id=? and rental_date=?";
 			psmt.setString(1, id);
@@ -374,12 +373,7 @@ public class UserDAO {
 			int time2S = Integer.parseInt(time2.substring(6));
 			int totalTime2 = time2H * 3600 + time2M * 60 + time2S;
 
-			int time = totalTime2 - totalTime1;
-			int timeH = time / 3600;
-			int timeM = (time % 3600) / 60;
-			int timeS = time % 60;
-
-			total_time = (String) (timeH + ":" + timeM + ":" + timeS);
+			totalTime = totalTime2 - totalTime1;
 
 		} catch (Exception e) {
 			System.out.println("dao 회원조회실패");
@@ -387,25 +381,26 @@ public class UserDAO {
 		} finally {
 			close();
 		}
-		return total_time;
+		return totalTime;
 	}
 
 	public int userClearTime(String user_id, String road_id) {
+
 		try {
 			connection();
-			
+
 			String sysdate = sysDate();
 			String date = sysdate.substring(0, 10);
-			
-			String time = totalTime(user_id,date);
-			
-			String sql="insert into clear_table values (?,?,?,?)";
+
+			String time = "" + totalTime(user_id, date);
+
+			String sql = "insert into clear_table values (?,?,?,?)";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1,user_id);
-			psmt.setString(2,road_id);
-			psmt.setString(3,time);
-			psmt.setString(4,date);
-	
+			psmt.setString(1, user_id);
+			psmt.setString(2, road_id);
+			psmt.setString(3, time);
+			psmt.setString(4, date);
+
 			cnt = psmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -415,5 +410,57 @@ public class UserDAO {
 			close();
 		}
 		return cnt;
+	}
+
+	public int userTotalTime(String user_id) {
+		int totalTime = 0;
+		try {
+			connection();
+
+			String sql = "select * from clear_table where user_id=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, user_id);
+			rs = psmt.executeQuery();
+			
+		
+			while (rs.next()) {
+				
+				totalTime += Integer.parseInt(rs.getString("clear_time"));
+		
+			}
+
+		} catch (Exception e) {
+			System.out.println("dao 등산로 등록 실패");
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return totalTime;
+	}
+
+	public int userClearLevel(String user_id) {
+		int level = 0;
+		try {
+
+			connection();
+
+			String sql = "select * from clear_table where user_id=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, user_id);
+			rs = psmt.executeQuery();
+			int count = 0;
+			while (rs.next()) {
+				count++;
+			}
+
+			level = 1 + (count / 5);
+
+		} catch (Exception e) {
+			System.out.println("dao 등산로 등록 실패");
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return level;
 	}
 }

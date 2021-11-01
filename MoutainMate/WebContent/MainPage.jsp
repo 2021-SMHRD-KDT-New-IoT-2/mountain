@@ -372,17 +372,39 @@
 		</footer>
 	</section>
 
-
-
-
-
 	<div id="quickscroll">
 		<a href="#top_header"><img id="side_up" src="images/side_up.png"></a>
 		<a class="scrollmoving" href="#page5"><img id="side_down"
 			src="images/side_down.png"></a>
 	</div>
 
+	<script>
+	function findUser(){
+		var input = $("#searchId").val();
+		$.ajax({
+			type : "post", // 데이터 전송 받식
+			data : {
+				"id" : input
+			}, // 전송하는 데이터
+			url : "FindUser", //데이터를 전송하는 (요청하는) 서버페이지 url
+			dataType : "json", //응답데이터의 형식
+			success : function(data) {
+				var obj = JSON.stringify(data);
+				var obj2 = data;
+				//alert("통신 성공!!");
+				console.log(data[0]);
+				console.log(data.length);
+				
+				for(var i=0; i<data.length; i++){
+					console.log(data[i].mroad_name);
+					var temp_html = "<option value='"+(i+1)+"'>"+data[i].mroad_name+"</option>";
+					$("#mroad").append(temp_html);
 
+				}
+			},
+	
+	
+	</script>
 
 
 
