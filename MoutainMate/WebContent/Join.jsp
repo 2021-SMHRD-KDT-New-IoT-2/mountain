@@ -78,7 +78,8 @@
 						</tr>
 
 						<tr>
-							<td colspan="2" align="center"><input type="button"
+							<td colspan="2" align="center">
+							<input type="button"
 								value="Join" onClick="join()"></td>
 						</tr>
 
@@ -136,8 +137,7 @@
 			if ((input_id != "") && (input_pw != "") && (input_name != "")
 					&& (input_tel != "") && (input_birth != "")
 					&& (input_gender != "")) {
-				alert("빈칸없음");
-				alert("if문 안에 들어옴");
+				
 				$.ajax({
 					type : "post", // 데이터 전송 받식
 					data : { // 전송하는 데이터
@@ -150,9 +150,9 @@
 					},
 					url : "joinService", //데이터를 전송하는 (요청하는) 서버페이지 url
 					dataType : "text", //응답데이터의 형식
-					success : function(data) {
-						alert("joincheck완료");
-						window.location.assign("joinsuccess.jsp");
+					success : function() {
+						
+						window.location.href = "joinsuccess.jsp?joinId = " + input_id ;
 					},
 					error : function() {
 						alert("통신실패");

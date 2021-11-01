@@ -105,7 +105,7 @@
 				</span> <img src="images/main_rightside.png">
 				<button id="mainbtn" onclick="location.href='#page3'">등산로
 					탐색하기</button>
-					
+
 
 			</div>
 		</main>
@@ -202,9 +202,8 @@
 									<input id="searchR" type="text" list="mroad"
 										placeholder="등산로를 선택해주세요.">
 									<datalist id="mroad">
-										
 										<!--<option id="sp_result" value=""></option>  -->
-										
+
 									</datalist>
 								</div>
 							</td>
@@ -401,7 +400,7 @@
 					$("#mroad").append(temp_html);
 
 				}
-			},
+			
 	
 	
 	</script>
