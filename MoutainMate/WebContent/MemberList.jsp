@@ -68,7 +68,16 @@
 							<td><%=vo.getbirth()%></td>
 							<td><%=vo.getgender()%></td>
 							<td><%=vo.getmgr()%></td>
+							<%
+							if((vo.getmgr()).equals("관리자")){
+								
+							%>
+							<td></td>
+							<%}else{
+							
+							%>
 							<td><a href="deleteService?id=<%=vo.getid()%>">삭제</a></td>
+							<%}%>
 						</tr>
 						<%
 							}
