@@ -1,4 +1,4 @@
-<%@page import="model.MountainVO"%>
+ <%@page import="model.MountainVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.MountainDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
