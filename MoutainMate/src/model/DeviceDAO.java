@@ -16,6 +16,7 @@ public class DeviceDAO {
 
 	public void connection() { // db연결
 		try {
+			close();
 			// 1. 드라이브 동적로딩
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 

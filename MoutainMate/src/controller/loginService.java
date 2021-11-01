@@ -16,6 +16,7 @@ public class loginService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
@@ -25,7 +26,7 @@ public class loginService extends HttpServlet {
 		UserDAO dao = new UserDAO();
 
 		UserVO vo = dao.login(id, pw);
-		
+		response.setContentType("text/html;charset=euc-kr");
 
 		if (vo != null) {
 			System.out.println("서블릿 vo 값 넘어감");

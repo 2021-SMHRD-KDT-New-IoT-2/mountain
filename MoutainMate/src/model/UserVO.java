@@ -86,14 +86,6 @@ public class UserVO {
 		public int level() {
 			return level;
 		}
-		//회원수정용
-		public UserVO(String id, String pw, String name, String phoneNumber, String birth, String gender) {
-			this.pw= pw;
-			this.name=name;
-			this.phoneNumber=phoneNumber;
-			this.birth = birth;
-			this.gender = gender;
-		}
 	
 		
 	}

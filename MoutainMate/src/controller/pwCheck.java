@@ -38,7 +38,7 @@ public class pwCheck extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.print(check);
 		
-		response.setContentType("charset=utf-8");
+		response.setContentType("charset=euc-kr");
 		
 		//技记 按眉 积己
 		

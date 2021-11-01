@@ -1,20 +1,22 @@
 <%@page import="model.UserDAO"%>
 <%@page import="model.UserVO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=euc-kr"
+	pageEncoding="euc-kr"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>ë§ˆì´í˜ì´ì§€</title>
+<meta charset="euc-kr">
+<title>¸¶ÀÌÆäÀÌÁö</title>
 
 <link rel="stylesheet" href="assets/css/UserInfo.css">
 
 </head>
 <body>
 	<%
+	request.setCharacterEncoding("euc-kr");
 	UserVO vo = (UserVO) session.getAttribute("User");
 	String id = vo.getid();
+	
 	System.out.println("vo.getid() : "+id);
 	UserDAO dao = new UserDAO();
 	
@@ -28,14 +30,14 @@
 	System.out.println("vogender : "+vogender);
 	System.out.println("vomgr : "+vomgr);
 	
-		if (vogender.equals("0")) {// ë‚¨ì
+		if (vogender.equals("0")) {// ³²ÀÚ
 			gender = "man";
 		} else if (vogender.equals("1")) {
 			gender = "woman";
 		}
 
 		if ((vo.getmgr()).equals("1")) {
-			mgr = "ê´€ë¦¬ì";
+			mgr = "°ü¸®ÀÚ";
 		} else {
 			mgr = "";
 		}
@@ -51,12 +53,12 @@
 				<nav>
 					<ul>
 
-						<li><a href="#menu">ë¡œê·¸ì•„ì›ƒ</a></li>
-						<li><a href="UserInfo.jsp">ë§ˆì´í˜ì´ì§€</a></li>
-						<li><a href="MainPage.jsp#page2">ê²Œì‹œíŒ</a></li>
-						<li><a href="MainPage.jsp#page3">ë“±ì‚°ë¡œ</a></li>
-						<li><a href="MainPage.jsp#page4">ë‘˜ëŸ¬ë³´ê¸°</a></li>
-						<li><a class="btn trigger" href="#menu">â‰¡</a></li>
+						<li><a href="MainPage.jsp">·Î±×¾Æ¿ô</a></li>
+						<li><a href="UserInfo.jsp">¸¶ÀÌÆäÀÌÁö</a></li>
+						<li><a href="MainPage.jsp#page2">°Ô½ÃÆÇ</a></li>
+						<li><a href="MainPage.jsp#page3">µî»ê·Î</a></li>
+						<li><a href="MainPage.jsp#page4">µÑ·¯º¸±â</a></li>
+						<li><a class="btn trigger" href="#menu">¡Õ</a></li>
 					</ul>
 				</nav>
 
@@ -71,13 +73,13 @@
 				<form id="joinform" action="updateService" method="post">
 
 					<table id="jointable">
-						<caption>ë§ˆì´ í˜ì´ì§€</caption>
+						<caption>¸¶ÀÌ ÆäÀÌÁö</caption>
 						<tr>
-							<td class="jointd1">* ì•„ì´ë””</td>
+							<td class="jointd1">* ¾ÆÀÌµğ</td>
 							<td class="jointd2" name="id"><%=vo.getid()%></td>
 						</tr>
 						<tr>
-							<td class="jointd1">* ë¹„ë°€ë²ˆí˜¸</td>
+							<td class="jointd1">* ºñ¹Ğ¹øÈ£</td>
 							<td class="jointd2"><input type="password" name="pw"
 								required="required" id="input_pw">&nbsp; <input
 								type="button" id="pwcheck" class="btn" onClick="pwCheck()"
@@ -89,20 +91,20 @@
 
 
 						<tr>
-							<td class="jointd1">* ì´ë¦„</td>
+							<td class="jointd1">* ÀÌ¸§</td>
 							<td class="jointd2">
 								<input placeholder="<%=vo.getname()%>" type="text" id="input_name" name="name">
 							</td>
 						</tr>
 						<tr>
-							<td class="jointd1">* ì „í™”ë²ˆí˜¸</td>
+							<td class="jointd1">* ÀüÈ­¹øÈ£</td>
 							<td class="jointd2">
 								<input placeholder="<%=vo.getphoneNumber()%>" type="tel" name="phoneNumber"
 								id="input_tel" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="000-0000-0000">
 							</td>
 						</tr>
 						<tr>
-							<td class="jointd1">* ìƒì¼</td>
+							<td class="jointd1">* »ıÀÏ</td>
 							<td class="jointd2"><%=vo.getbirth()%></td>
 						</tr>
 						<tr>
@@ -113,18 +115,18 @@
 						</tr>
 
 						<tr>
-							<td class="jointd1">* ì„±ë³„</td>
+							<td class="jointd1">* ¼ºº°</td>
 							<td class="jointd2"><%=gender%></td>
 						</tr>
 						<tr>
 							<td class="jointd1"></td>
-							<td class="jointd2">ë‚¨ <input type="radio" name="gender"
-								value="0"> ì—¬ <input type="radio" name="gender" value="1">
+							<td class="jointd2">³² <input type="radio" name="gender"
+								value="0"> ¿© <input type="radio" name="gender" value="1">
 							</td>
 						</tr>
 						<tr>
 							<td colspan="2" align="center"><input class="btn"
-								type="button" value="ìˆ˜ì •" onClick="modify()"></td>
+								type="button" value="¼öÁ¤" onClick="modify()"></td>
 						</tr>
 					</table>
 
@@ -160,13 +162,13 @@
 				success : function(data) {
 					console.log(data);
 					if (data == "true") {
-						$("#sp_result").html("ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•©ë‹ˆë‹¤.");
+						$("#sp_result").html("ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÕ´Ï´Ù.");
 					} else {
-						$("#sp_result").html("ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+						$("#sp_result").html("ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
 					}
 				},
 				error : function() {
-					alert("í†µì‹ ì˜¤ë¥˜");
+					alert("Åë½Å¿À·ù");
 				}
 			});
 		}
@@ -180,8 +182,8 @@
 			var input_gender = $(":input:radio[name='gender']:checked").val();
 
 			$.ajax({
-				type : "post", // ë°ì´í„° ì „ì†¡ ë°›ì‹
-				data : { // ì „ì†¡í•˜ëŠ” ë°ì´í„°
+				type : "post", // µ¥ÀÌÅÍ Àü¼Û ¹Ş½Ä
+				data : { // Àü¼ÛÇÏ´Â µ¥ÀÌÅÍ
 				
 					"pw" : input_pw,
 					"name" : input_name,
@@ -189,14 +191,14 @@
 					"birth" : input_birth,
 					"gender" : input_gender
 				},
-				url : "updateService", //ë°ì´í„°ë¥¼ ì „ì†¡í•˜ëŠ” (ìš”ì²­í•˜ëŠ”) ì„œë²„í˜ì´ì§€ url
-				dataType : "text", //ì‘ë‹µë°ì´í„°ì˜ í˜•ì‹
+				url : "updateService", //µ¥ÀÌÅÍ¸¦ Àü¼ÛÇÏ´Â (¿äÃ»ÇÏ´Â) ¼­¹öÆäÀÌÁö url
+				dataType : "text", //ÀÀ´äµ¥ÀÌÅÍÀÇ Çü½Ä
 				success : function(data) {
-					alert("ìˆ˜ì •ì™„ë£Œ");
-					window.location("MainPage.jsp");
+					alert("¼öÁ¤¿Ï·á");
+					window.location.href = "MainPage.jsp";
 				},
 				error : function() {
-					alert("í†µì‹ ì‹¤íŒ¨");
+					alert("Åë½Å½ÇÆĞ");
 				}
 			});
 		}
@@ -216,15 +218,14 @@
 					console.log(data);
 					if (data == "true") {
 						modifyCheck();
-						
 					} else {
-						alert("ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
-						$("#sp_result").html("ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+						alert("ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
+						$("#sp_result").html("ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
 						
 					}
 				},
 				error : function() {
-					alert("í†µì‹ ì˜¤ë¥˜");
+					alert("Åë½Å¿À·ù");
 				}
 			});
 		}
