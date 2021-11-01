@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>산으로 오세영 기기등록</title>
+<title>산으로 오세영 등산로등록</title>
 
 <link rel="stylesheet" href="assets/css/DeviceMGR.css">
 
@@ -35,12 +35,12 @@
 	<!-- 메인 -->
 	<main>
 		<div id="maindiv">
-			<form action="deviceRegiService" method="post">
+			<form action="TrailUpdate" method="post">
 				<table class="devicetable">
-					<caption>기기 등록</caption>
+					<caption>완주코스 등록</caption>
 
 					<tr>
-						<td class="devicetd">* 기기ID&nbsp;</td>
+						<td class="devicetd">* 사용자ID&nbsp;</td>
 						<td class="deviceinputtd"><input type="text" id="input_id"
 							name="deviceid" required="required" placeholder="ID를 입력하세요">
 							&nbsp;<input class="btn" type="button" value="ID중복체크"
@@ -53,7 +53,7 @@
 
 
 					<tr>
-						<td class="devicetd">* 산 이름&nbsp;</td>
+						<td class="devicetd">* 등산로&nbsp;</td>
 						<td><input type="text" list="select_mountain"
 							name="mountainid"> <datalist id="select_mountain">
 								<%
@@ -71,7 +71,7 @@
 					</tr>
 					<tr>
 						<td colspan="2" id="send"><input type="button" class="btn"
-							value="기기등록" onClick="RegiSuccess()"></td>
+							value="완주코스 등록" onClick="RegiSuccess()"></td>
 					</tr>
 				</table>
 			</form>
@@ -95,9 +95,9 @@
 			$.ajax({
 				type : "post", // 데이터 전송 받식
 				data : {
-					"deviceid" : input
+					"id" : input
 				}, // 전송하는 데이터
-				url : "deviceIdCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
+				url : "IdCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
 				dataType : "text", //응답데이터의 형식
 				success : function(data) {
 					if (data == "true") {
@@ -111,44 +111,61 @@
 				}
 			});
 		}
-		
-		
-		function deviceRegi(){
-			var p_id = $("#input_id").val();
-			var m_id = $("#select_mountain").val();
-									
-			$.ajax({
-				type : "post", // 데이터 전송 받식
-				data : {
-					"deviceid" : p_id,
-					"mountainid":m_id
-				}, // 전송하는 데이터
-				url : "deviceRegiService", //데이터를 전송하는 (요청하는) 서버페이지 url
-				dataType : "text", //응답데이터의 형식
-				success : function(data) {
-					alert("등록완료");
-				},
-				error : function() {
-					alert("통신실패");
-				}
-			});
+
+		function joinCheck() {
+			var input_id = $("#input_id").val();
+			var input_pw = $("#input_pw").val();
+			var input_name = $("#input_name").val();
+			var input_tel = $("#input_tel").val();
+			var input_birth = $("#input_birth").val();
+			var input_gender = $(":input:radio[name='gender']:checked").val();
+
+			if ((input_id != "") && (input_pw != "") && (input_name != "")
+					&& (input_tel != "") && (input_birth != "")
+					&& (input_gender != "")) {
+				alert("빈칸없음");
+				alert("if문 안에 들어옴");
+				$.ajax({
+					type : "post", // 데이터 전송 받식
+					data : { // 전송하는 데이터
+						"id" : input_id,
+						"pw" : input_pw,
+						"name" : input_name,
+						"phoneNumber" : input_tel,
+						"birth" : input_birth,
+						"gender" : input_gender
+					},
+					url : "joinService", //데이터를 전송하는 (요청하는) 서버페이지 url
+					dataType : "text", //응답데이터의 형식
+					success : function(data) {
+						alert("joincheck완료");
+						window.location.assign("joinsuccess.jsp");
+					},
+					error : function() {
+						alert("통신실패");
+					}
+				});
+			} else {
+				alert("필수 입력란을 모두 입력해 주세요.");
+			}
+
 		}
-		
-		function RegiSuccess(){
+
+		function join() {
 			var input = $("#input_id").val();
 			$.ajax({
 				type : "post", // 데이터 전송 받식
 				data : {
-					"deviceid" : input
+					"id" : input
 				}, // 전송하는 데이터
-				url : "deviceIdCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
+				url : "IdCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
 				dataType : "text", //응답데이터의 형식
 				success : function(data) {
 					if (data == "true") {
-						$("#sp_result").html("이미 사용중인 id입니다.");
 						alert("중복된 아이디가 존재합니다.");
+						$("#sp_result").html("이미 사용중인 id입니다.");
 					} else {
-						deviceRegi();
+						joinCheck();
 					}
 				},
 				error : function() {
@@ -157,6 +174,5 @@
 			});
 		}
 	</script>
-
 </body>
 </html>
