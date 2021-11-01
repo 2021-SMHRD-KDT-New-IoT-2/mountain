@@ -42,7 +42,7 @@
 					<tr>
 						<td class="devicetd">* 사용자ID&nbsp;</td>
 						<td class="deviceinputtd"><input type="text" id="input_id"
-							name="deviceid" required="required" placeholder="ID를 입력하세요">
+							name="id" required="required" placeholder="ID를 입력하세요">
 							&nbsp;<input class="btn" type="button" value="ID중복체크"
 							onclick="idCheck()"></td>
 					</tr>
@@ -54,8 +54,8 @@
 
 					<tr>
 						<td class="devicetd">* 등산로&nbsp;</td>
-						<td><input type="text" list="select_mountain"
-							name="mountainid"> <datalist id="select_mountain">
+						<td><input type="text" list="mroad"
+							name="mroad"> <datalist id="mroad">
 								<%
 									MountainDAO dao = new MountainDAO();
 								ArrayList<MountainVO> al = dao.selectAll();
