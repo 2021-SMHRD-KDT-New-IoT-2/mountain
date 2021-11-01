@@ -105,6 +105,7 @@
 				</span> <img src="images/main_rightside.png">
 				<button id="mainbtn" onclick="location.href='#page3'">등산로
 					탐색하기</button>
+					
 
 			</div>
 		</main>
