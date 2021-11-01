@@ -31,7 +31,9 @@ public class RentalDeviceF extends HttpServlet {
 
 		DeviceDAO dao = new DeviceDAO();
 		int cnt = dao.deviceRentalFinish(pid, id);
-
+		
+		System.out.println("¼­ºí¸´ cnt : "+cnt);
+		
 		if (cnt > 0) {
 			System.out.println("¼­ºí¸´ ¹Ý³³ ¼º°ø!");
 

@@ -1,4 +1,5 @@
- <%@page import="model.MountainVO"%>
+
+<%@page import="model.MountainVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.MountainDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -42,37 +43,20 @@
 					<tr>
 						<td class="devicetd">* 사용자ID&nbsp;</td>
 						<td class="deviceinputtd"><input type="text" id="input_id"
-							name="id" required="required" placeholder="ID를 입력하세요">
-							&nbsp;<input class="btn" type="button" value="ID중복체크"
-							onclick="idCheck()"></td>
-					</tr>
-
-					<tr>
-						<td colspan="2" id="sp_result"></td>
+							name="id" required="required" placeholder="ID를 입력하세요"></td>
 					</tr>
 
 
 					<tr>
 						<td class="devicetd">* 등산로&nbsp;</td>
-						<td><input type="text" list="mroad"
-							name="mroad"> <datalist id="mroad">
-								<%
-								MountainDAO dao = new MountainDAO();
-								ArrayList<MountainVO> al = dao.selectAllroad2();
+						<td><input type="text" id="input_mroad" name="mroad"
+							required="required" placeholder="SD카드의 등산로 정보를 입력해주세요.">
+						</td>
 
-								for (int i = 0; i < al.size(); i++) {
-									MountainVO vo = al.get(i);
-									System.out.println("jsp에서 mroad_name : "+vo.getMroad_name());
-								%>
-								<option value="<%=vo.getMroad_id()%>"><%=vo.getMroad_name()%></option>
-								<%
-									}
-								%>
-							</datalist></td>
 					</tr>
 					<tr>
 						<td colspan="2" id="send"><input type="button" class="btn"
-							value="완주코스 등록" onClick="RegiSuccess()"></td>
+							value="완주코스 등록" onClick="insert()"></td>
 					</tr>
 				</table>
 			</form>
@@ -91,7 +75,7 @@
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
 	<script>
-		function idCheck() {
+		function insert() {
 			var input = $("#input_id").val();
 			$.ajax({
 				type : "post", // 데이터 전송 받식
@@ -102,9 +86,11 @@
 				dataType : "text", //응답데이터의 형식
 				success : function(data) {
 					if (data == "true") {
-						$("#sp_result").html("이미 사용중인 id입니다.");
+						alert("insert() id체크완료");
+						insertCheck();
+
 					} else {
-						$("#sp_result").html("사용가능한 id 입니다.");
+						alert("존재하지 않는 사용자입니다.");
 					}
 				},
 				error : function() {
@@ -112,67 +98,33 @@
 				}
 			});
 		}
-
-		function joinCheck() {
+		
+		
+		function insertCheck() {
 			var input_id = $("#input_id").val();
-			var input_pw = $("#input_pw").val();
-			var input_name = $("#input_name").val();
-			var input_tel = $("#input_tel").val();
-			var input_birth = $("#input_birth").val();
-			var input_gender = $(":input:radio[name='gender']:checked").val();
+			var input_mroad = $("#input_mroad").val();
 
-			if ((input_id != "") && (input_pw != "") && (input_name != "")
-					&& (input_tel != "") && (input_birth != "")
-					&& (input_gender != "")) {
+			if ((input_id != "") && (input_mroad != "")) {
 				alert("빈칸없음");
-				alert("if문 안에 들어옴");
 				$.ajax({
 					type : "post", // 데이터 전송 받식
 					data : { // 전송하는 데이터
 						"id" : input_id,
-						"pw" : input_pw,
-						"name" : input_name,
-						"phoneNumber" : input_tel,
-						"birth" : input_birth,
-						"gender" : input_gender
+						"mroad" : input_mroad
 					},
-					url : "joinService", //데이터를 전송하는 (요청하는) 서버페이지 url
+					url : "TrailUpdate", //데이터를 전송하는 (요청하는) 서버페이지 url
 					dataType : "text", //응답데이터의 형식
 					success : function(data) {
-						alert("joincheck완료");
-						window.location.assign("joinsuccess.jsp");
+						alert("insertCheck() 완료");
 					},
 					error : function() {
-						alert("통신실패");
+						alert("insertCheck() 통신실패");
 					}
 				});
 			} else {
 				alert("필수 입력란을 모두 입력해 주세요.");
 			}
 
-		}
-
-		function join() {
-			var input = $("#input_id").val();
-			$.ajax({
-				type : "post", // 데이터 전송 받식
-				data : {
-					"id" : input
-				}, // 전송하는 데이터
-				url : "IdCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
-				dataType : "text", //응답데이터의 형식
-				success : function(data) {
-					if (data == "true") {
-						alert("중복된 아이디가 존재합니다.");
-						$("#sp_result").html("이미 사용중인 id입니다.");
-					} else {
-						joinCheck();
-					}
-				},
-				error : function() {
-					alert("통신실패");
-				}
-			});
 		}
 	</script>
 </body>

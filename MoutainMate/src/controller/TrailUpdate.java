@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.MountainDAO;
 import model.MountainVO;
 import model.UserDAO;
 
@@ -19,9 +20,13 @@ public class TrailUpdate extends HttpServlet {
 		String mroad = request.getParameter("mroad");
 		
 		
+		MountainDAO mdao = new MountainDAO();
+		
+		
 		UserDAO dao = new UserDAO();
 		
 		int cnt = dao.userClearTime(id, mroad);
+		
 		
 		if (cnt > 0) {
 			System.out.println("완주등산로 추가 성공");

@@ -412,6 +412,7 @@ public class UserDAO {
 		return cnt;
 	}
 
+	
 	public int userTotalTime(String user_id) {
 		int totalTime = 0;
 		try {

@@ -176,11 +176,8 @@
 				url : "RentalDeviceS", //데이터를 전송하는 (요청하는) 서버페이지 url
 				dataType : "text", //응답데이터의 형식
 				success : function(data) {
-					if (data == "true") {
-						alert("대여시작");
-					} else {
-						alert("대여실패");
-					}
+					alert("대여성공");
+					
 				},
 				error : function() {
 					alert("rentalStart() 통신실패");
@@ -275,11 +272,7 @@
 				url : "RentalDeviceF", //데이터를 전송하는 (요청하는) 서버페이지 url
 				dataType : "text", //응답데이터의 형식
 				success : function(data) {
-					if (data == "true") {
-						alert("반납완료");
-					} else {
-						alert("반납실패");
-					}
+					alert("반납성공!");
 				},
 				error : function() {
 					alert("rental() 통신실패");

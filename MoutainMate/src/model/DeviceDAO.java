@@ -171,11 +171,11 @@ public class DeviceDAO {
 	public int deviceRentalStart(String deviceId, String userId) {
 
 		try {
-			connection();
-
 			String sysdate = sysDate();
 			String date = sysdate.substring(0, 10);
 			String time = sysdate.substring(11);
+			
+			connection();
 
 			System.out.println(date + "/" + time);
 
@@ -204,12 +204,13 @@ public class DeviceDAO {
 
 	public int deviceRentalFinish(String deviceId, String userId) {
 		try {
-			connection();
-
+			
 			String sysdate = sysDate();
-			String date = sysdate.substring(0, 10);
+			String date = sysdate.substring(2, 10);
 			String time = sysdate.substring(11);
 
+			connection();
+			
 			String sql = "update RENTAL_TABLE set r_return_time=? where p_id=? and user_id=? and rental_date=?";
 
 			psmt = conn.prepareStatement(sql);
@@ -218,9 +219,11 @@ public class DeviceDAO {
 			psmt.setString(2, deviceId);
 			psmt.setString(3, userId);
 			psmt.setString(4, date);
-
+			
 			cnt = psmt.executeUpdate();
-			System.out.println("dao 반납 완료 - 대여테이블 입력 완료");
+			
+			System.out.println("dao 반납 완료 - 대여테이블 입력 완료/ cnt = "+cnt);
+			
 		} catch (Exception e) {
 			System.out.println("dao 반납 실패");
 			e.printStackTrace();

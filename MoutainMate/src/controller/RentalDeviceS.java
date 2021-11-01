@@ -40,13 +40,9 @@ public class RentalDeviceS extends HttpServlet {
 		if (cnt > 0) {
 			System.out.println("서블릿 - 대여 성공!");
 			HttpSession session = request.getSession();
-
-			// 세션 값 설정
 			session.setAttribute("RentalId", deviceid);
-
-
+			
 			rd = request.getRequestDispatcher("RegistrationDevice.jsp");
-
 			request.setAttribute("deviceid", deviceid);
 
 			rd.forward(request, response);
