@@ -20,8 +20,10 @@ public class joinService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		request.setCharacterEncoding("euc-kr");
+		
+		response.addHeader("Access-Control-Allow-Origin", "*");
+		
+		request.setCharacterEncoding("utf-8");
 		RequestDispatcher rd=null;
 		
 		String id = request.getParameter("id");

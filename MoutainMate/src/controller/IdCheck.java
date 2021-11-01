@@ -22,7 +22,7 @@ public class IdCheck extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//요청 데이터 인코딩 방식 지정
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
 		
 		//요청 데이터 받아주기
 		String id = request.getParameter("id");

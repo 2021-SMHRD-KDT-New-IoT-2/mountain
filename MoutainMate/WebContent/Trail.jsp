@@ -1,4 +1,4 @@
-<%@page import="model.MountainVO"%>
+ <%@page import="model.MountainVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.MountainDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -22,7 +22,7 @@
 
 			<nav>
 				<ul>
-					<li><a href="MainPage.jsp">메인페이지</a></li>
+					<li><a href="MainPage.jsp">HOME</a></li>
 					<li><a href="DeviceMGR.jsp">기기등록</a></li>
 					<li><a href="RegistrationDevice.jsp">기기대여</a></li>
 					<li><a href="Trail.jsp">완주코스등록</a></li>
@@ -42,7 +42,7 @@
 					<tr>
 						<td class="devicetd">* 사용자ID&nbsp;</td>
 						<td class="deviceinputtd"><input type="text" id="input_id"
-							name="deviceid" required="required" placeholder="ID를 입력하세요">
+							name="id" required="required" placeholder="ID를 입력하세요">
 							&nbsp;<input class="btn" type="button" value="ID중복체크"
 							onclick="idCheck()"></td>
 					</tr>
@@ -54,8 +54,8 @@
 
 					<tr>
 						<td class="devicetd">* 등산로&nbsp;</td>
-						<td><input type="text" list="select_mountain"
-							name="mountainid"> <datalist id="select_mountain">
+						<td><input type="text" list="mroad"
+							name="mroad"> <datalist id="mroad">
 								<%
 								MountainDAO dao = new MountainDAO();
 								ArrayList<MountainVO> al = dao.selectAllroad2();
