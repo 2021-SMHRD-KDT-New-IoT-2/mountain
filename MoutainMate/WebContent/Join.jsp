@@ -41,11 +41,11 @@
 						<tr>
 							<td class="jointd1">* 아이디</td>
 							<td class="jointd2"><input type="text" id="input_id"
-								name="id" required="required" placeholder="ID를 입력하세요"> <input
+								name="id" required="required" placeholder="ID를 입력하세요">&nbsp; <input
 								type="button" value="ID중복체크" onclick="idCheck()">
 						</tr>
 						<tr>
-							<td colspan="2" align="center" color="red"><span
+							<td colspan="2" align="center"><span
 								id="sp_result"></span></td>
 						</tr>
 						<tr>
