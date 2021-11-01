@@ -28,6 +28,7 @@
 						<li><a href="MainPage.jsp">HOME</a></li>
 						<li><a href="DeviceMGR.jsp">기기등록</a></li>
 						<li><a href="RegistrationDevice.jsp">기기대여</a></li>
+						<li><a href="Trail.jsp">완주코스등록</a></li>
 						<li><a href="MemberList.jsp">회원정보관리</a></li>
 					</ul>
 				</nav>
