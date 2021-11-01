@@ -10,11 +10,18 @@ public class UserVO {
 		private String gender;
 		private String mgr;
 		private String pw;
-
+		private int level;
+		private int totalTime;
+		
 		//생성자
 		
 		public UserVO(String id) {
 			this.id=id;
+		}
+		public UserVO(String id, int level, int totalTime) {
+			this.id = id;
+			this.level = level;
+			this.totalTime = totalTime;
 		}
 		
 		public UserVO(String id, String name) {
@@ -73,7 +80,12 @@ public class UserVO {
 		public String getmgr() {
 			return mgr;
 		}
-		
+		public int getlevel() {
+			return level;
+		}
+		public int level() {
+			return level;
+		}
 		//회원수정용
 		public UserVO(String id, String pw, String name, String phoneNumber, String birth, String gender) {
 			this.pw= pw;
