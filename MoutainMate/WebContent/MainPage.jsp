@@ -264,7 +264,7 @@
 							<td id="idtd2">
 								<div class="searchidbox">
 									<input id="searchId" type="text" placeholder="검색할 아이디를 입력해주세요.">
-									<button>
+									<button id="searchIdbtn" onClick="">
 										<img class="search" src="images/search.png">
 									</button>
 								</div>
