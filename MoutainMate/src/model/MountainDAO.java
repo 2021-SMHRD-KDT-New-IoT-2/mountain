@@ -88,43 +88,6 @@ public class MountainDAO {
 		return arr;
 	}
 
-	// 등산로 전체 검색
-//	public ArrayList<MountainVO> selectAllroad(String m_id) {
-//		arr = new ArrayList<MountainVO>();
-//		try {
-//			connection();
-//
-//			String sql = "select * from MROAD_TABLE where M_ID=" + m_id;
-//			psmt = conn.prepareStatement(sql);
-//			rs = psmt.executeQuery();
-//
-//			while (rs.next()) {
-//				System.out.println("mountain dao MROAD rs 값 있음 ");
-//				String mountain_id = rs.getString("M_ID");
-//				String mroad_id = rs.getNString("Mroad_id");
-//				String mroad_name = rs.getNString("Mroad_NAME");
-//
-//				System.out.println("서블릿 rs.getNString('Mroad_NAME') : " + mroad_name);
-//
-//				vo = new MountainVO(mountain_id, mroad_id, mroad_name);
-//
-//				System.out.println("서블릿 vo.getMroad_name() : " + vo.getMroad_name());
-//
-//				arr.add(vo);
-//
-//			}
-//
-//		} catch (Exception e) {
-//			System.out.println("dao 산조회실패");
-//			e.printStackTrace();
-//		} finally {
-//			// 1. 지역변수
-//			// 2. 예외처리
-//			close();
-//		}
-//		return arr;
-//	}
-
 	public ArrayList<MountainVO> selectAllroad(String m_id) {
 		arr = new ArrayList<MountainVO>();
 			
@@ -153,6 +116,41 @@ public class MountainDAO {
 
 		} catch (Exception e) {
 			System.out.println("dao 산조회실패");
+			e.printStackTrace();
+		} finally {
+			// 1. 지역변수
+			// 2. 예외처리
+			close();
+		}
+		return arr;
+	}
+	
+	public ArrayList<MountainVO> selectAllroad2() {
+		arr = new ArrayList<MountainVO>();
+			
+		try {
+			connection();
+
+			String sql = "select * from MROAD_TABLE";
+			psmt = conn.prepareStatement(sql);
+			
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				System.out.println("mountain dao MROAD rs 값 있음 ");
+				String m_id = rs.getString("m_id");
+				String mroad_id = rs.getString("road_id");
+				String mroad_name = rs.getString("road_name");
+
+				System.out.println("서블릿 rs.getNString(Mroad_NAME) : " + mroad_name);
+				
+				vo = new MountainVO(m_id,mroad_id,mroad_name);
+				arr.add(vo);
+			
+			}
+
+		} catch (Exception e) {
+			System.out.println("dao 등산조회실패");
 			e.printStackTrace();
 		} finally {
 			// 1. 지역변수

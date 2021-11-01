@@ -11,7 +11,7 @@ public class MountainVO {
 		this.m_id = m_id;
 		this.m_name = m_name;
 	}
-	
+		
 	public MountainVO(String m_id,String mroad_id, String mroad_name) {
 		this.m_id = m_id;
 		this.mroad_id = mroad_id;
