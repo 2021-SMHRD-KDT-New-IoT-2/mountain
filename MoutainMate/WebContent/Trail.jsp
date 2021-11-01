@@ -43,14 +43,14 @@
 					<tr>
 						<td class="devicetd">* 사용자ID&nbsp;</td>
 						<td class="deviceinputtd"><input type="text" id="input_id"
-							name="id" required="required" placeholder="ID를 입력하세요"></td>
+							name="id" required="required" placeholder="ID를 입력"></td>
 					</tr>
 
 
 					<tr>
 						<td class="devicetd">* 등산로&nbsp;</td>
 						<td><input type="text" id="input_mroad" name="mroad"
-							required="required" placeholder="SD카드의 등산로 정보를 입력해주세요.">
+							required="required" placeholder="SD카드 정보를 입력">
 						</td>
 
 					</tr>
@@ -110,12 +110,17 @@
 					type : "post", // 데이터 전송 받식
 					data : { // 전송하는 데이터
 						"id" : input_id,
-						"mroad" : input_mroad
+						"arduino" : input_mroad
 					},
 					url : "TrailUpdate", //데이터를 전송하는 (요청하는) 서버페이지 url
 					dataType : "text", //응답데이터의 형식
 					success : function(data) {
 						alert("insertCheck() 완료");
+						if(data=="true"){
+							alert("등산로 등록 성공!");
+						}else{
+							alert("등산로 등록 실패");
+						}
 					},
 					error : function() {
 						alert("insertCheck() 통신실패");

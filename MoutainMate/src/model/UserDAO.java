@@ -64,10 +64,7 @@ public class UserDAO {
 			rs = psmt.executeQuery();
 			rs.next();
 			sysdate = rs.getString(1);
-
-			System.out.println(sysdate);
-			System.out.println(sysdate.substring(0, 10));
-			System.out.println(sysdate.substring(11));
+			System.out.println("-------sysdate end--------");
 
 		} catch (Exception e) {
 
@@ -354,13 +351,15 @@ public class UserDAO {
 		int totalTime = 0;
 		try {
 			connection();
-
+			System.out.println("dao totalTime Ω√¿€");
+			
 			String sql = "select * from rental_table where user_id=? and rental_date=?";
+			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			psmt.setString(2, date);
 			rs = psmt.executeQuery();
 			rs.next();
-
+			
 			String time1 = rs.getString("r_start_time");
 			int time1H = Integer.parseInt(time1.substring(0, 2));
 			int time1M = Integer.parseInt(time1.substring(3, 5));
@@ -372,7 +371,9 @@ public class UserDAO {
 			int time2M = Integer.parseInt(time2.substring(3, 5));
 			int time2S = Integer.parseInt(time2.substring(6));
 			int totalTime2 = time2H * 3600 + time2M * 60 + time2S;
-
+		
+			System.out.println(time1+" / "+time2);
+			
 			totalTime = totalTime2 - totalTime1;
 
 		} catch (Exception e) {
@@ -387,12 +388,12 @@ public class UserDAO {
 	public int userClearTime(String user_id, String road_id) {
 
 		try {
-			connection();
-
+			
 			String sysdate = sysDate();
 			String date = sysdate.substring(0, 10);
-
 			String time = "" + totalTime(user_id, date);
+			close();
+			connection();
 
 			String sql = "insert into clear_table values (?,?,?,?)";
 			psmt = conn.prepareStatement(sql);

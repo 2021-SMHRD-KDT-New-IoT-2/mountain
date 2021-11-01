@@ -17,17 +17,18 @@ public class TrailUpdate extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String id = request.getParameter("id");
-		String mroad = request.getParameter("mroad");
+		String arduino = request.getParameter("arduino");
 		
 		
 		MountainDAO mdao = new MountainDAO();
+		String mroad = mdao.findRoadId(arduino);
 		
+		System.out.println("------서블릿 findRoadId 완료");
 		
 		UserDAO dao = new UserDAO();
 		
 		int cnt = dao.userClearTime(id, mroad);
-		
-		
+				
 		if (cnt > 0) {
 			System.out.println("완주등산로 추가 성공");
 			response.sendRedirect("Trail.jsp");

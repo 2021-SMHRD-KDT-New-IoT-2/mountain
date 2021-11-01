@@ -90,28 +90,28 @@ public class MountainDAO {
 
 	public ArrayList<MountainVO> selectAllroad(String m_id) {
 		arr = new ArrayList<MountainVO>();
-			
+
 		try {
 			connection();
 
 			String sql = "select * from MROAD_TABLE where M_ID=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, m_id);
-			
+
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
 				System.out.println("mountain dao MROAD rs 값 있음 ");
-				
+
 				String mountain_id = rs.getString("M_ID");
 				String mroad_id = rs.getNString("road_id");
 				String mroad_name = rs.getNString("road_name");
 
 				System.out.println("서블릿 rs.getNString(Mroad_NAME) : " + mroad_name);
-				
-				vo = new MountainVO(mountain_id,mroad_id,mroad_name);
+
+				vo = new MountainVO(mountain_id, mroad_id, mroad_name);
 				arr.add(vo);
-			
+
 			}
 
 		} catch (Exception e) {
@@ -124,16 +124,16 @@ public class MountainDAO {
 		}
 		return arr;
 	}
-	
+
 	public ArrayList<MountainVO> selectAllroad2() {
 		arr = new ArrayList<MountainVO>();
-			
+
 		try {
 			connection();
 
 			String sql = "select * from MROAD_TABLE";
 			psmt = conn.prepareStatement(sql);
-			
+
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
@@ -143,10 +143,10 @@ public class MountainDAO {
 				String mroad_name = rs.getString("road_name");
 
 				System.out.println("서블릿 rs.getNString(Mroad_NAME) : " + mroad_name);
-				
-				vo = new MountainVO(m_id,mroad_id,mroad_name);
+
+				vo = new MountainVO(m_id, mroad_id, mroad_name);
 				arr.add(vo);
-			
+
 			}
 
 		} catch (Exception e) {
@@ -159,9 +159,34 @@ public class MountainDAO {
 		}
 		return arr;
 	}
-	
-	public void findRoadId(String arduino) {
-		
+
+	public String findRoadId(String arduino) {
+		String mroad_id = "";
+		try {
+			connection();
+			
+			System.out.println("dao arduino : "+arduino);
+			
+			String sql = "select * from arduino_table where arduino=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, arduino);
+
+			rs = psmt.executeQuery();
+			rs.next();
+
+			mroad_id = rs.getString("mroad_id");
+			
+			System.out.println("mountainDAO findRoadId : " + mroad_id);
+
+		} catch (Exception e) {
+			System.out.println("dao 등산조회실패");
+			e.printStackTrace();
+		} finally {
+			// 1. 지역변수
+			// 2. 예외처리
+			close();
+		}
+		return mroad_id;
 	}
 
 }
