@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -41,7 +42,7 @@ public class FindUser extends HttpServlet {
 		UserVO vo = new UserVO(id,level,userTotalTime);
 		
 		JSONObject uservo = new JSONObject();
-		JSONArray jArray = new JSONArray();
+		//JSONArray jArray = new JSONArray();
 		
 		try {
 			uservo.put("id",id);
@@ -52,7 +53,11 @@ public class FindUser extends HttpServlet {
 			e.printStackTrace();
 		}
 	
-		jArray.add(uservo);
+		//jArray.add(uservo);
+		
+		PrintWriter out = response.getWriter();
+
+		System.out.println("¼­ºí¸´ uservo : "+uservo.toString());
 		
 	}
 

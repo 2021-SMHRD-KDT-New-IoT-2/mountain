@@ -25,7 +25,6 @@
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
 	<%
-
 		UserVO vo = (UserVO) session.getAttribute("User");
 	%>
 
@@ -105,7 +104,7 @@
 				</span> <img src="images/main_rightside.png">
 				<button id="mainbtn" onclick="location.href='#page3'">등산로
 					탐색하기</button>
-					
+
 
 			</div>
 		</main>
@@ -157,42 +156,41 @@
 						</tr>
 
 						<script>
-							$("#searchM").change(function() {
-								
-								var selectM = $("#searchM").val();
-							
-								if (selectM != "") {
-									//alert("if문 안에 들어옴");
-									$.ajax({
-										type : "post", // 데이터 전송 받식
-										data : {
-											"select_mountain" : selectM
-										}, // 전송하는 데이터
-										url : "selectRoad", //데이터를 전송하는 (요청하는) 서버페이지 url
-										dataType : "json", //응답데이터의 형식
-										success : function(data) {
-											var obj = JSON.stringify(data);
-											var obj2 = data;
-											//alert("통신 성공!!");
-											console.log(data[0]);
-											console.log(data.length);
-											
-											for(var i=0; i<data.length; i++){
-												console.log(data[i].mroad_name);
-												var temp_html = "<option value='"+(i+1)+"'>"+data[i].mroad_name+"</option>";
-												$("#mroad").append(temp_html);
-							
-											}
-										},
-										error : function() {
-											alert("통신실패");
-										}
-									});
-								}
+							$("#searchM").change(
+											function() {
 
-							});
-							
-							
+												var selectM = $("#searchM").val();
+
+												if (selectM != "") {
+													//alert("if문 안에 들어옴");
+													$.ajax({
+														type : "post", // 데이터 전송 받식
+														data : {
+															"select_mountain" : selectM
+														}, // 전송하는 데이터
+														url : "selectRoad", //데이터를 전송하는 (요청하는) 서버페이지 url
+														dataType : "json", //응답데이터의 형식
+														success : function(
+																data) {
+															var obj = JSON
+																	.stringify(data);
+															var obj2 = data;
+															//alert("통신 성공!!");
+															console.log(data[0]);
+															console.log(data.length);
+																for (var i = 0; i < data.length; i++) {
+																	console.log(data[i].mroad_name);
+																	var temp_html = "<option value='"+ (i + 1)+ "'>"+ data[i].mroad_name+ "</option>";
+																	$("#mroad").append(temp_html);
+																}
+														},
+														error : function() {
+															alert("통신실패");
+														}
+													});
+												}
+
+											});
 						</script>
 
 						<tr>
@@ -202,9 +200,9 @@
 									<input id="searchR" type="text" list="mroad"
 										placeholder="등산로를 선택해주세요.">
 									<datalist id="mroad">
-										
+
 										<!--<option id="sp_result" value=""></option>  -->
-										
+
 									</datalist>
 								</div>
 							</td>
@@ -264,7 +262,7 @@
 							<td id="idtd2">
 								<div class="searchidbox">
 									<input id="searchId" type="text" placeholder="검색할 아이디를 입력해주세요.">
-									<button id="searchIdbtn" onClick="">
+									<button id="searchIdbtn" onClick="findUser()">
 										<img class="search" src="images/search.png">
 									</button>
 								</div>
@@ -286,11 +284,11 @@
 				<div id="down-right">
 					<img id="profile_back" src="images/profile_back.png">
 					<ul id="select_user">
-						<li>사용자id(수정)</li>
-						<li>뒷동산2(수정) 레벨</li>
-						<li>총 등산시간</li>
+
+						<!-- <li></li> -->
+
 					</ul>
-					<p id="select_user_time">155h</p>
+					<p id="select_user_time"></p>
 				</div>
 			</div>
 		</div>
@@ -379,31 +377,35 @@
 	</div>
 
 	<script>
-	function findUser(){
-		var input = $("#searchId").val();
-		$.ajax({
-			type : "post", // 데이터 전송 받식
-			data : {
-				"id" : input
-			}, // 전송하는 데이터
-			url : "FindUser", //데이터를 전송하는 (요청하는) 서버페이지 url
-			dataType : "json", //응답데이터의 형식
-			success : function(data) {
-				var obj = JSON.stringify(data);
-				var obj2 = data;
-				//alert("통신 성공!!");
-				console.log(data[0]);
-				console.log(data.length);
-				
-				for(var i=0; i<data.length; i++){
-					console.log(data[i].mroad_name);
-					var temp_html = "<option value='"+(i+1)+"'>"+data[i].mroad_name+"</option>";
-					$("#mroad").append(temp_html);
+		function findUser() {
+			var input = $("#searchId").val();
+			console.log(input);
+			$.ajax({
+				type : "post", // 데이터 전송 받식
+				data : {
+					"id" : input
+				}, // 전송하는 데이터
+				url : "FindUser", //데이터를 전송하는 (요청하는) 서버페이지 url
+				dataType : "json", //응답데이터의 형식
+				success : function(replise) {
+					
+					alert("json통신성공");
+					console.log(replise[0]);
+					console.log(replise.length);
 
+					var id_html = "<li> ID : " + replise[0].id + "</li>";
+					$("#select_user").append(id_html);
+					var level_html = "<li> LEVEL : " + replise[0].level + "</li>";
+					$("#select_user").append(level_html);
+					var totalTime_html = "<li> Total Time : </li>";
+					$("#select_user_time").innerText(replise[0].totalTime + "h");
+
+				},
+				error : function() {
+					alert("통신실패");
 				}
-			},
-	
-	
+			});
+		}
 	</script>
 
 
