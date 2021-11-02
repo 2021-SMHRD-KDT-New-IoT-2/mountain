@@ -401,12 +401,12 @@
 							}
 							$("#profile").attr("src", "images/profile1.jpg");
 							$("#select_user").append(
-									"<li id='li1'> ID : " + data.id + "</li>");
+									"<li id='li1'><b> ID : " + data.id + "</b></li>");
 							$("#select_user").append(
-									"<li id='li2'> LEVEL : " + data.level
-											+ "</li>");
+									"<li id='li2'><b> LEVEL : " + data.level
+											+ "</b></li>");
 							$("#select_user").append(
-									"<li id='li3'> Total Time :</li>");
+									"<li id='li3'><b> Total Time :</b></li>");
 							$("#select_user_time").text(data.totalTime + "h");
 
 							findRoad();

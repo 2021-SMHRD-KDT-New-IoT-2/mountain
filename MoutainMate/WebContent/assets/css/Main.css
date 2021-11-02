@@ -560,6 +560,7 @@ input::-moz-placeholder {
 #searchM {
 	background: none;
 	width: 95%;
+	color:white;
 }
 #searchM::placeholder{
 	color:white;
@@ -568,6 +569,7 @@ input::-moz-placeholder {
 #searchR {
 	background: none;
 	width: 95%;
+	color:white;
 }
 #searchR::placeholder{
 	color:white;
@@ -697,6 +699,7 @@ input::-moz-placeholder {
 	right: 2%;
 	float: right;
 	position: absolute;
+	box-shadow: inset 0 0 3px gray;
 }
 
 .searchidbox>button {
@@ -706,6 +709,7 @@ input::-moz-placeholder {
 	margin-right: 0;
 	float: right;
 	background-color: white;
+	box-shadow:inset 0 0 3px gray;
 }
 
 #searchId::placeholder{
@@ -733,6 +737,7 @@ input::-moz-placeholder {
 }
 
 #searchId {
+	color:white;
 	background: none;
 	font-size: 100%;
 	width: 75%;
@@ -754,7 +759,7 @@ input::-moz-placeholder {
 	left: 1%;
 	float: left;
 	position: absolute;
-	background-color :rgba(181, 190, 190, 0.8);
+	background-color :rgba(203, 211, 211, 0.8);
 	box-shadow: inset 0 0 3px gray;
 }
 
@@ -821,6 +826,7 @@ input::-moz-placeholder {
 }
 
 #select_user {
+	color:rgba(24, 34, 34, 0.8);
 	list-style: none;
 	top: 70%;
 	font-size: 30px;
@@ -831,6 +837,7 @@ input::-moz-placeholder {
 }
 
 #select_user_time {
+	color:rgba(24, 34, 34, 0.8);
 	bottom: 0%;
 	right: 10%;
 	font-size: 70px;
