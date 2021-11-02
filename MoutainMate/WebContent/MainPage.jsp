@@ -25,7 +25,6 @@
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
 	<%
-	
 		UserVO vo = (UserVO) session.getAttribute("User");
 	%>
 
@@ -155,43 +154,6 @@
 								</div>
 							</td>
 						</tr>
-
-						<script>
-							$("#searchM").change(
-											function() {
-
-												var selectM = $("#searchM").val();
-
-												if (selectM != "") {
-													//alert("if문 안에 들어옴");
-													$.ajax({
-														type : "post", // 데이터 전송 받식
-														data : {
-															"select_mountain" : selectM
-														}, // 전송하는 데이터
-														url : "selectRoad", //데이터를 전송하는 (요청하는) 서버페이지 url
-														dataType : "json", //응답데이터의 형식
-														success : function(
-																data) {
-													
-															//alert("통신 성공!!");
-															console.log(data[0]);
-															console.log(data.length);
-																for (var i = 0; i < data.length; i++) {
-																	console.log(data[i].mroad_name);
-																	var temp_html = "<option value='"+ (i + 1)+ "'>"+ data[i].mroad_name+ "</option>";
-																	$("#mroad").append(temp_html);
-																}
-														},
-														error : function() {
-															alert("통신실패");
-														}
-													});
-												}
-
-											});
-						</script>
-
 						<tr>
 							<td><label for="searchR">등산로</label></td>
 							<td>
@@ -213,37 +175,32 @@
 					<caption>
 						<b>주간 TOP5 등산로</b>
 					</caption>
+					<%
+						String[] top5 = dao.top5();
+					for (int i = 0; i < top5.length; i++) {
+					%>
 					<tr>
-						<td>1</td>
-						<td>무등산16코스</td>
+						<td><%=i + 1%></td>
+						<td><%=top5[i]%></td>
 					</tr>
-					<tr>
-						<td>2</td>
-						<td>무등산16코스</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>무등산16코스</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>무등산16코스</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>무등산16코스</td>
-					</tr>
-
+					<%
+						}
+					%>
 				</table>
 			</div>
 		</div>
 
 		<div id="page3-right">
 			<div id="roadimgbox">
-				<img src="images/roadblack.png">
+				<div id="selectimg">
+					
+					<img id="selectRimgBack">
+						<img id="selectRimg">
+				</div>
 				<div id="courselevel">
 					<img src="images/roadlevel.png">
 				</div>
+
 			</div>
 		</div>
 
@@ -376,10 +333,51 @@
 	</div>
 
 	<script>
+		$("#searchM").change(
+				function() {
+
+					var selectM = $("#searchM").val();
+
+					if (selectM != "") {
+						//alert("if문 안에 들어옴");
+						$.ajax({
+							type : "post", // 데이터 전송 받식
+							data : {
+								"select_mountain" : selectM
+							}, // 전송하는 데이터
+							url : "selectRoad", //데이터를 전송하는 (요청하는) 서버페이지 url
+							dataType : "json", //응답데이터의 형식
+							success : function(data) {
+
+								//alert("통신 성공!!");
+								console.log(data[0]);
+								console.log(data.length);
+								for (var i = 0; i < data.length; i++) {
+									console.log(data[i].mroad_name);
+									var temp_html = "<option value='" + (i + 1)
+											+ "'>" + data[i].mroad_name
+											+ "</option>";
+									$("#mroad").append(temp_html);
+								}
+							},
+							error : function() {
+								alert("통신실패");
+							}
+						});
+					}
+
+				});
+
+		$("#searchR").change(function() {
+			var selectR = $("#searchR").val();
+			console.log("selectR : " + selectR);
+			$("#selectRimg").attr("src", "images/"+selectR+".png");
+
+		});
 		function findUser() {
 			var ul = ("#select_user");
 			var input = $("#searchId").val();
-			console.log("findUser() input : "+input);
+			console.log("findUser() input : " + input);
 			$.ajax({
 				type : "post", // 데이터 전송 받식
 				data : {
@@ -394,7 +392,8 @@
 					//console.log(obj);
 					//console.log(data.length);
 					$("#select_user").append("<li> ID : " + data.id + "</li>");
-					$("#select_user").append("<li> LEVEL : " + data.level + "</li>");
+					$("#select_user").append(
+							"<li> LEVEL : " + data.level + "</li>");
 					$("#select_user").append("<li> Total Time : </li>");
 					$("#select_user_time").innerText(data.totalTime + "h");
 

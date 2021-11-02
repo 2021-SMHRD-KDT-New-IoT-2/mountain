@@ -79,6 +79,10 @@ public class UserDAO {
 	public int join(String id, String pw, String name, String phoneNumber, String birth, String gender) {
 
 		try {
+			int mgr=0;
+			if((id.substring(0,5)).contentEquals("admin")) {
+				mgr=1;
+			}
 			connection();
 
 			String sql = "insert into user_table values(?,?,?,?,?,?,?)";
@@ -91,7 +95,7 @@ public class UserDAO {
 			psmt.setString(4, phoneNumber);
 			psmt.setString(5, birth);
 			psmt.setString(6, gender);
-			psmt.setInt(7, 0);
+			psmt.setInt(7, mgr);
 
 			cnt = psmt.executeUpdate();
 

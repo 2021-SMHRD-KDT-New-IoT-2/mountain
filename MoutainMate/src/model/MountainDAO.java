@@ -189,29 +189,32 @@ public class MountainDAO {
 		return mroad_id;
 	}
 	
-	public void top5() {
+	public String[] top5() {
+		String[] arr = new String[5];
 		try { 
 			connection();
 		
-			String sql = "select * from arduino_table where arduino=?";
+			String sql = "select c.road_id, m.road_name, count(c.road_id) as count from clear_table c, mroad_table m where c.road_id = m.road_id and clear_date between sysdate-7 and sysdate+4 group by c.road_id, m.road_name order by count desc";
+			
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, arduino);
 
 			rs = psmt.executeQuery();
-			rs.next();
-
-			mroad_id = rs.getString("mroad_id");
 			
-			System.out.println("mountainDAO findRoadId : " + mroad_id);
-
+			int i = 0;
+			while(rs.next()) {
+				arr[i]= rs.getString("road_name");
+				System.out.println("mountainDAO top5 "+(i+1)+"위 : "+arr[i]);
+				i++;
+			}
 		} catch (Exception e) {
-			System.out.println("dao 등산조회실패");
+			System.out.println("dao top5 등산조회실패");
 			e.printStackTrace();
 		} finally {
 			// 1. 지역변수
 			// 2. 예외처리
 			close();
 		}
+		return arr;
 	}
 
 }
