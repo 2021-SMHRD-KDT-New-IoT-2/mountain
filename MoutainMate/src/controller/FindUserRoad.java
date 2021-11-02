@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,8 +23,8 @@ import com.google.gson.Gson;
 import model.UserDAO;
 import model.UserVO;
 
-@WebServlet("/FindUser")
-public class FindUser extends HttpServlet {
+@WebServlet("/FindUserRoad")
+public class FindUserRoad extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -31,32 +32,18 @@ public class FindUser extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		String id = request.getParameter("id");
-
-
 		UserDAO dao = new UserDAO();
-		int level = dao.userClearLevel(id);
-		float userTotalTime = dao.userTotalTime(id);
-		
-
-		System.out.println("선택한 id : " + id + "/ 레벨 : " + level + "/ 총시간 : " + userTotalTime);
-		
-		UserVO vo = new UserVO(id,level,userTotalTime);
-		JSONObject uservo = new JSONObject();
-		
-		String ttime = String.format("%.2f", userTotalTime);
-		
-		try {
-			uservo.put("id",id);
-			uservo.put("level", level);
-			uservo.put("totalTime", ttime);
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
+		ArrayList<Integer>  clearRoadTable = dao.userClearRoad(id);
+	
+	
 		response.setContentType("text/html;charset=UTF-8");
 
-		System.out.println("서블릿 uservo : "+uservo.toString());
+		System.out.println("서블릿 clearRoadTable : "+clearRoadTable.toString());
+		
 		PrintWriter out = response.getWriter();
-		out.print(uservo.toString());
+		out.print(clearRoadTable.toString());
+		
+		System.out.println("clearRoadTable 응답 완료");
 	}
 
 }

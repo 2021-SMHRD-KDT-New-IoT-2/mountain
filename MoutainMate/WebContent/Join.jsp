@@ -41,12 +41,11 @@
 						<tr>
 							<td class="jointd1">* 아이디</td>
 							<td class="jointd2"><input type="text" id="input_id"
-								name="id" required="required" placeholder="ID를 입력하세요">&nbsp; <input
-								type="button" value="ID중복체크" onclick="idCheck()">
+								name="id" required="required" placeholder="ID를 입력하세요">&nbsp;
+								<input type="button" value="ID중복체크" onclick="idCheck()">
 						</tr>
 						<tr>
-							<td colspan="2" align="center"><span
-								id="sp_result"></span></td>
+							<td colspan="2" align="center"><span id="sp_result"></span></td>
 						</tr>
 						<tr>
 							<td class="jointd1">* 비밀번호</td>
@@ -78,8 +77,7 @@
 						</tr>
 
 						<tr>
-							<td colspan="2" align="center">
-							<input type="button"
+							<td colspan="2" align="center"><input type="button"
 								value="Join" onClick="join()"></td>
 						</tr>
 
@@ -106,24 +104,28 @@
 	<script>
 		function idCheck() {
 			var input = $("#input_id").val();
-			$.ajax({
-				type : "post", // 데이터 전송 받식
-				data : {
-					"id" : input
-				}, // 전송하는 데이터
-				url : "IdCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
-				dataType : "text", //응답데이터의 형식
-				success : function(data) {
-					if (data == "true") {
-						$("#sp_result").html("이미 사용중인 id입니다.");
-					} else {
-						$("#sp_result").html("사용가능한 id 입니다.");
+			if (input.substring(0, 5) == "admin") {
+				alert("관리자의 승인이 필요한 아이디 입니다.");
+			} else {
+				$.ajax({
+					type : "post", // 데이터 전송 받식
+					data : {
+						"id" : input
+					}, // 전송하는 데이터
+					url : "IdCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
+					dataType : "text", //응답데이터의 형식
+					success : function(data) {
+						if (data == "true") {
+							$("#sp_result").html("이미 사용중인 id입니다.");
+						} else {
+							$("#sp_result").html("사용가능한 id 입니다.");
+						}
+					},
+					error : function() {
+						alert("통신실패");
 					}
-				},
-				error : function() {
-					alert("통신실패");
-				}
-			});
+				});
+			}
 		}
 
 		function joinCheck() {
@@ -137,7 +139,7 @@
 			if ((input_id != "") && (input_pw != "") && (input_name != "")
 					&& (input_tel != "") && (input_birth != "")
 					&& (input_gender != "")) {
-				
+
 				$.ajax({
 					type : "post", // 데이터 전송 받식
 					data : { // 전송하는 데이터
@@ -151,8 +153,9 @@
 					url : "joinService", //데이터를 전송하는 (요청하는) 서버페이지 url
 					dataType : "text", //응답데이터의 형식
 					success : function() {
-						
-						window.location.href = "joinsuccess.jsp?joinId = " + input_id ;
+
+						window.location.href = "joinsuccess.jsp?joinId = "
+								+ input_id;
 					},
 					error : function() {
 						alert("통신실패");
@@ -164,28 +167,31 @@
 
 		}
 
-
 		function join() {
 			var input = $("#input_id").val();
-			$.ajax({
-				type : "post", // 데이터 전송 받식
-				data : {
-					"id" : input
-				}, // 전송하는 데이터
-				url : "IdCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
-				dataType : "text", //응답데이터의 형식
-				success : function(data) {
-					if (data == "true") {
-						alert("중복된 아이디가 존재합니다.");
-						$("#sp_result").html("이미 사용중인 id입니다.");
-					} else {
-						joinCheck();
+			if (input.substring(0, 5) == "admin") {
+				alert("관리자의 승인이 필요한 아이디 입니다.");
+			} else {
+				$.ajax({
+					type : "post", // 데이터 전송 받식
+					data : {
+						"id" : input
+					}, // 전송하는 데이터
+					url : "IdCheck", //데이터를 전송하는 (요청하는) 서버페이지 url
+					dataType : "text", //응답데이터의 형식
+					success : function(data) {
+						if (data == "true") {
+							alert("중복된 아이디가 존재합니다.");
+							$("#sp_result").html("이미 사용중인 id입니다.");
+						} else {
+							joinCheck();
+						}
+					},
+					error : function() {
+						alert("통신실패");
 					}
-				},
-				error : function() {
-					alert("통신실패");
-				}
-			});
+				});
+			}
 		}
 	</script>
 </body>

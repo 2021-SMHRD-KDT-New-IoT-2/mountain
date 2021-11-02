@@ -11,14 +11,14 @@ public class UserVO {
 		private String mgr;
 		private String pw;
 		private int level;
-		private int totalTime;
+		private float totalTime;
 		
 		//»ý¼ºÀÚ
 		
 		public UserVO(String id) {
 			this.id=id;
 		}
-		public UserVO(String id, int level, int totalTime) {
+		public UserVO(String id, int level, float totalTime) {
 			this.id = id;
 			this.level = level;
 			this.totalTime = totalTime;

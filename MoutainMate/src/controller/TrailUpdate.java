@@ -17,17 +17,16 @@ public class TrailUpdate extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String id = request.getParameter("id");
-		String arduino = request.getParameter("arduino");
+		//String arduino = request.getParameter("arduino");
 		
 		
 		MountainDAO mdao = new MountainDAO();
-		String mroad = mdao.findRoadId(arduino);
+		//String mroad = mdao.findRoadId(arduino);
 		
 		System.out.println("------서블릿 findRoadId 완료");
 		
 		UserDAO dao = new UserDAO();
-		
-		int cnt = dao.userClearTime(id, mroad);
+		int cnt = dao.TraillEnrollment(id);
 				
 		if (cnt > 0) {
 			System.out.println("완주등산로 추가 성공");

@@ -1,8 +1,19 @@
 @charset "euc-kr";
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 @import
 	url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic")
 	;
+
+@font-face {
+	font-family: '¸ÞÀÎ';
+	src: url('../srcs/fonts/NeonPlanetDisplay.ttf') format('truetype');
+}
 
 * {
 	margin: 0;
@@ -10,6 +21,8 @@
 }
 
 body {
+	font-family: 'GowunDodum-Regular';
+	
 	scroll-behavior: smooth;
 }
 
@@ -114,6 +127,7 @@ nav>ul>li {
 }
 
 main {
+		font-family: 'GowunDodum-Regular';
 	background: radial-gradient(rgba(49, 49, 49, 0.8), rgba(51, 51, 51, 0.8)),
 		url(../../images/mudengsan.png);
 	background-repeat: no-repeat;
