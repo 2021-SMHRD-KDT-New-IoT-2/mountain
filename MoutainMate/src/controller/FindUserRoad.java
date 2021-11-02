@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,8 +23,8 @@ import com.google.gson.Gson;
 import model.UserDAO;
 import model.UserVO;
 
-@WebServlet("/FindUser")
-public class FindUser extends HttpServlet {
+@WebServlet("/FindUserRoad")
+public class FindUserRoad extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -31,30 +32,16 @@ public class FindUser extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		String id = request.getParameter("id");
-
-
 		UserDAO dao = new UserDAO();
-		int level = dao.userClearLevel(id);
-		float userTotalTime = dao.userTotalTime(id);
-		
-
-		System.out.println("º±≈√«— id : " + id + "/ ∑π∫ß : " + level + "/ √—Ω√∞£ : " + userTotalTime);
-		
-		UserVO vo = new UserVO(id,level,userTotalTime);
-		JSONObject uservo = new JSONObject();
+		ArrayList<Integer>  clearRoadTable = dao.userClearRoad(id);
 	
-		try {
-			uservo.put("id",id);
-			uservo.put("level", level);
-			uservo.put("totalTime", userTotalTime);
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
+	
 		response.setContentType("text/html;charset=UTF-8");
 
-		System.out.println("º≠∫Ì∏¥ uservo : "+uservo.toString());
+		System.out.println("º≠∫Ì∏¥ clearRoadTable : "+clearRoadTable.toString());
+		
 		PrintWriter out = response.getWriter();
-		out.print(uservo.toString());
+		out.print(clearRoadTable.toString());
 	}
 
 }

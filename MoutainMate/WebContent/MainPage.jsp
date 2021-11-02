@@ -64,7 +64,7 @@
 
 
 
-						<li class="scrollmoving"><a href="#page2">게시판</a></li>
+						
 						<li class="scrollmoving"><a href="#page3">등산로</a></li>
 						<li class="scrollmoving"><a href="#page4">둘러보기</a></li>
 						<li><a class="btn trigger" href="#menu">≡</a></li>
@@ -111,17 +111,6 @@
 
 
 	</section>
-
-
-	<section id="page2">게시판</section>
-
-
-
-
-
-
-
-
 
 	<section id="page3">
 		<div id="page3-left">
@@ -231,7 +220,10 @@
 
 			<div id="page4-down">
 				<div id="down-left">
-					<p id="mname">산이름</p>
+					<p id="mname"></p>
+					<div id="clearrod">
+						
+					</div>
 					<img id="side-left" class="side" src="images/side_left.png">
 					<img id="side-right" class="side" src="images/side_right.png">
 				</div>
@@ -240,9 +232,7 @@
 				<div id="down-right">
 					<img id="profile_back" src="images/profile_back.png">
 					<ul id="select_user">
-
-						<!-- <li></li> -->
-
+	
 					</ul>
 					<p id="select_user_time"></p>
 				</div>
@@ -374,10 +364,10 @@
 			$("#selectRimg").attr("src", "images/"+selectR+".png");
 
 		});
+		
+		
 		function findUser() {
-			var ul = ("#select_user");
 			var input = $("#searchId").val();
-			console.log("findUser() input : " + input);
 			$.ajax({
 				type : "post", // 데이터 전송 받식
 				data : {
@@ -387,16 +377,36 @@
 				dataType : "json", //응답데이터의 형식
 				success : function(data) {
 					var obj = data;
-					//alert("json통신성공");
-					//console.log(data[0]);
-					//console.log(obj);
-					//console.log(data.length);
 					$("#select_user").append("<li> ID : " + data.id + "</li>");
-					$("#select_user").append(
-							"<li> LEVEL : " + data.level + "</li>");
+					$("#select_user").append("<li> LEVEL : " + data.level + "</li>");
 					$("#select_user").append("<li> Total Time : </li>");
-					$("#select_user_time").innerText(data.totalTime + "h");
-
+					$("#select_user_time").text(data.totalTime + "h");
+					findRoad();				
+				},
+				error : function() {
+					alert("통신실패");
+				}
+			});
+		}
+		
+		function findRoad(){
+			var input = $("#searchId").val();
+			$.ajax({
+				type : "post", // 데이터 전송 받식
+				data : {
+					"id" : input
+				}, // 전송하는 데이터
+				url : "FindUserRoad", //데이터를 전송하는 (요청하는) 서버페이지 url
+				dataType : "json", //응답데이터의 형식
+				success : function(data) {
+					
+					console.log(data);
+					$("#mname").text("무등산");
+					console.log(data.length);
+					for(var i=0;i<data.length;i++){
+						console.log("src : "+data[i])
+						$("#clearrod").append("<img style='top:0%; width:100%; heigth:100%;	position:absolute;'src='images/"+data[i]+".png'>");
+					}
 				},
 				error : function() {
 					alert("통신실패");

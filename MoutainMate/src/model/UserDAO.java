@@ -469,4 +469,74 @@ public class UserDAO {
 		}
 		return level;
 	}
+	
+	public ArrayList<Integer> userClearRoad(String user_id) {
+		ArrayList<Integer> clearRoadTable = new ArrayList<Integer>();
+		
+		try {
+
+			connection();
+
+			String sql = "select user_id, road_id from clear_table where user_id=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, user_id);
+			rs = psmt.executeQuery();
+			
+			
+			while (rs.next()) {
+				int getrs = Integer.parseInt(rs.getNString("road_id"));
+				for(int i=0;i<clearRoadTable.size();i++) {
+					if(clearRoadTable.get(i)==getrs) {
+						getrs = -1;
+					}
+				}
+				if(getrs!=-1) {
+					clearRoadTable.add(getrs);
+				}
+			}
+
+		} catch (Exception e) {
+			System.out.println("dao userclearroad 실패");
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return clearRoadTable;
+	}
+	
+	public ArrayList<String> userMountain(String user_id) {
+		
+		ArrayList<String> mlist = new ArrayList<String>();
+		try {
+
+			connection();
+
+			String sql = "select m_name from mroad_table where road_id in ( select road_id from clear_table where user_id=?);";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, user_id);
+			rs = psmt.executeQuery();
+			
+			
+			while (rs.next()) {
+				String getrs = rs.getNString("m_name");
+				for(int i=0;i<mlist.size();i++) {
+					if((mlist.get(i)).equals(getrs)) {
+						getrs = "";
+					}
+				}
+				if(getrs.equals("")) {
+					
+				}else {
+					mlist.add(getrs);
+				}
+			}
+
+		} catch (Exception e) {
+			System.out.println("dao userclearroad 실패");
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return mlist;
+	}
 }

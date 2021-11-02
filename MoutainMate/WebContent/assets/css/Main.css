@@ -1,4 +1,10 @@
 @charset "euc-kr";
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 @import
 	url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic")
@@ -15,6 +21,7 @@
 }
 
 body {
+	font-family: 'GowunDodum-Regular';
 	background: radial-gradient(rgba(49, 49, 49, 0.8), rgba(51, 51, 51, 0.8)),
 		url(../../images/mudengsan.png);
 	background-repeat: no-repeat;
@@ -449,22 +456,14 @@ body.is-menu-visible #menu .inner {
 	visibility: visible;
 }
 
-/* page2 */
-#page2 {
-	width: 100%;
+/*------------------------------- page3 ------------------------------------*/
+#page3 {
+		width: 100%;
 	height: 100%;
 	top: 100%;
 	position: absolute;
 	background-color: whitesmoke;
-}
 
-/*------------------------------- page3 ------------------------------------*/
-#page3 {
-	width: 100%;
-	height: 100%;
-	top: 200%;
-	position: absolute;
-	background-color: whitesmoke;
 }
 
 #page3-left {
@@ -629,11 +628,12 @@ input::-moz-placeholder {
 
 /*page4*/
 #page4 {
-	width: 100%;
+		width: 100%;
 	height: 100%;
-	top: 300%;
-	background-color: whitesmoke;
+	top: 200%;
 	position: absolute;
+	background-color: whitesmoke;
+
 }
 
 #page4inner {
@@ -740,6 +740,21 @@ input::-moz-placeholder {
 	text-align: center;
 }
 
+#clearroad{
+	width:100%;
+	heigth:100%;
+	position:relative;
+}
+
+#roadimgs{
+	top:0%;
+	width:100%;
+	heigth:100%;
+	position:absolute;
+}
+
+
+
 .side {
 	top: 45%;
 	width: 5%;
@@ -764,6 +779,7 @@ input::-moz-placeholder {
 }
 
 #select_user {
+	list-style: none;
 	top: 70%;
 	font-size: 30px;
 	float: left;
@@ -780,9 +796,10 @@ input::-moz-placeholder {
 
 /*page5-footer*/
 #page5 {
+
 	width: 100%;
 	height: 80%;
-	top: 400%;
+	top: 300%;
 	background-color: whitesmoke;
 	position: absolute;
 }
