@@ -188,5 +188,30 @@ public class MountainDAO {
 		}
 		return mroad_id;
 	}
+	
+	public void top5() {
+		try { 
+			connection();
+		
+			String sql = "select * from arduino_table where arduino=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, arduino);
+
+			rs = psmt.executeQuery();
+			rs.next();
+
+			mroad_id = rs.getString("mroad_id");
+			
+			System.out.println("mountainDAO findRoadId : " + mroad_id);
+
+		} catch (Exception e) {
+			System.out.println("dao 등산조회실패");
+			e.printStackTrace();
+		} finally {
+			// 1. 지역변수
+			// 2. 예외처리
+			close();
+		}
+	}
 
 }

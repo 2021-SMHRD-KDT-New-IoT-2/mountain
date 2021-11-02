@@ -15,6 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import com.google.gson.Gson;
 
@@ -27,35 +28,29 @@ public class FindUser extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("UTF-8");
 
 		String id = request.getParameter("id");
 
-		response.setContentType("text/html;charset=euc-kr");
 
 		UserDAO dao = new UserDAO();
 		int level = dao.userClearLevel(id);
-		int userTotalTime = dao.userTotalTime(id);
+		float userTotalTime = dao.userTotalTime(id);
 
 		System.out.println("선택한 id : " + id + "/ 레벨 : " + level + "/ 총시간 : " + userTotalTime);
 		
 		UserVO vo = new UserVO(id,level,userTotalTime);
 		
 		JSONObject uservo = new JSONObject();
-		//JSONArray jArray = new JSONArray();
-		
+	
 		try {
 			uservo.put("id",id);
 			uservo.put("level", level);
 			uservo.put("totalTime", userTotalTime);
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
-		//jArray.add(uservo);
-		
-		PrintWriter out = response.getWriter();
+		response.setContentType("text/html;charset=euc-kr");
 
 		System.out.println("서블릿 uservo : "+uservo.toString());
 		

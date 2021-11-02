@@ -414,8 +414,8 @@ public class UserDAO {
 	}
 
 	
-	public int userTotalTime(String user_id) {
-		int totalTime = 0;
+	public float userTotalTime(String user_id) {
+		float totalTime = 0;
 		try {
 			connection();
 
@@ -427,7 +427,7 @@ public class UserDAO {
 		
 			while (rs.next()) {
 				
-				totalTime += Integer.parseInt(rs.getString("clear_time"));
+				totalTime += Float.parseFloat(rs.getString("clear_time"));
 		
 			}
 

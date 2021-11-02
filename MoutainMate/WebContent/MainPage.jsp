@@ -173,9 +173,7 @@
 														dataType : "json", //응답데이터의 형식
 														success : function(
 																data) {
-															var obj = JSON
-																	.stringify(data);
-															var obj2 = data;
+													
 															//alert("통신 성공!!");
 															console.log(data[0]);
 															console.log(data.length);
@@ -379,8 +377,9 @@
 
 	<script>
 		function findUser() {
+			var ul = ("#select_user");
 			var input = $("#searchId").val();
-			console.log(input);
+			console.log("findUser() input : "+input);
 			$.ajax({
 				type : "post", // 데이터 전송 받식
 				data : {
@@ -388,18 +387,16 @@
 				}, // 전송하는 데이터
 				url : "FindUser", //데이터를 전송하는 (요청하는) 서버페이지 url
 				dataType : "json", //응답데이터의 형식
-				success : function(replise) {
-					
-					alert("json통신성공");
-					console.log(replise[0]);
-					console.log(replise.length);
-
-					var id_html = "<li> ID : " + replise[0].id + "</li>";
-					$("#select_user").append(id_html);
-					var level_html = "<li> LEVEL : " + replise[0].level + "</li>";
-					$("#select_user").append(level_html);
-					var totalTime_html = "<li> Total Time : </li>";
-					$("#select_user_time").innerText(replise[0].totalTime + "h");
+				success : function(data) {
+					var obj = data;
+					//alert("json통신성공");
+					//console.log(data[0]);
+					//console.log(obj);
+					//console.log(data.length);
+					$("#select_user").append("<li> ID : " + data.id + "</li>");
+					$("#select_user").append("<li> LEVEL : " + data.level + "</li>");
+					$("#select_user").append("<li> Total Time : </li>");
+					$("#select_user_time").innerText(data.totalTime + "h");
 
 				},
 				error : function() {
