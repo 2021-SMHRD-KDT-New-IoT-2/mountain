@@ -42,11 +42,13 @@ public class FindUser extends HttpServlet {
 		
 		UserVO vo = new UserVO(id,level,userTotalTime);
 		JSONObject uservo = new JSONObject();
-	
+		
+		String ttime = String.format("%.2f", userTotalTime);
+		
 		try {
 			uservo.put("id",id);
 			uservo.put("level", level);
-			uservo.put("totalTime", userTotalTime);
+			uservo.put("totalTime", ttime);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

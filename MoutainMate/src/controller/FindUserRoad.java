@@ -42,6 +42,8 @@ public class FindUserRoad extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		out.print(clearRoadTable.toString());
+		
+		System.out.println("clearRoadTable 응답 완료");
 	}
 
 }
