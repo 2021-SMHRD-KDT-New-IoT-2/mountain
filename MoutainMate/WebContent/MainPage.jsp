@@ -78,14 +78,19 @@
 
 		<nav id="menu">
 			<ul class="links">
-				<li><h5>로그인</h5></li>
+				
+				<div id="lidiv">
+				<li id="logintitle"><b><h2>로그인</h2></b></li><br>
+				<div id="innerlidiv">
 				<form action="loginService" method="post">
-					<li><input name="id" type="text" required="required"
+					<li id="llid1"><input class="log" name="id" type="text" required="required"
 						placeholder="ID를 입력하세요"></li>
-					<li><input name="pw" type="password" required="required"
+					<li id="llid2"><input class="log" name="pw" type="password" required="required"
 						placeholder="PW를 입력하세요"></li>
-					<li><input type="submit" value="LogIn" class="button fit"></li>
+					<li id="llid3"><input id="loginbtn" type="submit" value="LogIn" class="button fit"></li>
 				</form>
+				</div>
+				</div>
 			</ul>
 
 		</nav>
@@ -165,10 +170,14 @@
 						<b>주간 TOP5 등산로</b>
 					</caption>
 					<%
+						String backgroundColor = "rgba(119, 146, 145, 0.8)";
 						String[] top5 = dao.top5();
 					for (int i = 0; i < top5.length; i++) {
+						if(i%2==0){
+							backgroundColor = "rgba(139, 170, 169, 0.8)";
+						}
 					%>
-					<tr>
+					<tr id="top5tr<%=i+1%>">
 						<td><%=i + 1%></td>
 						<td><%=top5[i]%></td>
 					</tr>
@@ -201,8 +210,8 @@
 
 				<table id="searchIdtable">
 					<tr>
-						<td id="idtd1"><label id="idlabel" for="searchId">아이디
-								검색</label></td>
+						<td id="idtd1"><b><label id="idlabel" for="searchId">아이디
+								검색</label></b></td>
 						<td id="idtd2">
 							<div class="searchidbox">
 								<input id="searchId" type="text" placeholder="검색할 아이디를 입력해주세요.">
@@ -252,7 +261,7 @@
 				</div>
 				<div>
 					<span id="explane"> 
-					&nbsp;등산에 즐거움을 더하다! 등산의 맛! 모맛 MoMA+!
+					<b>&nbsp;등산에 즐거움을 더하다! 등산의 맛! 모맛 MoMA+!</b>
 					<br><br>&nbsp;&nbsp;&nbsp;▶ 우리 제품은 등삭객들의 등산로
 						선호도을 확인 할 수 있으며 등산객의 등산 시작, 완료 시간을 기록하여 방문자 기록 자동 저장됩니다. 더불어 블루투스
 						스피커의 역할이 가능하여 등산객들이 자발적 참여을 유도합니다. 'mountain mate'와 함께 산림 관리에 편리함을
@@ -264,7 +273,7 @@
 			<div id="page5-right">
 
 				<table>
-					<caption id="company">(주)산으로오세영</caption>
+					<caption id="company"><b>(주)산으로오세영</b></caption>
 					<tr>
 						<td id="phoneimgtd" rowspan="2"><img id="phoneimg"
 							src="images/phonephoto.png"></td>
@@ -274,6 +283,7 @@
 					<tr>
 						<td class="phonenumber">010-1111-2222</td>
 					</tr>
+					<tr></tr>
 					<tr>
 						<td class="companyinfo" colspan="3">월~금 PM 1 ~ PM 5</td>
 					</tr>
@@ -284,14 +294,16 @@
 				</table>
 
 
-				<div>
+				<div id="lastdiv">
 					<form>
 						<table id="Asktable">
-							<tr id="emailtr">
+							<tr id="emailtr">	
 								<td id="asktabletd1">이메일</td>
-								<td id="asktabletd2"><input id="writerid" type="text"
-									placeholder="이메일을 입력해주세요."> @ <input
-									id="select_email_input" type="text" list="select_email">
+								
+								<td id="asktabletd2">
+									<input id="writerid" type="text" placeholder="이메일을 입력해주세요.">
+									<span id="lastspan">@</span>
+									<input id="select_email_input" type="text" list="select_email">
 									<datalist id="select_email">
 										<option>직접입력</option>
 										<option value="naver.com">naver.com</option>
