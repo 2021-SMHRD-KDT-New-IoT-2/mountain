@@ -43,14 +43,14 @@
 
 				<table class="membertable" id="membercolumn">
 					<caption>회원 목록</caption>
-					<tr>
-						<td id="1">아이디</td>
-						<td id="2">이름</td>
-						<td id="3">전화번호</td>
-						<td id="4">생년월일</td>
-						<td id="5">성별</td>
-						<td id="6">매니저여부</td>
-						<td id="7">삭제</td>
+					<tr id="trtr">
+						<td id="td1">아이디</td>
+						<td id="td2">이름</td>
+						<td id="td3">전화번호</td>
+						<td id="td4">생년월일</td>
+						<td id="td5">성별</td>
+						<td id="td6">매니저여부</td>
+						<td id="td7">삭제</td>
 					</tr> 
 				</table>
 				<div id="listpage">

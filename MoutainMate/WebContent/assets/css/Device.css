@@ -124,6 +124,7 @@ nav>ul>li {
 	position: absolute;
 }
 
+
 main {
 		font-family: 'GowunDodum-Regular';
 	background: radial-gradient(rgba(49, 49, 49, 0.8), rgba(51, 51, 51, 0.8)),
@@ -234,6 +235,7 @@ main>button:hover {
 }
 
 .membertable {
+
 	color: white;
 	padding: 1%;
 	width: 60%;
@@ -272,3 +274,52 @@ td>a {
 	color: white;
 	text-decoration: none;
 }
+
+#trtr{
+	height:28px;
+}
+
+
+#td1{
+	width:14%;
+	position:absolute;
+}
+
+#td2{
+	width:23%;
+	left:14%;
+	position:absolute;
+}
+
+#td3{
+	width:20%;
+	left:36%;
+	position:absolute;
+}
+
+#td4{
+	width:10%;
+	left:60%;
+	position:absolute;
+}
+
+#td5{
+	width:8%;
+	left:73%;
+	position:absolute;
+}
+
+#td6{
+	width:10%;
+	left:82%;
+	position:absolute;
+}
+
+#td7{
+	width:5%;
+	left:92%;
+	position:absolute;
+}
+
+
+

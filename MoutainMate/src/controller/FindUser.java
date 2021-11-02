@@ -43,7 +43,7 @@ public class FindUser extends HttpServlet {
 		UserVO vo = new UserVO(id,level,userTotalTime);
 		JSONObject uservo = new JSONObject();
 		
-		String ttime = String.format("%.2f", userTotalTime);
+		String ttime = String.format("%.1f", userTotalTime);
 		
 		try {
 			uservo.put("id",id);

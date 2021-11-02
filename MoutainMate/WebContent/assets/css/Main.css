@@ -144,7 +144,8 @@ header {
 }
 
 #mainbtn {
-	width: 15%;
+	font-family: 'GowunDodum-Regular';
+	font-weight: 1px; width : 15%;
 	height: 30%;
 	top: 15%;
 	left: 60%;
@@ -155,6 +156,7 @@ header {
 	font-size: 20px;
 	padding: 2px;
 	transition: all .3s;
+	width: 15%;
 }
 
 #mainbtn:hover {
@@ -315,39 +317,9 @@ main>button:hover {
 	z-index: 10002;
 }
 
-#menu .inner {
-	-moz-transition: -moz-transform 0.35s ease-out, opacity 0.35s ease,
-		visibility 0.35s;
-	-webkit-transition: -webkit-transform 0.35s ease-out, opacity 0.35s ease,
-		visibility 0.35s;
-	-ms-transition: -ms-transform 0.35s ease-out, opacity 0.35s ease,
-		visibility 0.35s;
-	transition: transform 0.35s ease-out, opacity 0.35s ease, visibility
-		0.35s;
-	-moz-transform: rotateX(20deg);
-	-webkit-transform: rotateX(20deg);
-	-ms-transform: rotateX(20deg);
-	transform: rotateX(20deg);
-	-webkit-overflow-scrolling: touch;
-	max-width: 100%;
-	max-height: 100vh;
-	opacity: 0;
-	overflow: auto;
-	text-align: center;
-	visibility: hidden;
-	width: 18em;
-}
-
-#menu .inner>:first-child {
-	margin-top: 2em;
-}
-
-#menu .inner>:last-child {
-	margin-bottom: 3em;
-}
-
 #menu ul {
 	margin: 0 0 1em 0;
+	text-align: center;
 }
 
 #menu ul.links {
@@ -359,25 +331,58 @@ main>button:hover {
 	padding: 0;
 }
 
-#menu ul.links>li>a:not(.button) {
-	border: 0;
-	border-top: solid 1px rgba(212, 212, 255, 0.1);
-	display: block;
-	font-size: 0.8em;
-	font-weight: 600;
-	letter-spacing: 0.25em;
-	line-height: 4em;
-	text-decoration: none;
-	text-transform: uppercase;
+#logintitle {
+	color: white;
 }
 
-#menu ul.links>li>.button {
-	display: block;
-	margin: 0.5em 0 0 0;
+#lidiv {
+	width: 20%;
+	height: 15%;
+	left: 40%;
+	top: 25%;
+	position: absolute;
 }
 
-#menu ul.links>li:first-child>a:not(.button) {
-	border-top: 0 !important;
+#innerlidiv {
+	border: 1px solid white;
+	width: 100%;
+	height: 85%;
+	top: 30%;
+	position: absolute;
+}
+
+#loginbtn {
+	top: 10%; position : absolute;
+	width: 80px;
+	height: 25px;
+	background: none;
+	border: 1px solid whitesmoke;
+	color: whitesmoke;
+	position: absolute;
+}
+
+#llid1 {
+	top: 20%;
+	left: 30%;
+	position: absolute;
+}
+
+#llid2 {
+	top: 42%;
+	left: 30%;
+	position: absolute;
+}
+
+#llid3 {
+	height: 100%; top : 60%;
+	left: 42%;
+	position: absolute;
+	top: 60%;
+}
+
+li>input .log {
+	width: 80%;
+	height: 20%;
 }
 
 #menu .close {
@@ -527,7 +532,7 @@ label {
 	height: 40px;
 	width: 100%;
 	border: 1px solid black;
-	background: #ffffff;
+	background-color: rgba(119, 146, 145, 0.8);
 	float: right;
 }
 
@@ -553,22 +558,43 @@ input::-moz-placeholder {
 }
 
 #searchM {
+	background: none;
 	width: 95%;
+	color:white;
+}
+#searchM::placeholder{
+	color:white;
 }
 
 #searchR {
+	background: none;
 	width: 95%;
+	color:white;
+}
+#searchR::placeholder{
+	color:white;
 }
 
 #top5 {
 	color: black;
 	font-weight: bolder;
 	border: 1px solid silver;
-	width: 80%;
+	width: 75%;
 	height: 40%;
 	margin-top: 15%;
 	top: 30%;
+	left: 5%;
+	text-align: center;
 	position: absolute;
+	/*background-color:rgba(119, 146, 145, 0.8);*/
+}
+
+#top5tr1, #top5tr3, #top5tr5 {
+	background-color:rgba(119, 146, 145, 0.8);
+}
+
+#top5tr2, #top5tr4 {
+	background-color:rgba(177, 195, 195, 0.8);
 }
 
 #line_vertical {
@@ -581,11 +607,12 @@ input::-moz-placeholder {
 #roadimgbox {
 	width: 90%;
 	height: 85%;
-	border: 1px solid black;
+	border: 1px solid rgba(50, 71, 71, 0.8);
 	top: 5%;
 	position: absolute;
 	float: right;
 	position: absolute;
+	box-shadow: inset 0 0 4px whitesmoke;
 }
 
 #coursename {
@@ -633,6 +660,7 @@ input::-moz-placeholder {
 
 /*page4*/
 #page4 {
+	border:1px solid black;
 	width: 100%;
 	height: 100%;
 	top: 200%;
@@ -641,7 +669,7 @@ input::-moz-placeholder {
 }
 
 #page4inner {
-	margin-top: 2%;
+	margin-top: 4%;
 	margin-left: 10%;
 	width: 80%;
 	height: 90%;
@@ -666,11 +694,12 @@ input::-moz-placeholder {
 	height: 100%;
 	width: 70%;
 	border: 1px solid silver;
-	background: #ffffff;
+	background-color: rgba(119, 146, 145, 0.8);
 	top: 5%;
 	right: 2%;
 	float: right;
 	position: absolute;
+	box-shadow: inset 0 0 3px gray;
 }
 
 .searchidbox>button {
@@ -680,6 +709,11 @@ input::-moz-placeholder {
 	margin-right: 0;
 	float: right;
 	background-color: white;
+	box-shadow:inset 0 0 3px gray;
+}
+
+#searchId::placeholder{
+	color:white;
 }
 
 #searchIdtable>tbody {
@@ -703,6 +737,7 @@ input::-moz-placeholder {
 }
 
 #searchId {
+	color:white;
 	background: none;
 	font-size: 100%;
 	width: 75%;
@@ -724,6 +759,8 @@ input::-moz-placeholder {
 	left: 1%;
 	float: left;
 	position: absolute;
+	background-color :rgba(203, 211, 211, 0.8);
+	box-shadow: inset 0 0 3px gray;
 }
 
 #down-right {
@@ -746,9 +783,7 @@ input::-moz-placeholder {
 }
 
 #clearroad {
-	background-image: url("../../images/pngwing.com.png");
-	background-repeat: no-repeat;
-	background-size: cover;
+	
 	width: 100%;
 	heigth: 100%;
 	position: relative;
@@ -791,15 +826,18 @@ input::-moz-placeholder {
 }
 
 #select_user {
+	color:rgba(24, 34, 34, 0.8);
 	list-style: none;
 	top: 70%;
 	font-size: 30px;
+	font-weight:1px;
 	float: left;
-	left:20%;
+	left: 20%;
 	position: absolute;
 }
 
 #select_user_time {
+	color:rgba(24, 34, 34, 0.8);
 	bottom: 0%;
 	right: 10%;
 	font-size: 70px;
@@ -807,12 +845,9 @@ input::-moz-placeholder {
 	position: absolute;
 }
 
-
-
-
-
 /*--------------------------------page5-footer------------------------------*/
 #page5 {
+	border:1px solid black;
 	width: 100%;
 	height: 80%;
 	top: 300%;
@@ -896,7 +931,9 @@ input::-moz-placeholder {
 
 #company {
 	font-size: 40px;
+	margin-bottom:2%;
 }
+
 
 #phonenum {
 	padding-right: 10%;
@@ -924,6 +961,7 @@ input::-moz-placeholder {
 	color: rgb(105, 105, 105);
 }
 
+
 #Asktable {
 	width: 100%;
 	height: 30vh;
@@ -936,40 +974,50 @@ input::-moz-placeholder {
 	padding-right: 3%;
 }
 
-#emailtr{
-	left:0%;
-	width:100%;
-	position:absolute;
+#emailtr {
+	left: 0%;
+	width: 100%;
+	position: absolute;
 }
 
 #asktabletd1 {
 	font-size: 30px;
-	padiing-left:0%;
+	left: 0%;
 	text-align: center;
-	width: 45%;
+	width: 12%;
+	position: absolute;
 }
 
-#asktabletd2{
+#asktabletd2 {
 	font-size: 30px;
-	padiing-right:0%;
-	width: 80%;
-} 
+	right: 0%;
+	width: 88%;
+	position: absolute;
+}
 
 #asktabletd2>input:nth-child(1) {
-	width: 62%;
-	left:30%;
-	background-color:whitesmoke;
-	position:absolute;
+	width: 50%;
+	left: 10%; background-color : whitesmoke;
+	position: absolute;
+	background-color: whitesmoke;
+	top:0%;
 }
 
 #select_email_input {
 	width: 22%;
-	height: 1.5%;
+	right:5%;
 	position: absolute;
-	margin-right: 1%;
-	height: 1.5%;
-	background-color:whitesmoke;
+	background-color: whitesmoke;
+	top:0%;
 }
+
+#lastspan{
+	height:10px;
+	left:65%;
+	position: absolute;
+	bottom:0;
+}
+
 
 #asktexttr {
 	height: 65%;
