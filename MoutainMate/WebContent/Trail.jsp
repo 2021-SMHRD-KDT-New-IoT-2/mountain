@@ -102,15 +102,15 @@
 		
 		function insertCheck() {
 			var input_id = $("#input_id").val();
-			var input_mroad = $("#input_mroad").val();
+			//var input_mroad = $("#input_mroad").val();
 
-			if ((input_id != "") && (input_mroad != "")) {
+			if ((input_id != "")) {
 				alert("빈칸없음");
 				$.ajax({
 					type : "post", // 데이터 전송 받식
 					data : { // 전송하는 데이터
-						"id" : input_id,
-						"arduino" : input_mroad
+						"id" : input_id
+						//"arduino" : input_mroad
 					},
 					url : "TrailUpdate", //데이터를 전송하는 (요청하는) 서버페이지 url
 					dataType : "text", //응답데이터의 형식

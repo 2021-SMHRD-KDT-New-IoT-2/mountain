@@ -1,5 +1,8 @@
 package model;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -470,6 +473,7 @@ public class UserDAO {
 		return level;
 	}
 	
+
 	public ArrayList<Integer> userClearRoad(String user_id) {
 		ArrayList<Integer> clearRoadTable = new ArrayList<Integer>();
 		
@@ -539,4 +543,123 @@ public class UserDAO {
 		}
 		return mlist;
 	}
+	
+	
+	public int TraillEnrollment(String user_id) {
+		String[] ROAD_ID;
+		String[] CLEAR_ID;
+		String ROAD = null;
+
+		File txt = new File("C:\\Users\\smhrd\\Desktop", "gpstest.txt"); // 파일위치, 파일이름 수정
+		BufferedReader br;
+
+		ArrayList<String> arrayList = new ArrayList<String>();
+		ROAD_ID = new String[2];
+		CLEAR_ID = new String[2];
+		
+		try
+		{
+			
+			
+			FileReader reader = new FileReader(txt);
+			br = new BufferedReader(reader);
+ 
+			String line = "";
+			while ((line = br.readLine()) != null) {
+				arrayList.add(line);
+			}
+
+			for (int i = 0; i < arrayList.size(); i++) {
+				String a = arrayList.get(i);
+				ROAD_ID[i] = a.substring(0, a.lastIndexOf(","));
+				CLEAR_ID[i] = a.substring(a.lastIndexOf(",") + 1);
+			}
+			
+		} catch (Exception e) {
+			System.out.println("파일연결실패 : ");
+		}
+	
+	
+		String arrive_time = CLEAR_ID[1];
+		String start_time = CLEAR_ID[0];
+
+		int time_hour =  Integer.parseInt(arrive_time.substring(0,2)) - Integer.parseInt(start_time.substring(0,2));//형번환 필요
+		int time_min = Integer.parseInt(arrive_time.substring(3, arrive_time.lastIndexOf(":"))) - Integer.parseInt(start_time.substring(3, start_time.lastIndexOf(":")));
+		int time_sec = Integer.parseInt(arrive_time.substring(6))-Integer.parseInt(start_time.substring(6));
+				
+		if(time_sec<0 && time_min<0) {
+			time_min--;
+			time_sec = time_sec + 60;
+		}else {
+			time_min--;
+			time_sec = time_sec + 60;
+		}
+		
+		if(time_min<0) {
+			time_hour--;
+			time_min = time_min + 60;
+		}
+		
+		String clear_time = time_hour + ":" + time_min + ":" + time_sec;
+
+		String position_num = ROAD_ID[0] + ROAD_ID[1];
+		
+		
+		 ROAD = findRoad(position_num);
+					
+		
+		try {
+
+			
+			String sysdate = sysDate();
+			String date = sysdate.substring(0,10);
+			
+			connection();
+				
+				String sql = "insert into CLEAR_TABLE values(?,?,?,?)";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, user_id); // 매개변수?
+				psmt.setString(2, ROAD); 
+				psmt.setString(3, clear_time);
+				psmt.setString(4, date);
+				cnt = psmt.executeUpdate();
+		
+		} catch (Exception e) {
+
+			e.printStackTrace();
+			System.out.println("txt > db 실패");
+
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
+	
+	public String findRoad(String position_num) {
+		String road_id = null;
+		
+		try {
+		connection();
+		
+		String sql = "select road_id from position_table where position_num = ?";
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, position_num); // 매개변수?
+		cnt = psmt.executeUpdate();
+		ResultSet rs = psmt.executeQuery();
+		if(rs.next()) {
+			road_id = rs.getString(1);
+		}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("find road class 파일실패");
+		} finally {
+			close();
+		}
+		
+		
+		return road_id;
+	}
+
 }
