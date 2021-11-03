@@ -237,7 +237,7 @@
 
 				<div id="down-right">
 					<img id="profile"> <img id="profile_back"
-						src="images/profile_back.png">
+						src="images/profile_background.png">
 					<ul id="select_user">
 
 					</ul>
@@ -261,7 +261,7 @@
 				</div>
 				<div>
 					<span id="explane"> 
-					<b>&nbsp;등산에 즐거움을 더하다! 등산의 맛! 모맛 MoMA+!</b>
+					<b>&nbsp;등산에 즐거움을 더하다! 등산할땐! ㅅrㄴㅌㅏ</b>
 					<br><br>&nbsp;&nbsp;&nbsp;▶ 우리 제품은 등삭객들의 등산로
 						선호도을 확인 할 수 있으며 등산객의 등산 시작, 완료 시간을 기록하여 방문자 기록 자동 저장됩니다. 더불어 블루투스
 						스피커의 역할이 가능하여 등산객들이 자발적 참여을 유도합니다. 'mountain mate'와 함께 산림 관리에 편리함을
