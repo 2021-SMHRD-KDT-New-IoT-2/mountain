@@ -145,7 +145,8 @@ header {
 
 #mainbtn {
 	font-family: 'GowunDodum-Regular';
-	font-weight: 1px; width : 15%;
+	font-weight: 1px;
+	width: 15%;
 	height: 30%;
 	top: 15%;
 	left: 60%;
@@ -352,7 +353,8 @@ main>button:hover {
 }
 
 #loginbtn {
-	top: 10%; position : absolute;
+	top: 10%;
+	position: absolute;
 	width: 80px;
 	height: 25px;
 	background: none;
@@ -374,7 +376,8 @@ main>button:hover {
 }
 
 #llid3 {
-	height: 100%; top : 60%;
+	height: 100%;
+	top: 60%;
 	left: 42%;
 	position: absolute;
 	top: 60%;
@@ -560,19 +563,21 @@ input::-moz-placeholder {
 #searchM {
 	background: none;
 	width: 95%;
-	color:white;
+	color: white;
 }
-#searchM::placeholder{
-	color:white;
+
+#searchM::placeholder {
+	color: white;
 }
 
 #searchR {
 	background: none;
 	width: 95%;
-	color:white;
+	color: white;
 }
-#searchR::placeholder{
-	color:white;
+
+#searchR::placeholder {
+	color: white;
 }
 
 #top5 {
@@ -590,11 +595,11 @@ input::-moz-placeholder {
 }
 
 #top5tr1, #top5tr3, #top5tr5 {
-	background-color:rgba(119, 146, 145, 0.8);
+	background-color: rgba(119, 146, 145, 0.8);
 }
 
 #top5tr2, #top5tr4 {
-	background-color:rgba(177, 195, 195, 0.8);
+	background-color: rgba(177, 195, 195, 0.8);
 }
 
 #line_vertical {
@@ -660,7 +665,7 @@ input::-moz-placeholder {
 
 /*page4*/
 #page4 {
-	border:1px solid black;
+	border: 1px solid black;
 	width: 100%;
 	height: 100%;
 	top: 200%;
@@ -709,11 +714,11 @@ input::-moz-placeholder {
 	margin-right: 0;
 	float: right;
 	background-color: white;
-	box-shadow:inset 0 0 3px gray;
+	box-shadow: inset 0 0 3px gray;
 }
 
-#searchId::placeholder{
-	color:white;
+#searchId::placeholder {
+	color: white;
 }
 
 #searchIdtable>tbody {
@@ -737,7 +742,7 @@ input::-moz-placeholder {
 }
 
 #searchId {
-	color:white;
+	color: white;
 	background: none;
 	font-size: 100%;
 	width: 75%;
@@ -759,7 +764,7 @@ input::-moz-placeholder {
 	left: 1%;
 	float: left;
 	position: absolute;
-	background-color :rgba(203, 211, 211, 0.8);
+	background-color: rgba(203, 211, 211, 0.8);
 	box-shadow: inset 0 0 3px gray;
 }
 
@@ -783,7 +788,6 @@ input::-moz-placeholder {
 }
 
 #clearroad {
-	
 	width: 100%;
 	heigth: 100%;
 	position: relative;
@@ -826,18 +830,18 @@ input::-moz-placeholder {
 }
 
 #select_user {
-	color:rgba(24, 34, 34, 0.8);
+	color: rgba(24, 34, 34, 0.8);
 	list-style: none;
 	top: 70%;
 	font-size: 30px;
-	font-weight:1px;
+	font-weight: 1px;
 	float: left;
 	left: 20%;
 	position: absolute;
 }
 
 #select_user_time {
-	color:rgba(24, 34, 34, 0.8);
+	color: rgba(24, 34, 34, 0.8);
 	bottom: 0%;
 	right: 10%;
 	font-size: 70px;
@@ -847,11 +851,11 @@ input::-moz-placeholder {
 
 /*--------------------------------page5-footer------------------------------*/
 #page5 {
-	border:1px solid black;
+	border: 1px solid whitesmoke;
 	width: 100%;
 	height: 80%;
 	top: 300%;
-	background-color: white;
+	background-color: whitesmoke;
 	position: absolute;
 }
 
@@ -883,15 +887,12 @@ input::-moz-placeholder {
 }
 
 #page5-left>div:nth-child(1) {
-	border: 1px solid black;
+	/*border: 1px solid black;*/
 	width: 80%;
 	height: 50%;
 	top: 2%;
 	position: absolute;
 }
-
-
-
 
 #explane {
 	font-size: 2vh;
@@ -905,9 +906,15 @@ input::-moz-placeholder {
 	bottom: 2%;
 	position: absolute;
 }
+#Santa{
+	width:100%;
+	height:100%;
+	position:absolute;
+}
+
 
 #footer_side-left {
-	width: 5%;
+	width: 5% ;
 	heigth: 4%;
 	left: 1%;
 	margin-top: 20%;
@@ -934,9 +941,8 @@ input::-moz-placeholder {
 
 #company {
 	font-size: 40px;
-	margin-bottom:2%;
+	margin-bottom: 2%;
 }
-
 
 #phonenum {
 	padding-right: 10%;
@@ -963,7 +969,6 @@ input::-moz-placeholder {
 	font-size: 25px;
 	color: rgb(105, 105, 105);
 }
-
 
 #Asktable {
 	width: 100%;
@@ -1000,27 +1005,27 @@ input::-moz-placeholder {
 
 #asktabletd2>input:nth-child(1) {
 	width: 50%;
-	left: 10%; background-color : whitesmoke;
+	left: 10%;
+	background-color: whitesmoke;
 	position: absolute;
 	background-color: whitesmoke;
-	top:0%;
+	top: 0%;
 }
 
 #select_email_input {
 	width: 22%;
-	right:5%;
+	right: 5%;
 	position: absolute;
 	background-color: whitesmoke;
-	top:0%;
+	top: 0%;
 }
 
-#lastspan{
-	height:10px;
-	left:65%;
+#lastspan {
+	height: 10px;
+	left: 65%;
 	position: absolute;
-	bottom:0;
+	bottom: 0;
 }
-
 
 #asktexttr {
 	height: 65%;
