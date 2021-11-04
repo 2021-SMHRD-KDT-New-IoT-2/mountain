@@ -115,12 +115,7 @@
 					url : "TrailUpdate", //데이터를 전송하는 (요청하는) 서버페이지 url
 					dataType : "text", //응답데이터의 형식
 					success : function(data) {
-						alert("insertCheck() 완료");
-						if(data=="true"){
-							alert("등산로 등록 성공!");
-						}else{
-							alert("등산로 등록 실패");
-						}
+						alert("insertCheck() 등록성공");
 					},
 					error : function() {
 						alert("insertCheck() 통신실패");

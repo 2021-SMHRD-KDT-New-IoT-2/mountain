@@ -613,9 +613,7 @@ public class UserDAO {
 			
 			String sysdate = sysDate();
 			String date = sysdate.substring(0,10);
-			
 			connection();
-				
 				String sql = "insert into CLEAR_TABLE values(?,?,?,?)";
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, user_id); // 매개변수?
