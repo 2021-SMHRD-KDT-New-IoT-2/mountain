@@ -849,6 +849,7 @@ input::-moz-placeholder {
 	position: absolute;
 }
 
+
 /*--------------------------------page5-footer------------------------------*/
 #page5 {
 	border: 1px solid whitesmoke;
@@ -858,6 +859,13 @@ input::-moz-placeholder {
 	background-color: whitesmoke;
 	position: absolute;
 }
+
+/*#page4img{
+	right:0;
+	bottom:0;
+	position:absolute;
+}*/
+
 
 #footer {
 	padding-top: 2%;
@@ -1006,9 +1014,8 @@ input::-moz-placeholder {
 #asktabletd2>input:nth-child(1) {
 	width: 50%;
 	left: 10%;
-	background-color: whitesmoke;
+	background-color: white;
 	position: absolute;
-	background-color: whitesmoke;
 	top: 0%;
 }
 
@@ -1016,7 +1023,7 @@ input::-moz-placeholder {
 	width: 22%;
 	right: 5%;
 	position: absolute;
-	background-color: whitesmoke;
+	background-color: white;
 	top: 0%;
 }
 

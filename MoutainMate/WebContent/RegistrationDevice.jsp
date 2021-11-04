@@ -126,7 +126,6 @@
 				dataType : "text", //응답데이터의 형식
 				success : function(data) {
 					if (data == "true") {
-						alert("아이디 확인 완료.");
 						deviceIdCheck();
 					} else {
 						alert("존재하지 않는 아이디입니다.");
@@ -149,8 +148,6 @@
 				dataType : "text", //응답데이터의 형식
 				success : function(data) {
 					if (data == "true") {
-						alert("아이디 확인 완료.");
-
 						rentalStart();
 
 					} else {
@@ -176,7 +173,7 @@
 				url : "RentalDeviceS", //데이터를 전송하는 (요청하는) 서버페이지 url
 				dataType : "text", //응답데이터의 형식
 				success : function(data) {
-					alert("대여성공");
+					alert("대여시작");
 					
 				},
 				error : function() {
@@ -225,10 +222,10 @@
 				dataType : "text", //응답데이터의 형식
 				success : function(data) {
 					if (data == "true") {
-						alert("idCheck2() 아이디 확인 완료.");
+					
 						deviceIdCheck2();
 					} else {
-						alert("idCheck2() 존재하지 않는 아이디입니다.");
+						alert("존재하지 않는 아이디입니다.");
 					}
 				},
 				error : function() {
@@ -248,10 +245,10 @@
 				dataType : "text", //응답데이터의 형식
 				success : function(data) {
 					if (data == "true") {
-						alert("deviceIdCheck2() 아이디 확인 완료.");
+				
 						rentalFinish();
 					} else {
-						alert("deviceIdCheck2() 존재하지 않는 아이디입니다.");
+						alert("존재하지 않는 아이디입니다.");
 					}
 				},
 				error : function() {
@@ -272,7 +269,7 @@
 				url : "RentalDeviceF", //데이터를 전송하는 (요청하는) 서버페이지 url
 				dataType : "text", //응답데이터의 형식
 				success : function(data) {
-					alert("반납성공!");
+					alert("반납완료");
 				},
 				error : function() {
 					alert("rental() 통신실패");

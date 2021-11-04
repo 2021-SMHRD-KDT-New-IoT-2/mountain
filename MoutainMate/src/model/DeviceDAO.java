@@ -64,7 +64,9 @@ public class DeviceDAO {
 
 			psmt.setString(1, p_id);
 			psmt.setString(2, m_id);
-
+			
+			System.out.println(p_id +" / "+ m_id);
+			
 			cnt = psmt.executeUpdate();
 
 		} catch (Exception e) {

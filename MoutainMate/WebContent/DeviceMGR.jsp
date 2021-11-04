@@ -54,7 +54,7 @@
 
 					<tr>
 						<td class="devicetd">* 산 이름&nbsp;</td>
-						<td><input type="text" list="select_mountain"
+						<td><input id="searchM" type="text" list="select_mountain"
 							name="mountainid"> <datalist id="select_mountain">
 								<%
 									MountainDAO dao = new MountainDAO();
@@ -115,8 +115,8 @@
 		
 		function deviceRegi(){
 			var p_id = $("#input_id").val();
-			var m_id = $("#select_mountain").val();
-									
+			var m_id = $("#searchM").val();
+			console.log("m_id = "+m_id);		
 			$.ajax({
 				type : "post", // 데이터 전송 받식
 				data : {

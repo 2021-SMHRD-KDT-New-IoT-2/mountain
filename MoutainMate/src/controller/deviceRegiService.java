@@ -24,7 +24,7 @@ public class deviceRegiService extends HttpServlet {
 		
 		String deviceid = request.getParameter("deviceid");
 		String mountainid = request.getParameter("mountainid");
-		
+		System.out.println("¼­ºí¸´ mountainid"+mountainid);
 		
 		response.setContentType("text/html;charset=euc-kr");
 		
