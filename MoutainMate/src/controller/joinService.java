@@ -44,6 +44,7 @@ public class joinService extends HttpServlet {
 			UserDAO dao = new UserDAO();
 			int cnt =dao.join(id, pw, name, phoneNumber, birth, gender);
 		
+			
 			if(cnt>0) {
 				System.out.println("가입성공");
 				HttpSession session = request.getSession();

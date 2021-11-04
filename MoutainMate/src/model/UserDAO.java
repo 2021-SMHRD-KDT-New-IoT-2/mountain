@@ -83,9 +83,11 @@ public class UserDAO {
 
 		try {
 			int mgr=0;
-			if((id.substring(0,5)).contentEquals("admin")) {
+			if(id.length()>=5&&(id.substring(0,5)).equals("admin")) {
 				mgr=1;
 			}
+			
+			System.out.println("dao mgr : ");
 			connection();
 
 			String sql = "insert into user_table values(?,?,?,?,?,?,?)";

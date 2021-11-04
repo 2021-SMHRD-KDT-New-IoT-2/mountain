@@ -104,7 +104,7 @@
 					url : "TrailUpdate", //데이터를 전송하는 (요청하는) 서버페이지 url
 					dataType : "text", //응답데이터의 형식
 					success : function(data) {
-
+						alert("완주 기록 등록 완료");
 					},
 					error : function() {
 						alert("insertCheck() 통신실패");

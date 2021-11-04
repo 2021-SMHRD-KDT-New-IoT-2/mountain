@@ -194,7 +194,7 @@ public class MountainDAO {
 		try { 
 			connection();
 		
-			String sql = "select c.road_id, m.road_name, count(c.road_id) as count from clear_table c, mroad_table m where c.road_id = m.road_id and clear_date between sysdate-7 and sysdate+4 group by c.road_id, m.road_name order by count desc";
+			String sql = "select * from (select c.road_id, m.road_name, count(c.road_id) as count from clear_table c, mroad_table m where c.road_id = m.road_id and clear_date between sysdate-7 and sysdate+4 group by c.road_id, m.road_name order by count desc)where rownum<=5";
 			
 			psmt = conn.prepareStatement(sql);
 
