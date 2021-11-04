@@ -550,7 +550,7 @@ public class UserDAO {
 		String[] CLEAR_ID;
 		String ROAD = null;
 
-		File txt = new File("C:\\Users\\smhrd\\Desktop", "gpstest.txt"); // 파일위치, 파일이름 수정
+		File txt = new File("E:\\", "TEST.txt"); // 파일위치, 파일이름 수정
 		BufferedReader br;
 
 		ArrayList<String> arrayList = new ArrayList<String>();
@@ -600,7 +600,7 @@ public class UserDAO {
 			time_min = time_min + 60;
 		}
 		
-		String clear_time = time_hour + ":" + time_min + ":" + time_sec;
+		String clear_time = String.format("%.1f",time_hour*1.0+(time_min/60.1));
 
 		String position_num = ROAD_ID[0] + ROAD_ID[1];
 		
@@ -634,6 +634,11 @@ public class UserDAO {
 	}
 	
 	
+	private String String(String string, double d) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public String findRoad(String position_num) {
 		String road_id = null;
 		

@@ -46,14 +46,6 @@
 							name="id" required="required" placeholder="ID를 입력"></td>
 					</tr>
 
-
-					<tr>
-						<td class="devicetd">* 등산로&nbsp;</td>
-						<td><input type="text" id="input_mroad" name="mroad"
-							required="required" placeholder="SD카드 정보를 입력">
-						</td>
-
-					</tr>
 					<tr>
 						<td colspan="2" id="send"><input type="button" class="btn"
 							value="완주코스 등록" onClick="insert()"></td>
