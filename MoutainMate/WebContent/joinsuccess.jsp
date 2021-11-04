@@ -24,7 +24,7 @@
 				<ul>
 
 					<li><a href="MainPage.jsp">HOME</a>
-					<li><a href="MainPage#page2.jsp">게시판</a></li>
+					<li><a href="MainPage.jsp">로그인</a></li>
 					<li><a href="MainPage#page3.jsp">등산로</a></li>
 					<li><a href="MainPage#page4.jsp">둘러보기</a></li>
 

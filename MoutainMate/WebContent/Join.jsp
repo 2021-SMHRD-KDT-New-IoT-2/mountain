@@ -22,8 +22,8 @@
 				<nav>
 					<ul>
 
+						<li><a href="MainPage.jsp">HOME</a></li>
 						<li><a href="MainPage.jsp">로그인</a></li>
-						<li><a href="MainPage.jsp#page2">게시판</a></li>
 						<li><a href="MainPage.jsp#page3">등산로</a></li>
 						<li><a href="MainPage.jsp#page4">둘러보기</a></li>
 
