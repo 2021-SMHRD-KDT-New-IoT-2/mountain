@@ -255,8 +255,9 @@
 			<div id="page5-left">
 				<div>
 					<!--제품 사진들 넣기-->
-					<img id="footer_side-left" src="images/side_left.png"> <img
-						id="footer_side-right" src="images/side_right.png">
+					<img id="Santa">
+					<button id="back"><img id="footer_side-left" src="images/side_left.png"></button>
+					<button id="foward"><img id="footer_side-right" src="images/side_right.png"></button>
 					<!-- 이미지 cover로 넣기 -->
 				</div>
 				<div>
